@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://uo8qyngydbub" path="res://assets/Arms.tscn" id="1_03c0v"]
 [ext_resource type="Script" uid="uid://dbkokuf3jkrkn" path="res://scripts/gun_cam.gd" id="1_ktk0j"]
 [ext_resource type="PackedScene" uid="uid://cwvmoqdyec4ah" path="res://assets/pistol.tscn" id="2_20781"]
-[ext_resource type="Script" uid="uid://cnpg01ajvsom3" path="res://assets/pistol.gd" id="4_afw81"]
+[ext_resource type="Script" path="res://assets/pistol.gd" id="4_afw81"]
 [ext_resource type="AudioStream" uid="uid://b0o8epq0juwlr" path="res://sound effects/489069__tiliadesign__pistol-perfect-shot-with-silencer.wav" id="4_kb61h"]
 [ext_resource type="AudioStream" uid="uid://bcujp8y1baks3" path="res://sound effects/405538__nebulasnails__pistol-cock.wav" id="4_utigt"]
 [ext_resource type="AudioStream" uid="uid://cwd8wgpk8rb7k" path="res://sound effects/405538_nebulasnails_pistol-cock (mp3cut.net).mp3" id="6_tf6ll"]

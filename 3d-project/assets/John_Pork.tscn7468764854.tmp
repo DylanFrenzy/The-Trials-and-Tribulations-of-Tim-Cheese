@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dnrauibtjguud"]
+[gd_scene load_steps=10 format=3 uid="uid://dnrauibtjguud"]
 
 [ext_resource type="Script" uid="uid://7031adgc5b45" path="res://scripts/JohnPork.gd" id="1_fd3r2"]
 [ext_resource type="Material" uid="uid://841lpp2xmlgw" path="res://materials/johnporkskin.tres" id="1_plc7i"]
@@ -18,103 +18,77 @@ radial_steps = 17
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_2v0a3"]
 height = 2.4668
 
-[sub_resource type="Animation" id="Animation_sd2yd"]
-resource_name = "damage_taken"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MeshInstance3D:surface_material_override/0")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 1,
-"values": []
-}
-
-[sub_resource type="Animation" id="Animation_d35v5"]
-length = 0.001
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_d35v5"]
-_data = {
-&"RESET": SubResource("Animation_d35v5"),
-&"damage_taken": SubResource("Animation_sd2yd")
-}
-
-[node name="Node3D2" type="Node3D"]
-
-[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+[node name="CharacterBody3D" type="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 0.793619, 0, 0, 0, 1, 0, 0, 0)
 script = ExtResource("1_fd3r2")
-health = 10
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_j6nc8")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("1_plc7i")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="CharacterBody3D"]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.979077, 0)
 mesh = SubResource("SphereMesh_2t3h4")
 surface_material_override/0 = ExtResource("1_plc7i")
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="CharacterBody3D/MeshInstance3D2"]
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="MeshInstance3D2"]
 transform = Transform3D(2.93743e-08, -0.0943651, 0, 0.283818, 1.16575e-08, 0, 0, 0, 0.225997, 0.413502, 0.0853131, 0.190658)
 material_override = ExtResource("2_fd3r2")
 mesh = SubResource("CylinderMesh_8jkq1")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D/MeshInstance3D2/MeshInstance3D3"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D2/MeshInstance3D3"]
 transform = Transform3D(0.130935, -0.38448, -3.09086e-09, 0, -2.37675e-08, 0.1, -0.130935, -0.38448, -3.09086e-09, 0.0577755, -1.03487, 0.0340183)
 mesh = SubResource("TubeTrailMesh_dg2ab")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="CharacterBody3D/MeshInstance3D2/MeshInstance3D3"]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MeshInstance3D2/MeshInstance3D3"]
 transform = Transform3D(-0.130935, -0.38448, -3.42193e-08, -8.15161e-08, -2.37674e-08, 0.1, -0.130935, 0.38448, -2.80375e-08, 0.0577755, -1.03487, 0.0340183)
 mesh = SubResource("TubeTrailMesh_dg2ab")
 
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="CharacterBody3D/MeshInstance3D2"]
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="MeshInstance3D2"]
 transform = Transform3D(2.93743e-08, -0.0943651, 0, 0.283818, 1.16575e-08, 0, 0, 0, 0.225997, 0.413502, 0.0853131, -0.216566)
 material_override = ExtResource("2_fd3r2")
 mesh = SubResource("CylinderMesh_8jkq1")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D/MeshInstance3D2/MeshInstance3D4"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D2/MeshInstance3D4"]
 transform = Transform3D(0.130935, -0.38448, -3.09086e-09, -3.55271e-15, -2.37675e-08, 0.1, -0.130935, -0.38448, -3.09086e-09, 0.0606012, -1.02936, 0.036001)
 mesh = SubResource("TubeTrailMesh_dg2ab")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="CharacterBody3D/MeshInstance3D2/MeshInstance3D4"]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MeshInstance3D2/MeshInstance3D4"]
 transform = Transform3D(-0.130935, -0.38448, -3.42192e-08, -8.15161e-08, -2.37674e-08, 0.1, -0.130935, 0.38448, -2.80375e-08, 0.0606012, -1.02936, 0.036001)
 mesh = SubResource("TubeTrailMesh_dg2ab")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D/MeshInstance3D2"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D2"]
 transform = Transform3D(-1.82419e-08, 0.048082, 0, -0.417326, -2.10173e-09, 0, 0, 0, 0.313184, 0, 0.376485, 0.353962)
 material_override = ExtResource("1_plc7i")
 mesh = SubResource("CylinderMesh_plc7i")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="CharacterBody3D/MeshInstance3D2"]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MeshInstance3D2"]
 transform = Transform3D(-1.82419e-08, 0.048082, 0, -0.417326, -2.10173e-09, 0, 0, 0, 0.313184, 0, 0.376485, -0.337582)
 material_override = ExtResource("1_plc7i")
 mesh = SubResource("CylinderMesh_plc7i")
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="CharacterBody3D"]
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1.24061e-08, 0.0943651, 0, -0.283818, -4.12483e-09, 0, 0, 0, 0.225997, 0.564764, 0.995858, -0.013201)
 material_override = ExtResource("1_plc7i")
 mesh = SubResource("CylinderMesh_8jkq1")
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="CharacterBody3D/MeshInstance3D3"]
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="MeshInstance3D3"]
 transform = Transform3D(-0.283818, -7.53268e-09, 0, 1.69683e-08, -0.0943651, 0, 0, 0, 0.225997, 0.0716095, 1.03736, 0.216768)
 material_override = ExtResource("2_fd3r2")
 mesh = SubResource("CylinderMesh_8jkq1")
 
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="CharacterBody3D/MeshInstance3D3"]
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="MeshInstance3D3"]
 transform = Transform3D(-0.283818, -7.53268e-09, 0, 1.69683e-08, -0.0943651, 0, 0, 0, 0.225997, 0.0716095, 1.03736, -0.190456)
 material_override = ExtResource("2_fd3r2")
 mesh = SubResource("CylinderMesh_8jkq1")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00107694, 0.23112, -0.000301719)
 shape = SubResource("CylinderShape3D_2v0a3")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody3D"]
-libraries = {
-&"": SubResource("AnimationLibrary_d35v5")
-}
+[node name="Node3D2" type="Node3D" parent="."]
+script = ExtResource("1_fd3r2")
+speed = null
+health = null
+attack_range = null
