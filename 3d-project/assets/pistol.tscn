@@ -95,8 +95,11 @@ material_override = ExtResource("2_bxbka")
 sides = 18
 material = SubResource("StandardMaterial3D_78vgs")
 
+[node name="muzzle flash" type="GPUParticles3D" parent="CSGBox3D/CSGCylinder3D"]
+transform = Transform3D(-0.0639333, 3.33272, 0, -3.33272, -0.0639333, 0, 0, 0, 3.33333, 0.0698667, 1.12045, 0.0337303)
+layers = 2
+emitting = false
+one_shot = true
+
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000100136, -0.00268447, 0.000457525)
-
-[node name="muzzle flash" type="GPUParticles3D" parent="."]
-layers = 2

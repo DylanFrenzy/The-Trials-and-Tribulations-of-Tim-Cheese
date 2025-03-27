@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=4 uid="uid://b17m2m5d4cdix"]
 
 [ext_resource type="PackedScene" uid="uid://uo8qyngydbub" path="res://assets/Arms.tscn" id="1_03c0v"]
-[ext_resource type="Script" uid="uid://dbkokuf3jkrkn" path="res://scenes/gun_cam.gd" id="1_ktk0j"]
+[ext_resource type="Script" uid="uid://dbkokuf3jkrkn" path="res://scripts/gun_cam.gd" id="1_ktk0j"]
 [ext_resource type="PackedScene" uid="uid://cwvmoqdyec4ah" path="res://assets/pistol.tscn" id="2_20781"]
 [ext_resource type="AudioStream" uid="uid://b0o8epq0juwlr" path="res://sound effects/489069__tiliadesign__pistol-perfect-shot-with-silencer.wav" id="4_kb61h"]
 [ext_resource type="AudioStream" uid="uid://bcujp8y1baks3" path="res://sound effects/405538__nebulasnails__pistol-cock.wav" id="4_utigt"]
@@ -150,7 +150,7 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.266667, 0.426667, 0.536667, 0.766667),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"transitions": PackedFloat32Array(0.297302, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector3(-1.13019, -2.10053, 0.0856405), Vector3(-4.43055, 1.27833, 0.0856405), Vector3(-3.35864, 1.69815, 0.00658345), Vector3(-2.64835, 1.62349, 0.0856409), Vector3(-1.13019, 0.423723, 0.0856413)]
 }

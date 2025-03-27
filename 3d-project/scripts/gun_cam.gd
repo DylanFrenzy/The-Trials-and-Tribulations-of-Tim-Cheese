@@ -1,6 +1,7 @@
 extends Camera3D
 
 @onready var Node_3D = $Node3D
+@onready var animation_player = $Node3D/Pistol/AnimationPlayer2
 
 func _ready():
     pass
@@ -14,3 +15,6 @@ func sway(sway_amount):
     Node_3D.position.x -= sway_amount.x * 0.0002
     Node_3D.position.y += sway_amount.y * 0.0002
 
+func _input(event: InputEvent) -> void:
+    if (event.is_action_pressed("shoot")):
+        animation_player.play("Fire")
