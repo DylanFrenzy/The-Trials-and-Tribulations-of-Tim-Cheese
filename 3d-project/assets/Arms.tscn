@@ -5,7 +5,7 @@
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_5dek4"]
 
-[node name="Node3D" type="Node3D"]
+[node name="Node3D2" type="Node3D"]
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="."]
 transform = Transform3D(0.00399109, -2.43386, 0, 0.994236, 0.00977008, 0, 0, 0, 1, 0, 0, 0)

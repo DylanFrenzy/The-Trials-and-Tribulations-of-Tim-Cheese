@@ -9,7 +9,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 @onready var camera := $Camera3D
 @onready var raycast := $Camera3D/RayCast3D
-@onready var GunCam = $CharacterBody3D/Camera3D/SubViewportContainer/SubViewport/GunCam
+@onready var GunCam = $Camera3D/SubViewportContainer/SubViewport/GunCam
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
