@@ -1,8 +1,8 @@
 [gd_scene load_steps=28 format=3 uid="uid://cuuk4or1cjlmn"]
 
-[ext_resource type="Script" uid="uid://l8p6nhdmlpln" path="res://scripts/character_body_3d.gd" id="1_oqwcg"]
-[ext_resource type="Shader" uid="uid://blm25wnjv1eul" path="res://shader/sky.gdshader" id="1_tefeu"]
+[ext_resource type="Shader" path="res://shader/sky.gdshader" id="1_tefeu"]
 [ext_resource type="PackedScene" uid="uid://b17m2m5d4cdix" path="res://scenes/gun_cam.tscn" id="2_a6664"]
+[ext_resource type="Script" uid="uid://d3kwx8ywtbus6" path="res://scripts/character_body_3d.gd" id="2_tefeu"]
 [ext_resource type="PackedScene" uid="uid://dnrauibtjguud" path="res://assets/John_Pork.tscn" id="3_10v3s"]
 [ext_resource type="Material" uid="uid://5dt134tjhp2h" path="res://materials/building1.tres" id="4_cptob"]
 [ext_resource type="Material" uid="uid://bfo6k0j0dqm2k" path="res://materials/door 2.tres" id="5_b2yaj"]
@@ -114,7 +114,7 @@ directional_shadow_max_distance = 4096.0
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.23985, 0)
-script = ExtResource("1_oqwcg")
+script = ExtResource("2_tefeu")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
 mesh = SubResource("CapsuleMesh_a202f")
