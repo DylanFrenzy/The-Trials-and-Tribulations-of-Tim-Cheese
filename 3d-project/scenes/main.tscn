@@ -1,18 +1,73 @@
-[gd_scene load_steps=18 format=3 uid="uid://cuuk4or1cjlmn"]
+[gd_scene load_steps=28 format=3 uid="uid://cuuk4or1cjlmn"]
 
 [ext_resource type="Script" uid="uid://l8p6nhdmlpln" path="res://scripts/character_body_3d.gd" id="1_oqwcg"]
+[ext_resource type="Shader" uid="uid://blm25wnjv1eul" path="res://shader/sky.gdshader" id="1_tefeu"]
 [ext_resource type="PackedScene" uid="uid://b17m2m5d4cdix" path="res://scenes/gun_cam.tscn" id="2_a6664"]
 [ext_resource type="PackedScene" uid="uid://dnrauibtjguud" path="res://assets/John_Pork.tscn" id="3_10v3s"]
 [ext_resource type="Material" uid="uid://5dt134tjhp2h" path="res://materials/building1.tres" id="4_cptob"]
 [ext_resource type="Material" uid="uid://bfo6k0j0dqm2k" path="res://materials/door 2.tres" id="5_b2yaj"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_noarx"]
-sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
-ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
-energy_multiplier = 1.4
+[sub_resource type="Gradient" id="Gradient_tefeu"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_o6xl0"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_tipki"]
+width = 1024
+height = 1024
+seamless = true
+color_ramp = SubResource("Gradient_tefeu")
+noise = SubResource("FastNoiseLite_o6xl0")
+
+[sub_resource type="Gradient" id="Gradient_85g3d"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_choun"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ya4ey"]
+width = 1024
+height = 1024
+seamless = true
+color_ramp = SubResource("Gradient_85g3d")
+noise = SubResource("FastNoiseLite_choun")
+
+[sub_resource type="Gradient" id="Gradient_eb6dy"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_trceg"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_a8y0u"]
+width = 1024
+height = 1024
+seamless = true
+color_ramp = SubResource("Gradient_eb6dy")
+noise = SubResource("FastNoiseLite_trceg")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jkv2x"]
+shader = ExtResource("1_tefeu")
+shader_parameter/sky_top_color = Color(0.385, 0.454, 0.55, 1)
+shader_parameter/sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+shader_parameter/sky_curve = 0.15
+shader_parameter/sky_energy = 1.0
+shader_parameter/sky_cover_modulate = Color(1, 1, 1, 1)
+shader_parameter/ground_bottom_color = Color(0.2, 0.169, 0.133, 1)
+shader_parameter/ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+shader_parameter/ground_curve = 0.02
+shader_parameter/ground_energy = 1.0
+shader_parameter/sun_angle_max = 0.523599
+shader_parameter/sun_curve = 0.15
+shader_parameter/exposure = 1.4
+shader_parameter/cloud_texture1 = SubResource("NoiseTexture2D_tipki")
+shader_parameter/cloud_texture2 = SubResource("NoiseTexture2D_ya4ey")
+shader_parameter/cloud_texture3 = SubResource("NoiseTexture2D_a8y0u")
+shader_parameter/cloud_direction1 = Vector2(-1, 1)
+shader_parameter/cloud_direction2 = Vector2(1, -1)
+shader_parameter/cloud_direction3 = Vector2(0.5, -0.5)
+shader_parameter/cloud_scale = Vector2(0.05, 0.05)
+shader_parameter/cloud_distance = 0.03
+shader_parameter/cloud_speed1 = 0.7
+shader_parameter/cloud_speed2 = 0.5
+shader_parameter/cloud_speed3 = 0.6
 
 [sub_resource type="Sky" id="Sky_a0tk4"]
-sky_material = SubResource("ProceduralSkyMaterial_noarx")
+sky_material = SubResource("ShaderMaterial_jkv2x")
 
 [sub_resource type="Environment" id="Environment_r3fl7"]
 background_mode = 2
