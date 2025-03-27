@@ -20,7 +20,7 @@ func _input(event):
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 
 func _physics_process(delta):
-	$Camera3D/SubViewportContainer/SubViewport/GunCamamera3D/SubViewportContainer/SubViewport/GunCam.global_transform = camera.global_transform
+	$Camera3D/SubViewportContainer/SubViewport/GunCam.global_transform = camera.global_transform
 
 	# Add gravity
 	if not is_on_floor():

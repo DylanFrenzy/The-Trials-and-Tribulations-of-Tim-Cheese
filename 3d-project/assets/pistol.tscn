@@ -44,8 +44,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_646vd"]
 _data = {
-&"RESET": SubResource("Animation_6e3nq"),
-&"idle": SubResource("Animation_bttkv")
+"RESET": SubResource("Animation_6e3nq"),
+"idle": SubResource("Animation_bttkv")
 }
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_78vgs"]
@@ -56,7 +56,7 @@ albedo_color = Color(0.212305, 0.212305, 0.212305, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-&"": SubResource("AnimationLibrary_646vd")
+"": SubResource("AnimationLibrary_646vd")
 }
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
