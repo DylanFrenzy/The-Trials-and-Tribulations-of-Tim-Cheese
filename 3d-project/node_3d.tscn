@@ -1,0 +1,188 @@
+[gd_scene load_steps=21 format=3 uid="uid://cuuk4or1cjlmn"]
+
+[ext_resource type="Script" uid="uid://l8p6nhdmlpln" path="res://new_character_body_3d.gd" id="2_a0tk4"]
+[ext_resource type="PackedScene" uid="uid://dnrauibtjguud" path="res://John_Pork.tscn" id="3_a0tk4"]
+[ext_resource type="PackedScene" uid="uid://b17m2m5d4cdix" path="res://gun_cam.tscn" id="3_r3fl7"]
+[ext_resource type="Material" uid="uid://5dt134tjhp2h" path="res://materials/building1.tres" id="4_r3fl7"]
+[ext_resource type="Material" uid="uid://bfo6k0j0dqm2k" path="res://materials/door 2.tres" id="5_jka67"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_noarx"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+energy_multiplier = 1.4
+
+[sub_resource type="Sky" id="Sky_a0tk4"]
+sky_material = SubResource("ProceduralSkyMaterial_noarx")
+
+[sub_resource type="Environment" id="Environment_r3fl7"]
+background_mode = 2
+sky = SubResource("Sky_a0tk4")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4xowi"]
+albedo_color = Color(0.678431, 1, 0.254902, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_a202f"]
+material = SubResource("StandardMaterial3D_4xowi")
+size = Vector2(100, 100)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_noarx"]
+size = Vector3(100, 1, 100)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_a202f"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a0tk4"]
+size = Vector3(1, 1.93677, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_noarx"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_jka67"]
+material = ExtResource("4_r3fl7")
+subdivide_width = 2
+subdivide_height = 2
+subdivide_depth = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i5arm"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_wc5p8"]
+material = SubResource("StandardMaterial3D_i5arm")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_jsk3o"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, -0.1667, 0.5, 0.5, -0.5, 0.1667, 0.5, -0.1667, 0.5, 0.5, -0.1667, 0.1667, 0.5, -0.5, 0.1667, 0.5, 0.5, 0.5, -0.5, 0.1667, 0.5, -0.5, 0.5, 0.1667, -0.5, 0.1667, 0.5, -0.5, 0.1667, 0.1667, -0.5, 0.5, 0.1667, -0.5, -0.1667, 0.5, 0.5, 0.1667, 0.5, 0.5, -0.1667, 0.1667, 0.5, 0.1667, 0.5, 0.5, 0.1667, 0.1667, 0.5, -0.1667, 0.1667, 0.5, 0.1667, 0.5, -0.5, -0.1667, 0.5, -0.5, 0.1667, 0.1667, -0.5, -0.1667, 0.5, -0.5, -0.1667, 0.1667, -0.5, 0.1667, 0.1667, -0.5, 0.1667, 0.5, 0.5, 0.5, 0.5, 0.5, 0.1667, 0.1667, 0.5, 0.5, 0.5, 0.5, 0.5, 0.1667, 0.5, 0.1667, 0.1667, 0.5, -0.1667, 0.5, -0.5, -0.5, 0.5, -0.5, -0.1667, 0.1667, -0.5, -0.5, 0.5, -0.5, -0.5, 0.1667, -0.5, -0.1667, 0.1667, -0.5, -0.5, 0.1667, 0.5, -0.1667, 0.1667, 0.5, -0.5, -0.1667, 0.5, -0.1667, 0.1667, 0.5, -0.1667, -0.1667, 0.5, -0.5, -0.1667, 0.5, 0.5, 0.1667, -0.5, 0.1667, 0.1667, -0.5, 0.5, -0.1667, -0.5, 0.1667, 0.1667, -0.5, 0.1667, -0.1667, -0.5, 0.5, -0.1667, -0.5, -0.1667, 0.1667, 0.5, 0.1667, 0.1667, 0.5, -0.1667, -0.1667, 0.5, 0.1667, 0.1667, 0.5, 0.1667, -0.1667, 0.5, -0.1667, -0.1667, 0.5, 0.1667, 0.1667, -0.5, -0.1667, 0.1667, -0.5, 0.1667, -0.1667, -0.5, -0.1667, 0.1667, -0.5, -0.1667, -0.1667, -0.5, 0.1667, -0.1667, -0.5, 0.1667, 0.1667, 0.5, 0.5, 0.1667, 0.5, 0.1667, -0.1667, 0.5, 0.5, 0.1667, 0.5, 0.5, -0.1667, 0.5, 0.1667, -0.1667, 0.5, -0.1667, 0.1667, -0.5, -0.5, 0.1667, -0.5, -0.1667, -0.1667, -0.5, -0.5, 0.1667, -0.5, -0.5, -0.1667, -0.5, -0.1667, -0.1667, -0.5, -0.5, -0.1667, 0.5, -0.1667, -0.1667, 0.5, -0.5, -0.5, 0.5, -0.1667, -0.1667, 0.5, -0.1667, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.1667, -0.5, 0.1667, -0.1667, -0.5, 0.5, -0.5, -0.5, 0.1667, -0.1667, -0.5, 0.1667, -0.5, -0.5, 0.5, -0.5, -0.5, -0.1667, -0.1667, 0.5, 0.1667, -0.1667, 0.5, -0.1667, -0.5, 0.5, 0.1667, -0.1667, 0.5, 0.1667, -0.5, 0.5, -0.1667, -0.5, 0.5, 0.1667, -0.1667, -0.5, -0.1667, -0.1667, -0.5, 0.1667, -0.5, -0.5, -0.1667, -0.1667, -0.5, -0.1667, -0.5, -0.5, 0.1667, -0.5, -0.5, 0.1667, -0.1667, 0.5, 0.5, -0.1667, 0.5, 0.1667, -0.5, 0.5, 0.5, -0.1667, 0.5, 0.5, -0.5, 0.5, 0.1667, -0.5, 0.5, -0.1667, -0.1667, -0.5, -0.5, -0.1667, -0.5, -0.1667, -0.5, -0.5, -0.5, -0.1667, -0.5, -0.5, -0.5, -0.5, -0.1667, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.1667, 0.5, 0.1667, 0.5, 0.5, 0.5, 0.1667, 0.5, 0.1667, 0.1667, 0.5, 0.1667, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.1667, -0.5, 0.1667, -0.5, -0.5, 0.5, -0.1667, -0.5, 0.1667, -0.1667, -0.5, 0.1667, -0.5, 0.5, 0.5, 0.1667, 0.5, 0.5, -0.1667, 0.5, 0.1667, 0.1667, 0.5, 0.5, -0.1667, 0.5, 0.1667, -0.1667, 0.5, 0.1667, 0.1667, -0.5, 0.5, -0.1667, -0.5, 0.5, 0.1667, -0.5, 0.1667, -0.1667, -0.5, 0.5, 0.1667, -0.5, 0.1667, 0.1667, -0.5, 0.1667, -0.1667, 0.5, 0.5, -0.1667, 0.5, 0.5, -0.5, 0.5, 0.1667, -0.1667, 0.5, 0.5, -0.5, 0.5, 0.1667, -0.5, 0.5, 0.1667, -0.1667, -0.5, 0.5, 0.1667, -0.5, 0.5, 0.5, -0.5, 0.1667, 0.1667, -0.5, 0.5, 0.5, -0.5, 0.1667, 0.5, -0.5, 0.1667, 0.1667, 0.5, 0.1667, 0.5, 0.5, 0.1667, 0.1667, 0.5, -0.1667, 0.5, 0.5, 0.1667, 0.1667, 0.5, -0.1667, 0.1667, 0.5, -0.1667, 0.5, -0.5, 0.1667, -0.5, -0.5, 0.1667, -0.1667, -0.5, -0.1667, -0.5, -0.5, 0.1667, -0.1667, -0.5, -0.1667, -0.1667, -0.5, -0.1667, -0.5, 0.5, 0.1667, 0.1667, 0.5, 0.1667, -0.1667, 0.5, -0.1667, 0.1667, 0.5, 0.1667, -0.1667, 0.5, -0.1667, -0.1667, 0.5, -0.1667, 0.1667, -0.5, 0.1667, -0.1667, -0.5, 0.1667, 0.1667, -0.5, -0.1667, -0.1667, -0.5, 0.1667, 0.1667, -0.5, -0.1667, 0.1667, -0.5, -0.1667, -0.1667, 0.5, 0.1667, -0.1667, 0.5, 0.1667, -0.5, 0.5, -0.1667, -0.1667, 0.5, 0.1667, -0.5, 0.5, -0.1667, -0.5, 0.5, -0.1667, -0.1667, -0.5, 0.1667, 0.1667, -0.5, 0.1667, 0.5, -0.5, -0.1667, 0.1667, -0.5, 0.1667, 0.5, -0.5, -0.1667, 0.5, -0.5, -0.1667, 0.1667, 0.5, -0.1667, 0.5, 0.5, -0.1667, 0.1667, 0.5, -0.5, 0.5, 0.5, -0.1667, 0.1667, 0.5, -0.5, 0.1667, 0.5, -0.5, 0.5, -0.5, -0.1667, -0.5, -0.5, -0.1667, -0.1667, -0.5, -0.5, -0.5, -0.5, -0.1667, -0.1667, -0.5, -0.5, -0.1667, -0.5, -0.5, -0.5, 0.5, -0.1667, 0.1667, 0.5, -0.1667, -0.1667, 0.5, -0.5, 0.1667, 0.5, -0.1667, -0.1667, 0.5, -0.5, -0.1667, 0.5, -0.5, 0.1667, -0.5, -0.1667, -0.1667, -0.5, -0.1667, 0.1667, -0.5, -0.5, -0.1667, -0.5, -0.1667, 0.1667, -0.5, -0.5, 0.1667, -0.5, -0.5, -0.1667, 0.5, -0.1667, -0.1667, 0.5, -0.1667, -0.5, 0.5, -0.5, -0.1667, 0.5, -0.1667, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.1667, -0.5, -0.1667, 0.1667, -0.5, -0.1667, 0.5, -0.5, -0.5, 0.1667, -0.5, -0.1667, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.1667, 0.5, 0.5, 0.5, 0.1667, 0.5, 0.5, 0.5, 0.5, 0.1667, 0.1667, 0.5, 0.5, 0.1667, 0.5, 0.1667, 0.5, 0.5, 0.1667, -0.5, -0.5, 0.5, -0.1667, -0.5, 0.5, -0.5, -0.5, 0.1667, -0.1667, -0.5, 0.5, -0.1667, -0.5, 0.1667, -0.5, -0.5, 0.1667, 0.1667, 0.5, 0.5, -0.1667, 0.5, 0.5, 0.1667, 0.5, 0.1667, -0.1667, 0.5, 0.5, -0.1667, 0.5, 0.1667, 0.1667, 0.5, 0.1667, -0.1667, -0.5, 0.5, 0.1667, -0.5, 0.5, -0.1667, -0.5, 0.1667, 0.1667, -0.5, 0.5, 0.1667, -0.5, 0.1667, -0.1667, -0.5, 0.1667, -0.1667, 0.5, 0.5, -0.5, 0.5, 0.5, -0.1667, 0.5, 0.1667, -0.5, 0.5, 0.5, -0.5, 0.5, 0.1667, -0.1667, 0.5, 0.1667, 0.1667, -0.5, 0.5, 0.5, -0.5, 0.5, 0.1667, -0.5, 0.1667, 0.5, -0.5, 0.5, 0.5, -0.5, 0.1667, 0.1667, -0.5, 0.1667, 0.5, 0.5, 0.1667, 0.1667, 0.5, 0.1667, 0.5, 0.5, -0.1667, 0.1667, 0.5, 0.1667, 0.1667, 0.5, -0.1667, 0.5, 0.5, -0.1667, -0.5, -0.5, 0.1667, -0.1667, -0.5, 0.1667, -0.5, -0.5, -0.1667, -0.1667, -0.5, 0.1667, -0.1667, -0.5, -0.1667, -0.5, -0.5, -0.1667, 0.1667, 0.5, 0.1667, -0.1667, 0.5, 0.1667, 0.1667, 0.5, -0.1667, -0.1667, 0.5, 0.1667, -0.1667, 0.5, -0.1667, 0.1667, 0.5, -0.1667, -0.1667, -0.5, 0.1667, 0.1667, -0.5, 0.1667, -0.1667, -0.5, -0.1667, 0.1667, -0.5, 0.1667, 0.1667, -0.5, -0.1667, -0.1667, -0.5, -0.1667, -0.1667, 0.5, 0.1667, -0.5, 0.5, 0.1667, -0.1667, 0.5, -0.1667, -0.5, 0.5, 0.1667, -0.5, 0.5, -0.1667, -0.1667, 0.5, -0.1667, 0.1667, -0.5, 0.1667, 0.5, -0.5, 0.1667, 0.1667, -0.5, -0.1667, 0.5, -0.5, 0.1667, 0.5, -0.5, -0.1667, 0.1667, -0.5, -0.1667, 0.5, 0.5, -0.1667, 0.1667, 0.5, -0.1667, 0.5, 0.5, -0.5, 0.1667, 0.5, -0.1667, 0.1667, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.1667, -0.1667, -0.5, -0.1667, -0.5, -0.5, -0.5, -0.1667, -0.5, -0.1667, -0.1667, -0.5, -0.5, -0.5, -0.5, -0.5, 0.1667, 0.5, -0.1667, -0.1667, 0.5, -0.1667, 0.1667, 0.5, -0.5, -0.1667, 0.5, -0.1667, -0.1667, 0.5, -0.5, 0.1667, 0.5, -0.5, -0.1667, -0.5, -0.1667, 0.1667, -0.5, -0.1667, -0.1667, -0.5, -0.5, 0.1667, -0.5, -0.1667, 0.1667, -0.5, -0.5, -0.1667, -0.5, -0.5, -0.1667, 0.5, -0.1667, -0.5, 0.5, -0.1667, -0.1667, 0.5, -0.5, -0.5, 0.5, -0.1667, -0.5, 0.5, -0.5, -0.1667, 0.5, -0.5, 0.1667, -0.5, -0.1667, 0.5, -0.5, -0.1667, 0.1667, -0.5, -0.5, 0.5, -0.5, -0.1667, 0.5, -0.5, -0.5, 0.1667, -0.5, -0.5)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_jka67"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_i5arm"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_r3fl7")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.5, -2.18557e-08, 0.295408, -0.511662, 0.806806, -0.403403, 0.698714, 0.590817, 0, 0, 0)
+shadow_enabled = true
+directional_shadow_max_distance = 4096.0
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+visible = false
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+visible = false
+mesh = SubResource("PlaneMesh_a202f")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.414604, 0)
+visible = false
+shape = SubResource("BoxShape3D_noarx")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.23985, 0)
+script = ExtResource("2_a0tk4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
+mesh = SubResource("CapsuleMesh_a202f")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0128174, 0)
+shape = SubResource("BoxShape3D_a0tk4")
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00545561, 0.302284, -0.307624)
+
+[node name="RayCast3D" type="RayCast3D" parent="CharacterBody3D/Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00545561, -1.21067, 0.307624)
+enabled = false
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="CharacterBody3D/Camera3D"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="CharacterBody3D/Camera3D/SubViewportContainer"]
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="GunCam" parent="CharacterBody3D/Camera3D/SubViewportContainer/SubViewport" instance=ExtResource("3_r3fl7")]
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(64.4581, 0, 0, 0, 3.185, 0, 0, 0, 66.2943, 0, 4.76837e-07, 0)
+use_collision = true
+mesh = SubResource("BoxMesh_noarx")
+
+[node name="Node3D" parent="." instance=ExtResource("3_a0tk4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.29708, 2.38612, -14.8001)
+
+[node name="building1" type="MeshInstance3D" parent="."]
+transform = Transform3D(15.9015, 0, 0, 0, 19.1406, 0, 0, 0, 14.1784, 21.2369, 10.8054, -2.16301)
+mesh = SubResource("BoxMesh_jka67")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="building1"]
+transform = Transform3D(0.103288, 0, 0, 0, 0.0589839, 0, 0, 0, 0.248981, -0.467924, 0.376711, -0.298066)
+mesh = SubResource("BoxMesh_wc5p8")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="building1"]
+transform = Transform3D(0.103288, 0, 0, 0, 0.0589839, 0, 0, 0, 0.248981, -0.467924, 0.376711, 0.258726)
+mesh = SubResource("BoxMesh_wc5p8")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="building1"]
+transform = Transform3D(0.103288, 0, 0, 0, 0.0589839, 0, 0, 0, 0.248981, -0.467924, 0.228, 0.258726)
+mesh = SubResource("BoxMesh_wc5p8")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="building1"]
+transform = Transform3D(0.103288, 0, 0, 0, 0.0589839, 0, 0, 0, 0.248981, -0.467924, 0.228, -0.299139)
+mesh = SubResource("BoxMesh_wc5p8")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="building1"]
+transform = Transform3D(0.103288, 0, 0, 0, 0.0589839, 0, 0, 0, 0.248981, -0.467924, 0.0794412, 0.258727)
+mesh = SubResource("BoxMesh_wc5p8")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="building1"]
+transform = Transform3D(0.103288, 0, 0, 0, 0.0589839, 0, 0, 0, 0.248981, -0.467924, 0.0794412, -0.299139)
+mesh = SubResource("BoxMesh_wc5p8")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="building1"]
+transform = Transform3D(0.103288, 0, 0, 0, 0.0589839, 0, 0, 0, 0.248981, -0.467924, -0.0665563, 0.258727)
+mesh = SubResource("BoxMesh_wc5p8")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="building1"]
+transform = Transform3D(0.103288, 0, 0, 0, 0.0589839, 0, 0, 0, 0.248981, -0.467924, -0.0665563, -0.299139)
+mesh = SubResource("BoxMesh_wc5p8")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="building1"]
+transform = Transform3D(0.103288, 0, 0, 0, 0.0589839, 0, 0, 0, 0.248981, -0.467924, -0.202308, 0.258727)
+mesh = SubResource("BoxMesh_wc5p8")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="building1"]
+transform = Transform3D(0.103288, 0, 0, 0, 0.0589839, 0, 0, 0, 0.248981, -0.467924, -0.202308, -0.299139)
+mesh = SubResource("BoxMesh_wc5p8")
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="building1"]
+transform = Transform3D(0.103288, 0, 0, 0, 0.158435, 0, 0, 0, 0.248981, -0.467924, -0.400814, -0.0294315)
+mesh = SubResource("BoxMesh_wc5p8")
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="building1"]
+transform = Transform3D(0.103288, 0, 0, 0, 0.158435, 0, 0, 0, 0.0248742, -0.477676, -0.401196, -0.0294315)
+material_override = ExtResource("5_jka67")
+mesh = SubResource("BoxMesh_wc5p8")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="building1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="building1/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_jsk3o")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="building1/StaticBody3D"]
+transform = Transform3D(0.103288, 0, 0, 0, 0.158435, 0, 0, 0, 0.248981, -0.467924, -0.400814, -0.0294315)
+shape = SubResource("ConcavePolygonShape3D_jka67")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="building1/StaticBody3D"]
+transform = Transform3D(0.103288, 0, 0, 0, 0.158435, 0, 0, 0, 0.0248742, -0.477676, -0.401196, -0.0294315)
+shape = SubResource("ConcavePolygonShape3D_i5arm")
