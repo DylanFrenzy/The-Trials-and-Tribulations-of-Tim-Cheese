@@ -4,10 +4,12 @@ extends CharacterBody3D
 @export var move_speed := 5.0
 @export var jump_velocity := 4.5
 
+
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 @onready var camera := $Camera3D
 @onready var raycast := $Camera3D/RayCast3D
+@onready var GunCam = $CharacterBody3D/Camera3D/SubViewportContainer/SubViewport/GunCam
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -18,6 +20,7 @@ func _input(event):
 		rotate_y(deg_to_rad(-event.relative.x * mouse_sensitivity))
 		camera.rotate_x(deg_to_rad(-event.relative.y * mouse_sensitivity))
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
+		GunCam.sway(Vector2(event.relative.x, event.relative.y))
 
 func _physics_process(delta):
 	$Camera3D/SubViewportContainer/SubViewport/GunCam.global_transform = camera.global_transform
@@ -45,7 +48,8 @@ func _physics_process(delta):
 	
 	# Shooting
 	if Input.is_action_just_pressed("shoot"):
-		if raycast.is_colliding():
-			var target = raycast.get_collider()
-			if target.has_method("take_damage"):
-				target.take_damage(10)
+		#if ammo != 0:
+			if raycast.is_colliding():
+				var target = raycast.get_collider()
+				if target.has_method("take_damage"):
+					target.take_damage(10)

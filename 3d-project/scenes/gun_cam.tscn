@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://b17m2m5d4cdix"]
+[gd_scene load_steps=4 format=3 uid="uid://b17m2m5d4cdix"]
 
 [ext_resource type="PackedScene" uid="uid://uo8qyngydbub" path="res://assets/Arms.tscn" id="1_03c0v"]
+[ext_resource type="Script" uid="uid://dbkokuf3jkrkn" path="res://scenes/gun_cam.gd" id="1_ktk0j"]
 [ext_resource type="PackedScene" uid="uid://cwvmoqdyec4ah" path="res://assets/pistol.tscn" id="2_20781"]
 
 [node name="GunCam" type="Camera3D"]
+script = ExtResource("1_ktk0j")
 
 [node name="Node3D" parent="." instance=ExtResource("1_03c0v")]
 transform = Transform3D(1.19249e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, 1.19249e-09, 0.180404, -0.106314, -0.234271)
