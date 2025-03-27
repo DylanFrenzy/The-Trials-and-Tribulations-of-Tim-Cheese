@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://cuuk4or1cjlmn"]
 
-[ext_resource type="Script" path="res://scripts/new_character_body_3d.gd" id="1_oqwcg"]
+[ext_resource type="Script" uid="uid://l8p6nhdmlpln" path="res://scripts/new_character_body_3d.gd" id="1_oqwcg"]
 [ext_resource type="PackedScene" uid="uid://b17m2m5d4cdix" path="res://scenes/gun_cam.tscn" id="2_a6664"]
 [ext_resource type="PackedScene" uid="uid://dnrauibtjguud" path="res://assets/John_Pork.tscn" id="3_10v3s"]
 [ext_resource type="Material" uid="uid://5dt134tjhp2h" path="res://materials/building1.tres" id="4_cptob"]
@@ -70,6 +70,7 @@ shape = SubResource("BoxShape3D_a0tk4")
 
 [node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00545561, 0.302284, -0.307624)
+cull_mask = 1048573
 
 [node name="RayCast3D" type="RayCast3D" parent="CharacterBody3D/Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00545561, -1.21067, 0.307624)
@@ -91,6 +92,7 @@ render_target_update_mode = 4
 
 [node name="GunCam" parent="CharacterBody3D/Camera3D/SubViewportContainer/SubViewport" instance=ExtResource("2_a6664")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.27523, 0)
+cull_mask = 1047554
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="."]
 transform = Transform3D(64.4581, 0, 0, 0, 3.185, 0, 0, 0, 66.2943, 0, 4.76837e-07, 0)

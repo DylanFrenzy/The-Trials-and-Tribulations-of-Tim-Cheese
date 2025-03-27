@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://dnrauibtjguud"]
 
-[ext_resource type="Script" path="res://scripts/JohnPork.gd" id="1_fd3r2"]
+[ext_resource type="Script" uid="uid://7031adgc5b45" path="res://scripts/JohnPork.gd" id="1_fd3r2"]
 [ext_resource type="Material" uid="uid://841lpp2xmlgw" path="res://materials/johnporkskin.tres" id="1_plc7i"]
 [ext_resource type="Material" uid="uid://clib3jsw7xdh7" path="res://materials/shirt.tres" id="2_fd3r2"]
 

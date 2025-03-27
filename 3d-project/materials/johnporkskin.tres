@@ -1,6 +1,6 @@
 [gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://841lpp2xmlgw"]
 
-[ext_resource type="Shader" path="res://shader/Ghostlyshader.gdshader" id="1_m8y7n"]
+[ext_resource type="Shader" uid="uid://cpifg2ko0j01c" path="res://shader/Ghostlyshader.gdshader" id="1_m8y7n"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qmc1n"]
 render_priority = 0
