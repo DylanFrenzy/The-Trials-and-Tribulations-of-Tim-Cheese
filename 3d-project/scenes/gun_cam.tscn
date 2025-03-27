@@ -7,7 +7,7 @@
 
 [sub_resource type="Animation" id="Animation_tf6ll"]
 resource_name = "Fire"
-length = 4.1
+length = 0.79
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
