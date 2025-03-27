@@ -1,50 +1,55 @@
 extends CharacterBody3D
 
-@export var score = 0
-@export var speed:float = 10
-@export var rot_speed =0.5
-var controlling = true
+@export var mouse_sensitivity := 0.1
+@export var move_speed := 5.0
+@export var jump_velocity := 4.5
 
-var relative:Vector2 = Vector2.ZERO
 
-func _input(event):
-	if event is InputEventMouseMotion and controlling:
-		relative = event.relative
-	if event.is_action_pressed("ui_cancel"):
-		if controlling:
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		else:
-			Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-		controlling = ! controlling
-#Called when the node enters the scene tree for the first time.
+var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+
+@onready var camera := $Camera3D
+@onready var raycast := $Camera3D/RayCast3D
+@onready var GunCam = $Camera3D/SubViewportContainer/SubViewport/GunCam
+
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	pass # Replace with function body.
+	$Camera3D/SubViewportContainer/SubViewport.size = DisplayServer.window_get_size()
 
-@export var can_move:bool = true
+func _input(event):
+	if event is InputEventMouseMotion:
+		rotate_y(deg_to_rad(-event.relative.x * mouse_sensitivity))
+		camera.rotate_x(deg_to_rad(-event.relative.y * mouse_sensitivity))
+		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
+		GunCam.sway(Vector2(event.relative.x, event.relative.y))
 
-#Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	rotate(Vector3.DOWN, deg_to_rad(relative.x * deg_to_rad(rot_speed) * delta))
-	rotate(transform.basis.x,deg_to_rad(- relative.y * deg_to_rad(rot_speed) * delta))
-	relative = Vector2.ZERO
-	if can_move:
-		var v = Vector3.ZERO
+func _physics_process(delta):
+	$Camera3D/SubViewportContainer/SubViewport/GunCam.global_transform = camera.global_transform
 
-		var mult = 1
-		if Input.is_key_pressed(KEY_SHIFT):
-			mult = 3
-
-		var turn = Input.get_axis("ui_left", "ui_right") - v.x
-		if abs(turn) > 0:
-			position = position + global_transform.basis.x * speed * turn * mult * delta
-			# global_translate(global_transform.basis.x * speed * turn * mult * delta)
-
-		var movef = Input.get_axis("forward", "back")
-		if abs(movef) > 0:
-			global_translate(global_transform.basis.z * speed * movef * mult * delta)
-
-		var upanddown = Input.get_axis("ui_up", "ui_down")
-		if abs(upanddown) > 0:
-			global_translate(- global_transform.basis.y * speed * upanddown * mult * delta)
+	# Add gravity
+	if not is_on_floor():
+		velocity.y -= gravity * delta
+	
+	# Handle jump
+	if Input.is_action_just_pressed("jump") and is_on_floor():
+		velocity.y = jump_velocity
+	
+	# Movement
+	var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_back")
+	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	
+	if direction:
+		velocity.x = direction.x * move_speed
+		velocity.z = direction.z * move_speed
+	else:
+		velocity.x = move_toward(velocity.x, 0, move_speed)
+		velocity.z = move_toward(velocity.z, 0, move_speed)
+	
+	move_and_slide()
+	
+	# Shooting
+	if Input.is_action_just_pressed("shoot"):
+		#if ammo != 0:
+			if raycast.is_colliding():
+				var target = raycast.get_collider()
+				if target.has_method("take_damage"):
+					target.take_damage(10)

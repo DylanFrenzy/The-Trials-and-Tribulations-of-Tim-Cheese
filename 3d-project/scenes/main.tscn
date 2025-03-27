@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://cuuk4or1cjlmn"]
 
-[ext_resource type="Script" uid="uid://l8p6nhdmlpln" path="res://scripts/new_character_body_3d.gd" id="1_oqwcg"]
+[ext_resource type="Script" uid="uid://l8p6nhdmlpln" path="res://scripts/character_body_3d.gd" id="1_oqwcg"]
 [ext_resource type="PackedScene" uid="uid://b17m2m5d4cdix" path="res://scenes/gun_cam.tscn" id="2_a6664"]
 [ext_resource type="PackedScene" uid="uid://dnrauibtjguud" path="res://assets/John_Pork.tscn" id="3_10v3s"]
 [ext_resource type="Material" uid="uid://5dt134tjhp2h" path="res://materials/building1.tres" id="4_cptob"]
