@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b0o8epq0juwlr"
+path="res://.godot/imported/489069__tiliadesign__pistol-perfect-shot-with-silencer.wav-8f4d74bf64c064441eac335c22ed477f.sample"
+
+[deps]
+
+source_file="res://sound effects/489069__tiliadesign__pistol-perfect-shot-with-silencer.wav"
+dest_files=["res://.godot/imported/489069__tiliadesign__pistol-perfect-shot-with-silencer.wav-8f4d74bf64c064441eac335c22ed477f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
