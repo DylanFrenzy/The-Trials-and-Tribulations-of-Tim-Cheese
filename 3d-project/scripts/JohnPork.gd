@@ -28,6 +28,7 @@ func take_damage(damage):
 	health -= damage;
 	if health <= 0:
 		die();
+	$AnimationPlayer.play("damage_taken");
 
 func die():
 	queue_free();

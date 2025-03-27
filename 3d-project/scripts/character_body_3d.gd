@@ -3,8 +3,9 @@ extends CharacterBody3D
 @export var mouse_sensitivity := 0.1
 @export var move_speed := 5.0
 @export var jump_velocity := 4.5
-
-
+var max_ammo = 7;
+var current_ammo = 7;
+var fire_rate = 0.79;
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 @onready var camera := $Camera3D
@@ -25,15 +26,12 @@ func _input(event):
 func _physics_process(delta):
 	$Camera3D/SubViewportContainer/SubViewport/GunCam.global_transform = camera.global_transform
 
-	# Add gravity
 	if not is_on_floor():
 		velocity.y -= gravity * delta
 	
-	# Handle jump
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_velocity
 	
-	# Movement
 	var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_back")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	
@@ -46,10 +44,14 @@ func _physics_process(delta):
 	
 	move_and_slide()
 	
-	# Shooting
 	if Input.is_action_just_pressed("shoot"):
-		#if ammo != 0:
+		if current_ammo != 0:
+			current_ammo -= 1;
 			if raycast.is_colliding():
 				var target = raycast.get_collider()
 				if target.has_method("take_damage"):
 					target.take_damage(10)
+					
+	if Input.is_action_just_pressed("reload"):
+		if current_ammo == max_ammo: return;
+		current_ammo = max_ammo;

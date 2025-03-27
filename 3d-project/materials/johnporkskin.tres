@@ -11,4 +11,4 @@ shader_parameter/outline_width = -20.0
 [resource]
 next_pass = SubResource("ShaderMaterial_qmc1n")
 transparency = 1
-albedo_color = Color(1, 0.854902, 1, 0.435294)
+albedo_color = Color(0.781306, 0.549091, 0.613007, 0.435294)
