@@ -128,7 +128,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00545561, 0.302284, -0.307
 cull_mask = 1048573
 
 [node name="RayCast3D" type="RayCast3D" parent="CharacterBody3D/Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00545561, -1.21067, 0.307624)
+transform = Transform3D(1, 0, 0, 0, 0, -1, 0, 60.577, 0, 0.00545561, -0.484265, 0.307624)
 enabled = false
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="CharacterBody3D/Camera3D"]
