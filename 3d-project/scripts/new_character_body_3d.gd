@@ -11,6 +11,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	$Camera3D/SubViewportContainer/SubViewport.size = DisplayServer.window_get_size()
 
 func _input(event):
 	if event is InputEventMouseMotion:
@@ -19,6 +20,8 @@ func _input(event):
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 
 func _physics_process(delta):
+	$Camera3D/SubViewportContainer/SubViewport/GunCamamera3D/SubViewportContainer/SubViewport/GunCam.global_transform = camera.global_transform
+
 	# Add gravity
 	if not is_on_floor():
 		velocity.y -= gravity * delta
