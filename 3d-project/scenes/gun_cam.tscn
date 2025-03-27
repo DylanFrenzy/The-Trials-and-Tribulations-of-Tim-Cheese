@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b17m2m5d4cdix"]
 
-[ext_resource type="PackedScene" uid="uid://uo8qyngydbub" path="res://Arms.tscn" id="1_03c0v"]
-[ext_resource type="PackedScene" uid="uid://cwvmoqdyec4ah" path="res://pistol.tscn" id="2_20781"]
+[ext_resource type="PackedScene" uid="uid://uo8qyngydbub" path="res://assets/Arms.tscn" id="1_03c0v"]
+[ext_resource type="PackedScene" uid="uid://cwvmoqdyec4ah" path="res://assets/pistol.tscn" id="2_20781"]
 
 [node name="GunCam" type="Camera3D"]
 
