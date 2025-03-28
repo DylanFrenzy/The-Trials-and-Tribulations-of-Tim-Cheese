@@ -8,11 +8,12 @@ extends Node3D
 @onready var ani_player = $AnimationPlayer2;
 @onready var muzzle_flash = $muzzle_flash
 @onready var ray_caster = $RayCast3D;
-@onready var ammo_display = get_parent().get_parent().get_node("UI/Ammo")
+@onready var ammo_display = get_tree().root.get_node("Node3D/hud/CanvasLayer/Ammo")
 var is_reloading := false
 
 func _ready():
 	$AnimationPlayer.play("idle")
+	print(ammo_display)
 	update_ammo_display(current_ammo)
 	
 func _input(event: InputEvent) -> void:

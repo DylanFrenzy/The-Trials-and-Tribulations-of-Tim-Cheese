@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://b17m2m5d4cdix"]
+[gd_scene load_steps=29 format=4 uid="uid://b17m2m5d4cdix"]
 
 [ext_resource type="PackedScene" uid="uid://uo8qyngydbub" path="res://assets/Arms.tscn" id="1_03c0v"]
 [ext_resource type="Script" uid="uid://dbkokuf3jkrkn" path="res://scripts/gun_cam.gd" id="1_ktk0j"]
@@ -603,8 +603,6 @@ _data = {
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_jtfo8"]
 
-[sub_resource type="Theme" id="Theme_vc4ct"]
-
 [sub_resource type="BoxMesh" id="BoxMesh_wfaqt"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_jtfo8"]
@@ -692,34 +690,6 @@ libraries = {
 &"": SubResource("AnimationLibrary_mk8an"),
 &"pistol": ExtResource("5_6r2yp")
 }
-
-[node name="UI" type="CanvasLayer" parent="."]
-
-[node name="Crosshair" type="Label" parent="UI"]
-modulate = Color(1, 0, 0, 1)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "+"
-
-[node name="Ammo" type="Label" parent="UI"]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -137.0
-offset_right = 169.0
-grow_vertical = 0
-theme = SubResource("Theme_vc4ct")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 100
 
 [node name="Sniper Rifle" type="Node3D" parent="."]
 visible = false

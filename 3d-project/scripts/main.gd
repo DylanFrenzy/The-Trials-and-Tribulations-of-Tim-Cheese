@@ -2,7 +2,7 @@ extends Node3D
 
 @onready var johnnie : PackedScene = preload("res://assets/John_Pork.tscn")
 @onready var enemy_spawn_path = $EnemySpawnPath/PathFollow3D
-@onready var wave_display = $CanvasLayer/wave_display
+@onready var wave_display = $hud/CanvasLayer/wave_display
 var wave = 1
 var enemies_spawned = []
 
