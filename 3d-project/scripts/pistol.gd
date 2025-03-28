@@ -5,16 +5,13 @@ extends Node3D
 @export var current_ammo := 10
 @export var reload_time := 2.0
 
+@onready var ani_player = $AnimationPlayer2;
+@onready var muzzle_flash = $muzzle_flash
+@onready var ray_caster = $RayCast3D;
 var is_reloading := false
-var ani_player;
-var muzzle_flash
-var ray_caster;
 
 func _ready():
 	$AnimationPlayer.play("idle")
-	ani_player = $AnimationPlayer2
-	muzzle_flash = $muzzle_flash
-	ray_caster = $RayCast3D
 	
 func _input(event: InputEvent) -> void:
 	if (event.is_action_pressed("shoot")):
