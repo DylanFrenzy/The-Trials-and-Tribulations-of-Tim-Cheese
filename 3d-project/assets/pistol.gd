@@ -17,7 +17,7 @@ func shoot():
     current_ammo -= 1
     $AnimationPlayer.stop()
     if current_ammo != 0:
-        $AnimationPlayer.play("shoot")
+            $AnimationPlayer.play("shoot")
     # Play sound, muzzle flash, etc.
     
     # Raycast shooting would be handled by the player script

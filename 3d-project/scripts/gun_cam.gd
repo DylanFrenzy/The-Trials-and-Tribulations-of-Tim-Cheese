@@ -3,8 +3,12 @@ extends Camera3D
 @onready var Node_3D = $Node3D
 @onready var animation_player = $Node3D/Pistol/AnimationPlayer2
 @onready var Muzzle_Flash = $muzzle_flash
+@onready var Pistol = $Node3D/Pistol
+
+var current_ammo : int
 
 func _ready():
+	current_ammo = Pistol.current_ammo
 	pass
 
 func _process(delta):
@@ -19,8 +23,10 @@ func sway(sway_amount):
 func _input(event: InputEvent) -> void:
 	if (event.is_action_pressed("shoot")):
 		if animation_player.is_playing(): return
-		animation_player.play("Fire")
-		Muzzle_Flash.emitting = true
+		if current_ammo != 0:
+			animation_player.play("Fire")
+			Muzzle_Flash.emitting = true
+		else: animation_player.stop("Fire")
 
 	if (event.is_action_pressed("reload")):
 		if animation_player.is_playing(): return
