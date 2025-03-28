@@ -619,6 +619,10 @@ libraries = {
 &"pistol": ExtResource("5_6r2yp")
 }
 
+[node name="RayCast3D" type="RayCast3D" parent="Node3D/Pistol"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.424, 1.95201)
+target_position = Vector3(-1e+07, 0, 0)
+
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("4_utigt")
 
@@ -642,7 +646,7 @@ mesh = SubResource("CapsuleMesh_wfaqt")
 material = ExtResource("11_dg5pf")
 
 [node name="left_arm_solo" type="CSGMesh3D" parent="."]
-transform = Transform3D(-0.000239449, 0.145469, -0.0802846, 0.0999993, 0.000979991, 1.25198e-09, 0.000322452, -0.195893, -0.0596187, 0.137661, -0.151003, -0.170338)
+transform = Transform3D(-0.000239449, 0.145469, -0.0802846, 0.0999994, 0.000979991, 1.25198e-09, 0.000322452, -0.195893, -0.0596187, 0.137661, -0.151003, -0.170338)
 visible = false
 layers = 2
 mesh = SubResource("CapsuleMesh_jtfo8")

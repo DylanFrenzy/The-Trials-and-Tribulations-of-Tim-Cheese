@@ -99,10 +99,6 @@ material = SubResource("StandardMaterial3D_78vgs")
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000100136, -0.00268447, 0.000457525)
 
-[node name="RayCast3D" type="RayCast3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.4, 0)
-target_position = Vector3(-90, 0, 0)
-
 [node name="muzzle_flash" parent="." instance=ExtResource("3_bxbka")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0.4, -2)
 amount = 8
