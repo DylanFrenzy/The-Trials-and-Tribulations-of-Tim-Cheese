@@ -7,7 +7,9 @@ extends CharacterBody3D
 
 @onready var camera := $Camera3D
 @onready var GunCam = $Camera3D/SubViewportContainer/SubViewport/GunCam
+
 @onready var AnimationPlayer2 = GunCam.get_node("Pistol2/AnimationPlayer2")
+@onready var health_bar = get_parent().get_node("hud/HealthBar")
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var zoomed = false
@@ -15,6 +17,7 @@ var zoomed = false
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	$Camera3D/SubViewportContainer/SubViewport.size = DisplayServer.window_get_size()
+	health_bar.value = health;
 
 func _input(event):
 	if event is InputEventMouseMotion:
@@ -57,7 +60,9 @@ func _physics_process(delta):
 	move_and_slide()
 	
 func take_damage(amount):
+	health = max(health - amount, 0)
 	health -= amount
+	health_bar.value = health
 	if (health <= 0):
 		die()
 		
