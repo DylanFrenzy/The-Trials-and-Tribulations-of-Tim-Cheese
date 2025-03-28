@@ -30,4 +30,4 @@ func _on_player_death():
 	var death_screen = preload("res://scenes/death_screen.tscn").instantiate()
 	death_screen.wave_count = wave
 	get_tree().root.call_deferred("add_child", death_screen)
-	get_tree().current_scene.call_deferred("queue_free")
+	call_deferred("queue_free")

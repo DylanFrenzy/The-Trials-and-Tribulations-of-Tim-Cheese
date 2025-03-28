@@ -5,7 +5,7 @@ signal player_death
 @export var mouse_sensitivity := 0.1
 @export var move_speed := 5.0
 @export var jump_velocity := 4.5
-@export var health = 20
+@export var health = 200
 
 @onready var camera := $Camera3D
 @onready var GunCam = $Camera3D/SubViewportContainer/SubViewport/GunCam
