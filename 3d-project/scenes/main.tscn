@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cytn402bb03bh" path="res://scripts/main.gd" id="1_o6xl0"]
 [ext_resource type="Shader" uid="uid://blm25wnjv1eul" path="res://shader/sky.gdshader" id="1_tefeu"]
 [ext_resource type="PackedScene" uid="uid://b17m2m5d4cdix" path="res://scenes/gun_cam.tscn" id="2_a6664"]
-[ext_resource type="PackedScene" uid="uid://blxkcsvrnv087" path="res://scenes/hud.tscn" id="2_o6xl0"]
+[ext_resource type="PackedScene" path="res://scenes/hud.tscn" id="2_o6xl0"]
 [ext_resource type="Script" uid="uid://l8p6nhdmlpln" path="res://scripts/character_body_3d.gd" id="2_tefeu"]
 [ext_resource type="Material" uid="uid://5dt134tjhp2h" path="res://materials/building1.tres" id="4_cptob"]
 [ext_resource type="Material" uid="uid://bfo6k0j0dqm2k" path="res://materials/door 2.tres" id="5_b2yaj"]
@@ -232,4 +232,4 @@ shape = SubResource("ConcavePolygonShape3D_i5arm")
 curve = SubResource("Curve3D_tefeu")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="EnemySpawnPath"]
-transform = Transform3D(-0.00439085, -0.0193575, -0.999798, 0, 0.9998, -0.0193579, 0.999987, -8.49971e-05, -0.00439002, -31.3552, 2.58811, -32.5769)
+transform = Transform3D(-0.00439085, -0.0193575, -0.999798, 0, 0.9998, -0.0193578, 0.999987, -8.49971e-05, -0.00439002, -31.3552, 2.58811, -32.5769)

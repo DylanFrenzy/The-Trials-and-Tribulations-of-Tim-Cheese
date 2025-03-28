@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://b17m2m5d4cdix"]
+[gd_scene load_steps=31 format=4 uid="uid://b17m2m5d4cdix"]
 
 [ext_resource type="PackedScene" uid="uid://uo8qyngydbub" path="res://assets/Arms.tscn" id="1_03c0v"]
 [ext_resource type="Script" uid="uid://dbkokuf3jkrkn" path="res://scripts/gun_cam.gd" id="1_ktk0j"]
@@ -486,6 +486,34 @@ tracks/12/keys = {
 "values": [Vector3(1.26773, -2.90135, 0.906536), Vector3(0.240818, -2.4906, 1.33257), Vector3(1.26773, -2.90135, 0.906536)]
 }
 
+[sub_resource type="Animation" id="Animation_dg5pf"]
+resource_name = "Zoom"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../Sniper Rifle:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 0.233259),
+"update": 0,
+"values": [Vector3(0, -0.0404978, -0.212393), Vector3(-0.228783, -0.0990999, 0.0263968)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 0.233259),
+"update": 0,
+"values": [Vector3(0.204037, -0.0969836, -0.170399), Vector3(-0.0247458, -0.155586, 0.0683906)]
+}
+
 [sub_resource type="Animation" id="Animation_ktk0j"]
 resource_name = "pull_up"
 length = 0.79
@@ -612,34 +640,6 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_dg5pf"]
-resource_name = "Zoom"
-length = 0.7
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../../Sniper Rifle:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.7),
-"transitions": PackedFloat32Array(1, 0.233259),
-"update": 0,
-"values": [Vector3(0, -0.0404978, -0.212393), Vector3(-0.228783, -0.0990999, 0.0263968)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("..:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.7),
-"transitions": PackedFloat32Array(1, 0.233259),
-"update": 0,
-"values": [Vector3(0.204037, -0.0969836, -0.170399), Vector3(-0.0247458, -0.155586, 0.0683906)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mk8an"]
