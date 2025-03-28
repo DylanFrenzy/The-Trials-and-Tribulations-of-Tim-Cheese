@@ -3,7 +3,7 @@ extends Node3D
 @export var damage := 10
 @export var max_ammo := 10
 @export var current_ammo := 10
-@export var reload_time := 1.0
+@export var reload_time := 2.0
 
 var is_reloading := false
 
@@ -16,7 +16,8 @@ func shoot():
     
     current_ammo -= 1
     $AnimationPlayer.stop()
-    $AnimationPlayer.play("shoot")
+    if current_ammo != 0:
+        $AnimationPlayer.play("shoot")
     # Play sound, muzzle flash, etc.
     
     # Raycast shooting would be handled by the player script

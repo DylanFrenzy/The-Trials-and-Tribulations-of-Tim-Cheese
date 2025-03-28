@@ -302,134 +302,6 @@ tracks/16/keys = {
 "values": [Vector3(1.26773, -2.90135, 0.906536)]
 }
 
-[sub_resource type="Animation" id="Animation_ktk0j"]
-resource_name = "pull_up"
-length = 0.79
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.266667, 0.426667, 0.536667, 0.766667),
-"transitions": PackedFloat32Array(0.297302, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(-1.13019, -2.10053, 0.0856405), Vector3(-4.43055, 1.27833, 0.0856405), Vector3(-3.35864, 1.69815, 0.00658345), Vector3(-2.64835, 1.62349, 0.0856409), Vector3(-1.13019, 0.423723, 0.0856413)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.766667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-5.26099e-09, -2.26265e-08, 2.68468), Vector3(0, 0, -6.28319)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../../AudioStreamPlayer3D:stream")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 1,
-"values": []
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../../AudioStreamPlayer3D:playing")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_mk8an"]
-resource_name = "put_away"
-length = 0.79
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.266667, 0.426667, 0.536667, 0.766667),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(-1.13019, 0.423723, 0.0856413), Vector3(-4.43055, 1.27833, 0.0856405), Vector3(-3.35864, 1.69815, 0.00658345), Vector3(-2.64835, 1.62349, 0.0856409), Vector3(-1.13019, -2.10053, 0.0856405)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.766667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, -6.28319), Vector3(-5.26099e-09, -2.26265e-08, 2.68468)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../../AudioStreamPlayer3D:stream")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
-"update": 1,
-"values": []
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = false
-tracks/3/path = NodePath("../../AudioStreamPlayer3D:playing")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("..:rotation")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0.07, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0.90059, -1.5708, 0), Vector3(0, -1.5708, 0)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("../../AudioStreamPlayer3D3:playing")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
 [sub_resource type="Animation" id="Animation_i371p"]
 resource_name = "Reload"
 length = 2.0
@@ -590,6 +462,134 @@ tracks/12/keys = {
 "values": [Vector3(1.26773, -2.90135, 0.906536), Vector3(0.240818, -2.4906, 1.33257), Vector3(1.26773, -2.90135, 0.906536)]
 }
 
+[sub_resource type="Animation" id="Animation_ktk0j"]
+resource_name = "pull_up"
+length = 0.79
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.266667, 0.426667, 0.536667, 0.766667),
+"transitions": PackedFloat32Array(0.297302, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-1.13019, -2.10053, 0.0856405), Vector3(-4.43055, 1.27833, 0.0856405), Vector3(-3.35864, 1.69815, 0.00658345), Vector3(-2.64835, 1.62349, 0.0856409), Vector3(-1.13019, 0.423723, 0.0856413)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.766667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-5.26099e-09, -2.26265e-08, 2.68468), Vector3(0, 0, -6.28319)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../AudioStreamPlayer3D:stream")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../../AudioStreamPlayer3D:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_mk8an"]
+resource_name = "put_away"
+length = 0.79
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.266667, 0.426667, 0.536667, 0.766667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-1.13019, 0.423723, 0.0856413), Vector3(-4.43055, 1.27833, 0.0856405), Vector3(-3.35864, 1.69815, 0.00658345), Vector3(-2.64835, 1.62349, 0.0856409), Vector3(-1.13019, -2.10053, 0.0856405)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.766667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, -6.28319), Vector3(-5.26099e-09, -2.26265e-08, 2.68468)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../AudioStreamPlayer3D:stream")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = false
+tracks/3/path = NodePath("../../AudioStreamPlayer3D:playing")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("..:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.07, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.90059, -1.5708, 0), Vector3(0, -1.5708, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../../AudioStreamPlayer3D3:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mk8an"]
 _data = {
 &"Fire": SubResource("Animation_tf6ll"),
@@ -634,7 +634,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.352878, 1.86265e-09, -1.236
 amount = 8
 
 [node name="right_arm_solo" type="CSGMesh3D" parent="."]
-transform = Transform3D(-6.41124e-11, 1.0665e-08, -0.1, 0.0999992, 0.000979465, -4.65661e-11, 0.00040142, -0.243998, -4.37114e-09, 0.20434, -0.0980372, -0.169024)
+transform = Transform3D(-1.50048e-09, 8.8327e-07, -0.1, 0.0999992, 0.000979988, -4.65661e-11, 0.000401634, -0.243998, -3.61999e-07, 0.20434, -0.0980372, -0.169024)
 visible = false
 layers = 2
 mesh = SubResource("CapsuleMesh_wfaqt")
@@ -647,7 +647,7 @@ mesh = SubResource("CapsuleMesh_wfaqt")
 material = ExtResource("11_dg5pf")
 
 [node name="left_arm_solo" type="CSGMesh3D" parent="."]
-transform = Transform3D(-0.000239319, 0.145468, -0.0802848, 0.0999992, 0.000979465, 1.25198e-09, 0.00032228, -0.195893, -0.0596184, 0.137661, -0.151003, -0.170338)
+transform = Transform3D(-0.000239448, 0.145468, -0.0802846, 0.0999992, 0.000979988, 1.25198e-09, 0.000322451, -0.195893, -0.0596187, 0.137661, -0.151003, -0.170338)
 visible = false
 layers = 2
 mesh = SubResource("CapsuleMesh_jtfo8")
@@ -660,11 +660,11 @@ mesh = SubResource("CapsuleMesh_jtfo8")
 material = ExtResource("11_dg5pf")
 
 [node name="Pistol_mag" type="CSGBox3D" parent="left_arm_solo"]
-transform = Transform3D(-7.31042, 5.67455, -0.481161, 2.20928, 1.6711, -6.46704, -5.48322, -6.8922, -1.96417, 0.512891, 0.843216, -0.147558)
+transform = Transform3D(-7.31044, 5.67452, -0.481168, 2.20927, 1.67109, -6.46704, -5.48319, -6.89222, -1.96416, 0.512891, 0.843216, -0.147558)
 size = Vector3(0.0171356, 0.0683899, 0.0423279)
 material = ExtResource("12_dg5pf")
 
 [node name="Pistol2" parent="." instance=ExtResource("2_20781")]
-transform = Transform3D(-4.37114e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.37114e-09, 0.196731, -0.0556682, -0.284847)
+transform = Transform3D(-3.61999e-07, 0, -0.1, 0, 0.1, 0, 0.1, 0, -3.61999e-07, 0.196731, -0.0556682, -0.284847)
 visible = false
 script = ExtResource("4_afw81")
