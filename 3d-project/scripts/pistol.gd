@@ -15,7 +15,7 @@ func _ready():
 	$AnimationPlayer.play("idle")
 	update_ammo_display(current_ammo)
 	
-func _input(event: InputEvent) -> void:
+func _input(event):
 	if (event.is_action_pressed("shoot")):
 		if ani_player.is_playing(): return
 		if current_ammo != 0:
