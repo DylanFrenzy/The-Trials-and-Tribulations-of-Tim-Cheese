@@ -4,26 +4,21 @@ signal enemy_death
 
 @export var speed = 4;
 @export var health = 20;
-@export var attack_range = 5;
 @export var turn_speed = 3;
 
-@onready var player = get_tree().root.get_node("Node3D/CharacterBody3D");;
+@onready var player = get_tree().root.get_node("Node3D/Player");;
+@onready var nav_agent = $NavigationAgent3D
 @onready var attack_area = $Area3D
 @onready var ani_player = $AnimationPlayer;
 @onready var mesh = $MeshInstance3D
 
 func _physics_process(delta):
-	var distance_to_player = position.distance_to(player.position);
-	var direction = (player.position - position).normalized();
-	look_at(player.position, Vector3.UP)
-	rotate_y(deg_to_rad(90))
-	if distance_to_player <= attack_range:
-		attack();
-	velocity = direction * speed;
-	move_and_slide();
-	
-func attack():
-	ani_player.play("attack");
+	var current_location = global_transform.origin;
+	var player_location = player.global_transform.origin
+	nav_agent.target_position = player_location 
+	var next_location = nav_agent.get_next_path_position();
+	var target_velocity = (next_location - current_location).normalized() * speed
+	nav_agent.set_velocity(target_velocity)
 	
 func take_damage(damage):
 	health -= damage;
@@ -44,3 +39,10 @@ func die():
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body == player:
 		player.take_damage(10)
+
+func _on_player_reached() -> void:
+	ani_player.play("attack");
+
+func _on_navigation_agent_3d_velocity_computed(safe_velocity: Vector3) -> void:
+	velocity = velocity.move_toward(safe_velocity, 0.1)
+	move_and_slide()

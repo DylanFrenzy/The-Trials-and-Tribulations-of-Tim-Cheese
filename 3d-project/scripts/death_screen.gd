@@ -8,5 +8,5 @@ func _ready():
 	get_tree().create_timer(2).timeout.connect(restart)
 	
 func restart():
-	get_tree().change_scene_to_file("res://scenes/start_screen.tscn")
+	get_tree().change_scene_to_file("res://scenes/hud/start_screen.tscn")
 	queue_free()

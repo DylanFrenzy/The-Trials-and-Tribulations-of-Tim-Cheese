@@ -312,7 +312,7 @@ height = 1.588
 radius = 0.269043
 
 [node name="CharacterBody3D" type="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 0.793619, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 0.794, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 script = ExtResource("1_fd3r2")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -408,4 +408,11 @@ transform = Transform3D(0.57956, 0, 0, 0, 0.57956, 0, 0, 0, 0.57956, 0, -0.42411
 shape = SubResource("CylinderShape3D_sd2yd")
 disabled = true
 
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+target_desired_distance = 1.5
+path_height_offset = 0.1
+avoidance_enabled = true
+
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="target_reached" from="NavigationAgent3D" to="." method="_on_player_reached"]
+[connection signal="velocity_computed" from="NavigationAgent3D" to="." method="_on_navigation_agent_3d_velocity_computed"]

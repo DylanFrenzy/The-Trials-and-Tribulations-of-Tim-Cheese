@@ -7,7 +7,7 @@ var wave = 1
 var enemies_spawned = []
 
 func _ready():
-	$CharacterBody3D.player_death.connect(_on_player_death)
+	$Player.player_death.connect(_on_player_death)
 	spawn_enemy_wave(wave);
 
 func spawn_enemy_wave(wave_count):
@@ -27,7 +27,7 @@ func _on_enemy_death():
 		spawn_enemy_wave(wave)
 		
 func _on_player_death():
-	var death_screen = preload("res://scenes/death_screen.tscn").instantiate()
+	var death_screen = preload("res://scenes/hud/death_screen.tscn").instantiate()
 	death_screen.wave_count = wave
 	get_tree().root.call_deferred("add_child", death_screen)
 	call_deferred("queue_free")
