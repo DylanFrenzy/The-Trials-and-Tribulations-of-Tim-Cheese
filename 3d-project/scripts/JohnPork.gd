@@ -1,7 +1,7 @@
 extends CharacterBody3D;
 
 @export var speed = 2;
-@export var health = 100;
+@export var health = 20;
 @export var attack_range = 5;
 
 var player;

@@ -4,11 +4,10 @@ extends CharacterBody3D
 @export var move_speed := 5.0
 @export var jump_velocity := 4.5
 
-var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
-
 @onready var camera := $Camera3D
 @onready var GunCam = $Camera3D/SubViewportContainer/SubViewport/GunCam
-@onready var AnimationPlayer2 := $Camera3D/SubViewportContainer/SubViewport/GunCam/Node3D/Pistol/AnimationPlayer2
+
+var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -22,7 +21,7 @@ func _input(event):
 		GunCam.sway(Vector2(event.relative.x, event.relative.y))
 
 func _physics_process(delta):
-	$Camera3D/SubViewportContainer/SubViewport/GunCam.global_transform = camera.global_transform
+	GunCam.global_transform = camera.global_transform
 
 	if not is_on_floor():
 		velocity.y -= gravity * delta

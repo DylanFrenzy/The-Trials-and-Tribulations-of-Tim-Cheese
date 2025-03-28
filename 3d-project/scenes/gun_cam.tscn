@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://uo8qyngydbub" path="res://assets/Arms.tscn" id="1_03c0v"]
 [ext_resource type="Script" uid="uid://dbkokuf3jkrkn" path="res://scripts/gun_cam.gd" id="1_ktk0j"]
 [ext_resource type="PackedScene" uid="uid://cwvmoqdyec4ah" path="res://assets/pistol.tscn" id="2_20781"]
-[ext_resource type="Script" uid="uid://cnpg01ajvsom3" path="res://assets/pistol.gd" id="4_afw81"]
+[ext_resource type="Script" uid="uid://cnpg01ajvsom3" path="res://scripts/pistol.gd" id="4_afw81"]
 [ext_resource type="AudioStream" uid="uid://b0o8epq0juwlr" path="res://sound effects/489069__tiliadesign__pistol-perfect-shot-with-silencer.wav" id="4_kb61h"]
 [ext_resource type="AudioStream" uid="uid://bcujp8y1baks3" path="res://sound effects/405538__nebulasnails__pistol-cock.wav" id="4_utigt"]
 [ext_resource type="AnimationLibrary" uid="uid://dvc0gjnq4kdv6" path="res://assets/Anim_lib/pistol.res" id="5_6r2yp"]
@@ -642,7 +642,7 @@ mesh = SubResource("CapsuleMesh_wfaqt")
 material = ExtResource("11_dg5pf")
 
 [node name="left_arm_solo" type="CSGMesh3D" parent="."]
-transform = Transform3D(-0.000239449, 0.145469, -0.0802846, 0.0999993, 0.000979988, 1.25198e-09, 0.000322451, -0.195893, -0.0596187, 0.137661, -0.151003, -0.170338)
+transform = Transform3D(-0.000239449, 0.145469, -0.0802846, 0.0999993, 0.00097999, 1.25198e-09, 0.000322452, -0.195893, -0.0596187, 0.137661, -0.151003, -0.170338)
 visible = false
 layers = 2
 mesh = SubResource("CapsuleMesh_jtfo8")
