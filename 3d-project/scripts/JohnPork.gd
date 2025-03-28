@@ -8,9 +8,10 @@ signal enemy_death
 @export var turn_speed = 3;
 
 @onready var player = get_tree().root.get_node("Node3D/CharacterBody3D");;
+@onready var attack_area = $Area3D
 @onready var ani_player = $AnimationPlayer;
 @onready var mesh = $MeshInstance3D
-	
+
 func _physics_process(delta):
 	var distance_to_player = position.distance_to(player.position);
 	var direction = (player.position - position).normalized();
@@ -40,3 +41,6 @@ func take_damage(damage):
 func die():
 	queue_free();
 	
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	if body == player:
+		player.take_damage(10)

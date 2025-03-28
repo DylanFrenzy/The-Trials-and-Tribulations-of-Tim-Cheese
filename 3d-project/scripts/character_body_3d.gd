@@ -3,6 +3,7 @@ extends CharacterBody3D
 @export var mouse_sensitivity := 0.1
 @export var move_speed := 5.0
 @export var jump_velocity := 4.5
+@export var health = 200
 
 @onready var camera := $Camera3D
 @onready var GunCam = $Camera3D/SubViewportContainer/SubViewport/GunCam
@@ -40,3 +41,11 @@ func _physics_process(delta):
 		velocity.z = move_toward(velocity.z, 0, move_speed)
 	
 	move_and_slide()
+	
+func take_damage(amount):
+	health -= amount
+	if (health <= 0):
+		die()
+		
+func die():
+	print("dead")
