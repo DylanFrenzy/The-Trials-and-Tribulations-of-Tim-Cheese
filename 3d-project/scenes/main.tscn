@@ -218,20 +218,3 @@ shape = SubResource("ConcavePolygonShape3D_jka67")
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="building1/StaticBody3D"]
 transform = Transform3D(0.103288, 0, 0, 0, 0.158435, 0, 0, 0, 0.0248742, -0.477676, -0.401196, -0.0294315)
 shape = SubResource("ConcavePolygonShape3D_i5arm")
-
-[node name="Crosshair" type="CanvasLayer" parent="."]
-
-[node name="TextureRect" type="Label" parent="Crosshair"]
-modulate = Color(1, 0, 0, 1)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "+"
