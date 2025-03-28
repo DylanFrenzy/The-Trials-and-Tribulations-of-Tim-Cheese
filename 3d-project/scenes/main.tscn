@@ -229,7 +229,7 @@ shape = SubResource("ConcavePolygonShape3D_i5arm")
 curve = SubResource("Curve3D_tefeu")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="EnemySpawnPath"]
-transform = Transform3D(-0.00439157, -0.0193575, -0.999799, 0, 0.9998, -0.0193578, 0.999988, -8.50108e-05, -0.00439074, -31.3552, 2.58811, -32.5769)
+transform = Transform3D(-0.00439086, -0.0193575, -0.999799, 0, 0.9998, -0.0193579, 0.999988, -8.49971e-05, -0.00439003, -31.3552, 2.58811, -32.5769)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

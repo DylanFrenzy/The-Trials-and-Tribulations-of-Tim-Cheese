@@ -9,9 +9,9 @@ var enemies_spawned = []
 func _ready():
 	spawn_enemy_wave(wave);
 
-func spawn_enemy_wave(wave):
-	wave_display.text = "Wave " + str(wave)
-	for i in range(wave):
+func spawn_enemy_wave(wave_count):
+	wave_display.text = "Wave " + str(wave_count)
+	for i in range(wave_count):
 		var enemy_instance = johnnie.instantiate();
 		enemy_instance.enemy_death.connect(on_enemy_death);
 		enemies_spawned.append(enemy_instance)
