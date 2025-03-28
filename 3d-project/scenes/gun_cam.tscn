@@ -722,6 +722,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 100
 
 [node name="Sniper Rifle" type="Node3D" parent="."]
+visible = false
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Sniper Rifle"]
 transform = Transform3D(-0.0836861, 0, 0, 0, 0.0537959, 0, 0, 0, 1.27557, 0.222263, -0.00124715, -0.729579)
