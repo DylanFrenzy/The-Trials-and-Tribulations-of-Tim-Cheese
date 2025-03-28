@@ -1,5 +1,7 @@
 extends CharacterBody3D;
 
+signal enemy_death
+
 @export var speed = 2;
 @export var health = 20;
 @export var attack_range = 5;
@@ -17,7 +19,6 @@ func _physics_process(delta):
 		attack();
 		
 	var direction = (player.global_transform.origin - global_transform.origin).normalized();
-	basis.looking_at(direction);
 	velocity = direction * speed;
 	move_and_slide();
 	
@@ -27,6 +28,7 @@ func attack():
 func take_damage(damage):
 	health -= damage;
 	if health <= 0:
+		emit_signal("enemy_death")
 		die();
 		return;
 	ani_player.play("damage_taken");
