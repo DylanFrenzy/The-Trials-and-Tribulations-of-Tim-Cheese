@@ -662,7 +662,6 @@ material = ExtResource("12_dg5pf")
 [node name="Pistol2" parent="." instance=ExtResource("2_20781")]
 transform = Transform3D(-3.61999e-07, 0, -0.1, 0, 0.1, 0, 0.1, 0, -3.61999e-07, 0.196731, -0.0556682, -0.284847)
 visible = false
-script = ExtResource("4_afw81")
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="Pistol2"]
 root_node = NodePath("../../Node3D/Pistol")
