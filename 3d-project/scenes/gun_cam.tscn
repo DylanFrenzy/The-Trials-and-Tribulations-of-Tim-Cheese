@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://b17m2m5d4cdix"]
+[gd_scene load_steps=30 format=4 uid="uid://b17m2m5d4cdix"]
 
 [ext_resource type="PackedScene" uid="uid://uo8qyngydbub" path="res://assets/Arms.tscn" id="1_03c0v"]
 [ext_resource type="Script" uid="uid://dbkokuf3jkrkn" path="res://scripts/gun_cam.gd" id="1_ktk0j"]
@@ -11,6 +11,7 @@
 [ext_resource type="Material" uid="uid://uu6xha81wcsf" path="res://materials/Arms.tres" id="10_vc4ct"]
 [ext_resource type="Material" uid="uid://clib3jsw7xdh7" path="res://materials/shirt.tres" id="11_dg5pf"]
 [ext_resource type="Material" uid="uid://cjq8ydlcyvrnp" path="res://materials/mag_pistol_skin.tres" id="12_dg5pf"]
+[ext_resource type="Material" uid="uid://8d65jjkpvqql" path="res://materials/gun metal.tres" id="12_i371p"]
 
 [sub_resource type="Animation" id="Animation_tf6ll"]
 resource_name = "Fire"
@@ -604,6 +605,22 @@ _data = {
 
 [sub_resource type="Theme" id="Theme_vc4ct"]
 
+[sub_resource type="BoxMesh" id="BoxMesh_wfaqt"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_jtfo8"]
+top_radius = 0.3
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_218sg"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_6e0xu"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_l3yuo"]
+
+[sub_resource type="TorusMesh" id="TorusMesh_dg5pf"]
+inner_radius = 0.355
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_i371p"]
+
 [node name="GunCam" type="Camera3D"]
 transform = Transform3D(-3.61999e-06, 0, -1, 0, 1, 0, 1, 0, -3.61999e-06, 0, 0, 0)
 script = ExtResource("1_ktk0j")
@@ -703,3 +720,64 @@ grow_vertical = 0
 theme = SubResource("Theme_vc4ct")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 100
+
+[node name="Sniper Rifle" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Sniper Rifle"]
+transform = Transform3D(-0.0836861, 0, 0, 0, 0.0537959, 0, 0, 0, 1.27557, 0.222263, -0.00124715, -0.729579)
+mesh = SubResource("BoxMesh_wfaqt")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Sniper Rifle"]
+transform = Transform3D(-0.0877708, 0, 5.68434e-14, 0, 0.257999, 0, 0, 0, 0.196175, 0.222263, -0.0945606, 0.00655954)
+mesh = SubResource("BoxMesh_wfaqt")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Sniper Rifle"]
+transform = Transform3D(-0.0376059, -1.76164e-13, 1.17405e-14, 0, -2.99493e-08, 0.0405182, 0, -0.685161, -1.77111e-09, 0.223901, 0.0264987, -0.786331)
+material_override = ExtResource("11_dg5pf")
+mesh = SubResource("CylinderMesh_jtfo8")
+skeleton = NodePath("../..")
+
+[node name="bolt" type="MeshInstance3D" parent="Sniper Rifle"]
+transform = Transform3D(-0.047, -1.0315e-08, 5.83605e-11, 0, 0.00157546, 0.0499955, -4.10887e-09, 0.117989, -0.000667566, 0.223901, 0.0264987, -0.19297)
+mesh = SubResource("CylinderMesh_218sg")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("12_i371p")
+
+[node name="bolt_handle" type="MeshInstance3D" parent="Sniper Rifle"]
+transform = Transform3D(0.000883528, -0.0304033, 0.00384137, -0.00163598, 0.00873608, 0.0128403, -0.0125303, -0.00328436, -0.00140559, 0.17673, 0.0376748, -0.187303)
+mesh = SubResource("CylinderMesh_jtfo8")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("12_i371p")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="Sniper Rifle"]
+transform = Transform3D(0.00470659, 0.00294176, 0.00144183, -0.00136363, 0.000718083, 0.00501631, -0.000298478, 0.0431065, -0.00018196, 0.199315, 0.0328967, -0.138988)
+material_override = ExtResource("11_dg5pf")
+mesh = SubResource("CylinderMesh_jtfo8")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("12_i371p")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="Sniper Rifle"]
+transform = Transform3D(0.0932896, 8.88678e-14, 0, 0, -1.08769e-08, 0.0679092, 3.3317e-14, -0.248836, -2.9684e-09, 0.214674, -0.0237324, -0.777587)
+mesh = SubResource("CylinderMesh_6e0xu")
+
+[node name="Mag" type="MeshInstance3D" parent="Sniper Rifle"]
+transform = Transform3D(-0.0355972, 0, 0, 0, 0.115795, 0, 0, 0, 0.159227, 0.218702, -0.198562, 0.0057812)
+mesh = SubResource("BoxMesh_l3yuo")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Sniper Rifle"]
+transform = Transform3D(0.0502265, 0, 0, 0, -1.74026e-08, -0.0502265, 0, 0.398126, -2.19547e-09, 0.22594, 0.101042, -0.184115)
+mesh = SubResource("TorusMesh_dg5pf")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Sniper Rifle"]
+transform = Transform3D(0.0171841, 0, 0, 0, 0.0386572, 0, 0, 0, 0.0171841, 0.262546, 0.0401204, -0.128511)
+mesh = SubResource("CylinderMesh_i371p")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="Sniper Rifle"]
+transform = Transform3D(0.0171841, 0, 0, 0, 0.0386572, 0, 0, 0, 0.0171841, 0.262546, 0.0401204, -0.178596)
+mesh = SubResource("CylinderMesh_i371p")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="Sniper Rifle"]
+transform = Transform3D(0.0171841, 0, 0, 0, 0.0386572, 0, 0, 0, 0.0171841, 0.262546, 0.0401204, -0.234188)
+mesh = SubResource("CylinderMesh_i371p")
