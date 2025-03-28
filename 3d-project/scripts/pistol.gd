@@ -18,7 +18,6 @@ func _ready():
 	
 func _input(event: InputEvent) -> void:
 	if (event.is_action_pressed("shoot")):
-		print("A")
 		if ani_player.is_playing(): return
 		if current_ammo != 0:
 			current_ammo -= 1;
