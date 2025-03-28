@@ -21,3 +21,8 @@ func _input(event: InputEvent) -> void:
 		if animation_player.is_playing(): return
 		animation_player.play("Fire")
 		Muzzle_Flash.emitting = true
+
+	if (event.is_action_pressed("reload")):
+		if animation_player.is_playing(): return
+		animation_player.play("Reload")
+		
