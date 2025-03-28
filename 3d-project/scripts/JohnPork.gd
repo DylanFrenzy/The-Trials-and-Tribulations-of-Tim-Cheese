@@ -26,17 +26,8 @@ func take_damage(damage):
 	if health <= 0:
 		emit_signal("enemy_death")
 		die();
-	else:
-		flash_red()
-
-func flash_red():
-	var mesh = $MeshInstance3D
-	var material = mesh.get_surface_override_material(0).duplicate()
-	mesh.set_surface_override_material(0, material)
-	var og_color = material.albedo_color
-	material.albedo_color = Color.RED
-	await get_tree().create_timer(0.1).timeout
-	material.albedo_color = og_color
+		return;
+	ani_player.play("damage_taken");
 
 func die():
 	queue_free();
