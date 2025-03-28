@@ -28,6 +28,7 @@ func take_damage(damage):
 	health -= damage;
 	if health <= 0:
 		die();
+		return;
 	ani_player.play("damage_taken");
 
 func die():
