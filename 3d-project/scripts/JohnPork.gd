@@ -5,11 +5,12 @@ extends CharacterBody3D;
 @export var attack_range = 5;
 
 var player;
+var ani_player;
 
 func _ready():
 	player = get_tree().root.get_node("Node3D/CharacterBody3D");
+	ani_player= $AnimationPlayer
 	
-
 func _physics_process(delta):
 	var distance_to_player = global_transform.origin.distance_to(player.global_transform.origin);
 	if distance_to_player <= attack_range:
@@ -23,12 +24,11 @@ func _physics_process(delta):
 func attack():
 	pass;
 	
-
 func take_damage(damage):
 	health -= damage;
 	if health <= 0:
 		die();
-	$AnimationPlayer.play("damage_taken");
+	ani_player.play("damage_taken");
 
 func die():
 	queue_free();

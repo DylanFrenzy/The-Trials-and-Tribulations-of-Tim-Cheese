@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cwvmoqdyec4ah"]
+[gd_scene load_steps=8 format=3 uid="uid://cwvmoqdyec4ah"]
 
 [ext_resource type="Material" uid="uid://8d65jjkpvqql" path="res://materials/gun metal.tres" id="1_nmshe"]
 [ext_resource type="Material" uid="uid://b0p6epab2p0g1" path="res://materials/new_standard_material_3d.tres" id="2_bxbka"]
+[ext_resource type="PackedScene" uid="uid://cyp0qoellw4ur" path="res://assets/muzzle_flash.tscn" id="3_bxbka"]
 
 [sub_resource type="Animation" id="Animation_6e3nq"]
 length = 0.001
@@ -97,3 +98,11 @@ material = SubResource("StandardMaterial3D_78vgs")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000100136, -0.00268447, 0.000457525)
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.4, 0)
+target_position = Vector3(-90, 0, 0)
+
+[node name="muzzle_flash" parent="." instance=ExtResource("3_bxbka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0.4, -2)
+amount = 8

@@ -44,7 +44,7 @@ tracks/0/path = NodePath("MeshInstance3D:surface_material_override/0:albedo_colo
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
+"times": PackedFloat32Array(0, 0.266667),
 "transitions": PackedFloat32Array(1, 3.5055e-05),
 "update": 2,
 "values": [Color(0.544141, 0.217452, 0.193329, 0.435294), Color(1, 0.854902, 1, 0.435294)]

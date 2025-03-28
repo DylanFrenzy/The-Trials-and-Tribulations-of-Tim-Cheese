@@ -127,10 +127,6 @@ shape = SubResource("BoxShape3D_a0tk4")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00545561, 0.302284, -0.307624)
 cull_mask = 1048573
 
-[node name="RayCast3D" type="RayCast3D" parent="CharacterBody3D/Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 30.4097, 0.00545561, -0.432044, 0.307624)
-target_position = Vector3(0, 6, -100)
-
 [node name="SubViewportContainer" type="SubViewportContainer" parent="CharacterBody3D/Camera3D"]
 anchors_preset = 15
 anchor_right = 1.0
