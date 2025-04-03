@@ -9,6 +9,7 @@ class_name Gun
 @onready var muzzle_flash = $muzzle_flash
 @onready var ray_caster = get_parent().get_parent().get_node("RayCast3D");
 @onready var ammo_display = get_tree().root.get_node("Node3D/hud/Ammo")
+@onready var click_sound = get_parent().get_parent().get_node("AudioStreamPlayer3D5");
 var is_reloading := false
 
 func _ready():
@@ -26,12 +27,13 @@ func _input(event):
 				var target = ray_caster.get_collider();
 				if target.has_method("take_damage"):
 					target.take_damage(10);
+		else: click_sound.play()
 
 	if (event.is_action_pressed("reload")):
 		muzzle_flash.emitting = false
 		if ani_player.is_playing() || is_reloading || current_ammo == max_ammo: return
 		is_reloading = true
-		ani_player.play("Reload")
+		ani_player.play("reload_2")
 		await ani_player.animation_finished
 		current_ammo = max_ammo
 		update_ammo_display(max_ammo)

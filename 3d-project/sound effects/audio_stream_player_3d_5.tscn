@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dm4fmpwaiv00o"]
+
+[ext_resource type="AudioStream" uid="uid://dtklgsfe6saff" path="res://sound effects/15545__lagthenoggin__reload.mp3" id="1_8a0kf"]
+
+[node name="AudioStreamPlayer3D5" type="AudioStreamPlayer3D"]
+stream = ExtResource("1_8a0kf")

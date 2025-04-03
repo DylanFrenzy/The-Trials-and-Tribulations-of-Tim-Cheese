@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dtklgsfe6saff"
+path="res://.godot/imported/15545__lagthenoggin__reload.mp3-442f99bb1224c1193b68b604e1d140f3.mp3str"
+
+[deps]
+
+source_file="res://sound effects/15545__lagthenoggin__reload.mp3"
+dest_files=["res://.godot/imported/15545__lagthenoggin__reload.mp3-442f99bb1224c1193b68b604e1d140f3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
