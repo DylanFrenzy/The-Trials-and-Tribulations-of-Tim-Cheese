@@ -313,7 +313,7 @@ height = 1.588
 radius = 0.269043
 
 [node name="CharacterBody3D" type="CharacterBody3D"]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 0.794, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.794, 0, 0, 0, 1, 0, 0, 0)
 script = ExtResource("1_fd3r2")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -327,7 +327,7 @@ mesh = SubResource("SphereMesh_2t3h4")
 surface_material_override/0 = ExtResource("1_plc7i")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="MeshInstance3D2"]
-transform = Transform3D(2.93743e-08, -0.0943651, 0, 0.283818, 1.16575e-08, 0, 0, 0, 0.225997, 0.413502, 0.0853131, 0.190658)
+transform = Transform3D(2.14277e-08, -0.0943651, 0, 0.283818, 7.12437e-09, 0, 0, 0, 0.225997, 0.413502, 0.0853131, 0.190658)
 material_override = ExtResource("2_fd3r2")
 mesh = SubResource("CylinderMesh_8jkq1")
 
@@ -368,12 +368,12 @@ material_override = ExtResource("1_plc7i")
 mesh = SubResource("CylinderMesh_8jkq1")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="MeshInstance3D3"]
-transform = Transform3D(-0.283818, -7.53268e-09, 0, 1.69683e-08, -0.0943651, 0, 0, 0, 0.225997, 0.0716095, 1.03736, 0.216768)
+transform = Transform3D(0.283818, 0, 0, 0, 0.0943651, 0, 0, 0, 0.225997, 0.0716095, 1.03736, 0.216768)
 material_override = ExtResource("2_fd3r2")
 mesh = SubResource("CylinderMesh_8jkq1")
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="MeshInstance3D3"]
-transform = Transform3D(-0.283818, -7.53268e-09, 0, 1.69683e-08, -0.0943651, 0, 0, 0, 0.225997, 0.0716095, 1.03736, -0.190456)
+transform = Transform3D(0.283818, 0, 0, 0, 0.0943651, 0, 0, 0, 0.225997, 0.0716095, 1.03736, -0.190456)
 material_override = ExtResource("2_fd3r2")
 mesh = SubResource("CylinderMesh_8jkq1")
 

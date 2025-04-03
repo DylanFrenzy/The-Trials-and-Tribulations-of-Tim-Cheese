@@ -3,6 +3,7 @@ extends CharacterBody3D;
 signal enemy_death
 
 @export var speed = 4;
+@export var rotation_speed = 5;
 @export var health = 20;
 @export var turn_speed = 3;
 
@@ -16,6 +17,11 @@ signal enemy_death
 func _physics_process(delta):
 	var current_location = global_transform.origin;
 	var player_location = player.global_transform.origin
+	
+	var new_transform = transform.looking_at(player_location, Vector3.UP)
+	new_transform.basis = new_transform.basis.rotated(Vector3.UP, deg_to_rad(90))  
+	transform = transform.interpolate_with(new_transform, rotation_speed * delta)
+	
 	nav_agent.target_position = player_location 
 	var next_location = nav_agent.get_next_path_position();
 	var target_velocity = (next_location - current_location).normalized() * speed
