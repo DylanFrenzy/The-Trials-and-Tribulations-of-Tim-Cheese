@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://uo8qyngydbub" path="res://assets/Arms.tscn" id="1_03c0v"]
 [ext_resource type="Script" uid="uid://dbkokuf3jkrkn" path="res://scripts/gun_cam.gd" id="1_ktk0j"]
 [ext_resource type="PackedScene" uid="uid://cwvmoqdyec4ah" path="res://assets/pistol.tscn" id="2_20781"]
-[ext_resource type="Script" uid="uid://cnpg01ajvsom3" path="res://scripts/pistol.gd" id="4_afw81"]
+[ext_resource type="Script" uid="uid://cnpg01ajvsom3" path="res://scripts/guns/pistol.gd" id="4_afw81"]
 [ext_resource type="AudioStream" uid="uid://b0o8epq0juwlr" path="res://sound effects/489069__tiliadesign__pistol-perfect-shot-with-silencer.wav" id="4_kb61h"]
 [ext_resource type="AudioStream" uid="uid://bcujp8y1baks3" path="res://sound effects/405538__nebulasnails__pistol-cock.wav" id="4_utigt"]
 [ext_resource type="AnimationLibrary" uid="uid://dvc0gjnq4kdv6" path="res://assets/Anim_lib/pistol.res" id="5_6r2yp"]
@@ -689,7 +689,7 @@ transform = Transform3D(-3.61999e-07, 0, -0.1, 0, 0.1, 0, 0.1, 0, -3.61999e-07, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.13019, 0.423723, 0.0856413)
 script = ExtResource("4_afw81")
 
-[node name="AnimationPlayer2" type="AnimationPlayer" parent="Node3D/Pistol"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Node3D/Pistol"]
 libraries = {
 &"": SubResource("AnimationLibrary_mk8an"),
 &"pistol": ExtResource("5_6r2yp")
@@ -739,7 +739,7 @@ material = ExtResource("12_dg5pf")
 transform = Transform3D(-3.61999e-07, 0, -0.1, 0, 0.1, 0, 0.1, 0, -3.61999e-07, 0.196731, -0.0556682, -0.284847)
 visible = false
 
-[node name="AnimationPlayer2" type="AnimationPlayer" parent="Pistol2"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pistol2"]
 root_node = NodePath("../../Node3D/Pistol")
 libraries = {
 &"": SubResource("AnimationLibrary_mk8an"),
@@ -774,6 +774,7 @@ surface_material_override/0 = ExtResource("12_i371p")
 
 [node name="bolt_handle" type="MeshInstance3D" parent="Sniper Rifle"]
 transform = Transform3D(0.000883528, -0.0304033, 0.00384137, -0.00163598, 0.00873608, 0.0128403, -0.0125303, -0.00328436, -0.00140559, 0.17673, 0.0376748, -0.187303)
+visible = false
 mesh = SubResource("CylinderMesh_jtfo8")
 skeleton = NodePath("../..")
 surface_material_override/0 = ExtResource("12_i371p")

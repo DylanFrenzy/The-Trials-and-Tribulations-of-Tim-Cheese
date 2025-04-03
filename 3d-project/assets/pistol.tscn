@@ -1,64 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://cwvmoqdyec4ah"]
+[gd_scene load_steps=5 format=3 uid="uid://cwvmoqdyec4ah"]
 
 [ext_resource type="Material" uid="uid://8d65jjkpvqql" path="res://materials/gun metal.tres" id="1_nmshe"]
 [ext_resource type="Material" uid="uid://b0p6epab2p0g1" path="res://materials/new_standard_material_3d.tres" id="2_bxbka"]
 [ext_resource type="PackedScene" uid="uid://cyp0qoellw4ur" path="res://assets/muzzle_flash.tscn" id="3_bxbka"]
-
-[sub_resource type="Animation" id="Animation_6e3nq"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CSGBox3D:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_bttkv"]
-resource_name = "idle"
-length = 3.0
-loop_mode = 1
-tracks/0/type = "rotation_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CSGBox3D")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array()
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CSGBox3D:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_646vd"]
-_data = {
-&"RESET": SubResource("Animation_6e3nq"),
-&"idle": SubResource("Animation_bttkv")
-}
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_78vgs"]
 render_priority = 1
 albedo_color = Color(0.212305, 0.212305, 0.212305, 1)
 
 [node name="Pistol" type="Node3D"]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_646vd")
-}
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
 layers = 2
