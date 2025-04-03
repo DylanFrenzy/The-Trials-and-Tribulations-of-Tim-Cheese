@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cdfgqfdocgm2m"]
+
+[ext_resource type="Material" uid="uid://841lpp2xmlgw" path="res://materials/johnporkskin.tres" id="1_dijon"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7idp4"]
+angle_min = -419.0
+angle_max = 259.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_kqlt6"]
+material = ExtResource("1_dijon")
+
+[node name="Node3D" type="Node3D"]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+emitting = false
+amount = 15
+lifetime = 0.4
+one_shot = true
+explosiveness = 0.28
+randomness = 0.09
+process_material = SubResource("ParticleProcessMaterial_7idp4")
+draw_pass_1 = SubResource("SphereMesh_kqlt6")

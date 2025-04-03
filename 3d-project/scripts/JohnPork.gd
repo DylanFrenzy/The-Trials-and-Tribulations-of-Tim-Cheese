@@ -11,6 +11,7 @@ signal enemy_death
 @onready var attack_area = $Area3D
 @onready var ani_player = $AnimationPlayer;
 @onready var mesh = $MeshInstance3D
+@onready var porkie_particles = $porkie_particle/GPUParticles3D;
 
 func _physics_process(delta):
 	var current_location = global_transform.origin;
@@ -34,7 +35,17 @@ func take_damage(damage):
 		material.albedo_color = og_color
 
 func die():
-	queue_free();
+	porkie_particles.restart()
+	porkie_particles.emitting = true
+	
+	# Detach the particles from the enemy so they don't get deleted with it
+	var particles_parent = get_tree().root
+	porkie_particles.reparent(particles_parent)
+	
+	# Set the particles to auto-free when they finish
+	porkie_particles.finished.connect(porkie_particles.queue_free)
+	
+	queue_free()
 	
 func _on_area_3d_body_entered(body: Node3D) -> void:
 	if body == player:
