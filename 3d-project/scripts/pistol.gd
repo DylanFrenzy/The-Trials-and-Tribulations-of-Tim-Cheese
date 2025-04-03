@@ -7,7 +7,7 @@ extends Node3D
 
 @onready var ani_player = $AnimationPlayer2;
 @onready var muzzle_flash = $muzzle_flash
-@onready var ray_caster = $RayCast3D;
+@onready var ray_caster = get_parent().get_parent().get_node("RayCast3D");
 @onready var ammo_display = get_tree().root.get_node("Node3D/hud/Ammo")
 var is_reloading := false
 

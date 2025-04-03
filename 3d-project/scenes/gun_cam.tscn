@@ -678,6 +678,10 @@ inner_radius = 0.659
 transform = Transform3D(-3.61999e-06, 0, -1, 0, 1, 0, 1, 0, -3.61999e-06, 0, 0, 0)
 script = ExtResource("1_ktk0j")
 
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(-3.61999e-07, 0, -0.1, 0, 0.1, 0, 0.1, 0, -3.61999e-07, 0, -0.014984, 0)
+target_position = Vector3(-1e+07, 0, 0)
+
 [node name="Node3D" parent="." instance=ExtResource("1_03c0v")]
 transform = Transform3D(-3.61999e-07, 0, -0.1, 0, 0.1, 0, 0.1, 0, -3.61999e-07, 0.204037, -0.0969836, -0.170399)
 
@@ -690,10 +694,6 @@ libraries = {
 &"": SubResource("AnimationLibrary_mk8an"),
 &"pistol": ExtResource("5_6r2yp")
 }
-
-[node name="RayCast3D" type="RayCast3D" parent="Node3D/Pistol"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.424, 1.95201)
-target_position = Vector3(-1e+07, 0, 0)
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("4_utigt")

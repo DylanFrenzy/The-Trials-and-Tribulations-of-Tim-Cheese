@@ -222,7 +222,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0128174, 0)
 shape = SubResource("BoxShape3D_a0tk4")
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00545561, 0.302284, -0.307624)
 cull_mask = 1048573
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="Player/Camera3D"]
