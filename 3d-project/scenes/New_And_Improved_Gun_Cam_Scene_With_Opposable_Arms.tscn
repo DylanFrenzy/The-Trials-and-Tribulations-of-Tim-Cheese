@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bodhkmke0bu23"]
+[gd_scene load_steps=13 format=3 uid="uid://m1xasnhi6ac4"]
 
 [ext_resource type="PackedScene" uid="uid://b17m2m5d4cdix" path="res://scenes/gun_cam.tscn" id="1_tte5h"]
 [ext_resource type="Material" uid="uid://uu6xha81wcsf" path="res://materials/Arms.tres" id="2_6vmcb"]
