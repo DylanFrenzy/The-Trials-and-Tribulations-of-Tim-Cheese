@@ -1,8 +1,9 @@
-[gd_scene load_steps=32 format=4 uid="uid://b17m2m5d4cdix"]
+[gd_scene load_steps=33 format=4 uid="uid://b17m2m5d4cdix"]
 
 [ext_resource type="PackedScene" uid="uid://uo8qyngydbub" path="res://assets/Arms.tscn" id="1_03c0v"]
 [ext_resource type="Script" uid="uid://dbkokuf3jkrkn" path="res://scripts/gun_cam.gd" id="1_ktk0j"]
 [ext_resource type="PackedScene" uid="uid://cwvmoqdyec4ah" path="res://assets/pistol.tscn" id="2_20781"]
+[ext_resource type="Script" uid="uid://co6dest83b3yh" path="res://scripts/guns/Gun.gd" id="3_wfaqt"]
 [ext_resource type="Script" uid="uid://cnpg01ajvsom3" path="res://scripts/guns/pistol.gd" id="4_afw81"]
 [ext_resource type="AudioStream" uid="uid://b0o8epq0juwlr" path="res://sound effects/489069__tiliadesign__pistol-perfect-shot-with-silencer.wav" id="4_kb61h"]
 [ext_resource type="AudioStream" uid="uid://bcujp8y1baks3" path="res://sound effects/405538__nebulasnails__pistol-cock.wav" id="4_utigt"]
@@ -10,7 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://cwd8wgpk8rb7k" path="res://sound effects/405538_nebulasnails_pistol-cock (mp3cut.net).mp3" id="6_tf6ll"]
 [ext_resource type="AudioStream" uid="uid://dtklgsfe6saff" path="res://sound effects/15545__lagthenoggin__reload.mp3" id="8_i371p"]
 [ext_resource type="Material" uid="uid://uu6xha81wcsf" path="res://materials/Arms.tres" id="10_vc4ct"]
-[ext_resource type="PackedScene" path="res://sound effects/audio_stream_player_3d_5.tscn" id="10_wfaqt"]
+[ext_resource type="PackedScene" uid="uid://dm4fmpwaiv00o" path="res://sound effects/audio_stream_player_3d_5.tscn" id="10_wfaqt"]
 [ext_resource type="Material" uid="uid://clib3jsw7xdh7" path="res://materials/shirt.tres" id="11_dg5pf"]
 [ext_resource type="Material" uid="uid://8d65jjkpvqql" path="res://materials/gun metal.tres" id="12_i371p"]
 
@@ -505,8 +506,10 @@ target_position = Vector3(-1e+07, 0, 0)
 
 [node name="Node3D" parent="." instance=ExtResource("1_03c0v")]
 transform = Transform3D(-3.61999e-07, 0, -0.1, 0, 0.1, 0, 0.1, 0, -3.61999e-07, 0.204037, -0.0969836, -0.170399)
+script = ExtResource("3_wfaqt")
 
 [node name="Pistol" parent="Node3D" instance=ExtResource("2_20781")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.13019, 0.423723, 0.0856413)
 script = ExtResource("4_afw81")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Node3D/Pistol"]
