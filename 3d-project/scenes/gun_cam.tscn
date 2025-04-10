@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://b17m2m5d4cdix"]
+[gd_scene load_steps=9 format=3 uid="uid://b17m2m5d4cdix"]
 
 [ext_resource type="Script" uid="uid://dbkokuf3jkrkn" path="res://scripts/gun_cam.gd" id="1_ktk0j"]
-[ext_resource type="Script" uid="uid://bnj0lvcvjiwth" path="res://scripts/guns/loadout.gd" id="3_jtfo8"]
+[ext_resource type="Script" uid="uid://bnj0lvcvjiwth" path="res://scripts/guns/Loadout.gd" id="3_jtfo8"]
+[ext_resource type="PackedScene" uid="uid://cwvmoqdyec4ah" path="res://assets/guns/pistol.tscn" id="3_utigt"]
+[ext_resource type="PackedScene" uid="uid://muqsn1ymfm7l" path="res://assets/guns/sniper_rifle.tscn" id="4_tf6ll"]
 [ext_resource type="Material" uid="uid://uu6xha81wcsf" path="res://materials/Arms.tres" id="10_vc4ct"]
 [ext_resource type="Material" uid="uid://clib3jsw7xdh7" path="res://materials/shirt.tres" id="11_dg5pf"]
 
@@ -20,6 +22,12 @@ target_position = Vector3(-1e+07, 0, 0)
 [node name="Weapon Holder" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 2.27374e-13, 0, 1, 0, -2.27374e-13, 0, 1, 0, 0, 0)
 script = ExtResource("3_jtfo8")
+
+[node name="Pistol" parent="Weapon Holder" instance=ExtResource("3_utigt")]
+transform = Transform3D(0.99833, 0, -0.0577695, 0, 1, 0, 0.0577695, 0, 0.99833, 0.204037, -0.0969836, -0.170399)
+
+[node name="Sniper" parent="Weapon Holder" instance=ExtResource("4_tf6ll")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.259472, -0.138962, -0.196843)
 
 [node name="right_arm_solo" type="CSGMesh3D" parent="."]
 transform = Transform3D(-1.50048e-09, 8.8327e-07, -0.1, 0.0999992, 0.000979988, -4.65661e-11, 0.000401634, -0.243998, -3.61999e-07, 0.20434, -0.0980372, -0.169024)

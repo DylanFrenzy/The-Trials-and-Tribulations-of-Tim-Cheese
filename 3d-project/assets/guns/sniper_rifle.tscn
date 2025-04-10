@@ -27,7 +27,7 @@ inner_radius = 0.659
 script = ExtResource("1_7glw2")
 
 [node name="Model" type="Node3D" parent="."]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -0.0680592, 0.0861388, -0.180981)
+transform = Transform3D(0.569802, 0, 0, 0, 0.569802, 0, 0, 0, 0.569802, -0.121647, 0.0861388, -0.0225214)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Model"]
 transform = Transform3D(-0.0836861, 0, 0, 0, 0.0537959, 0, 0, 0, 1.27557, 0.222263, -0.00124715, -0.729579)
