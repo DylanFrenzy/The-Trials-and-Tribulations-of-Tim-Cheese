@@ -246,6 +246,6 @@ cull_mask = 1047554
 curve = SubResource("Curve3D_tefeu")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="EnemySpawnPath"]
-transform = Transform3D(-0.00439084, -0.0193575, -0.999796, 0, 0.9998, -0.0193578, 0.999985, -8.49971e-05, -0.00439001, -31.3552, 2.58811, -32.5769)
+transform = Transform3D(-0.00439084, -0.0193575, -0.999795, 0, 0.9998, -0.0193578, 0.999984, -8.49971e-05, -0.00439001, -31.3552, 2.58811, -32.5769)
 
 [node name="hud" parent="." instance=ExtResource("2_o6xl0")]

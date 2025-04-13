@@ -1,7 +1,8 @@
 extends Node
 
 var filepath = "res://assets/guns"
-var gun_instances = [];
+var gun_scenes = [];
+var gun_instances = {};
 var current_gun = 0
 
 func _ready() -> void:
@@ -11,21 +12,36 @@ func _ready() -> void:
 		var file = dir.get_next()
 		while file != "":
 			var scene = load(filepath + "/" + file)
-			var instance = scene.instantiate()
-			gun_instances.append(instance);
+			gun_scenes.append(scene);
 			file = dir.get_next();
 		dir.list_dir_end();
-	add_child(gun_instances[current_gun])
+	swap_weapon(current_gun)
 
 func _input(event: InputEvent) -> void:
-	if (event.is_action_pressed("swap_weapon")):
-		swap_weapon();
+	if (event.is_action_pressed("swap_weapon_down")):
+		current_gun = (current_gun + 1) % gun_scenes.size()
+		swap_weapon(current_gun);
+	
+	if (event.is_action_pressed("swap_weapon_up")):#
+		current_gun = (current_gun - 1 + gun_scenes.size()) % gun_scenes.size()
+		swap_weapon(current_gun);
 		
-func swap_weapon():
+		
+func swap_weapon(to_swap):
 	for child in get_children():
+		print(child)
 		remove_child(child);
-	current_gun = 0 if current_gun == 1 else 1
-	add_child(gun_instances[current_gun])
-	gun_instances[current_gun].update_ammo_display(gun_instances[current_gun].current_ammo)
+	
+	if (gun_instances.has(to_swap)):
+		add_child(gun_instances[to_swap])
+		gun_instances[to_swap].update_ammo_display(gun_instances[to_swap].current_ammo)
+	else:
+		var instance = gun_scenes[to_swap].instantiate()
+		gun_instances[to_swap] = instance
+		print(instance.position)
+		add_child(instance)
+		instance.position = instance.set_position
+		instance.update_ammo_display(instance.current_ammo)
+		
 	
 	

@@ -3,6 +3,7 @@ class_name Gun
 
 @export var damage := 10
 @export var max_ammo := 10
+@export var set_position = Vector3.ZERO
 
 @onready var current_ammo = max_ammo
 #@onready var ani_player = $AnimationPlayer;

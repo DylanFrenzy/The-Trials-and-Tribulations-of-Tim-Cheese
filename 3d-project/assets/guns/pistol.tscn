@@ -476,11 +476,11 @@ _data = {
 }
 
 [node name="Pistol" type="Node3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.204037, -0.0969836, -0.170399)
+transform = Transform3D(-3.61999e-06, 0, -1, 0, 1, 0, 1, 0, -3.61999e-06, 0.204037, -0.0969836, -0.170399)
 script = ExtResource("1_otpoe")
 
 [node name="Model" type="Node3D" parent="."]
-transform = Transform3D(-4.37114e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.37114e-09, -0.00110237, 0.0690217, -0.147856)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Model"]
 layers = 2
