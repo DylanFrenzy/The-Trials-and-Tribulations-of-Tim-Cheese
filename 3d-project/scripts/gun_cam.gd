@@ -1,13 +1,17 @@
 extends Camera3D
 
-@onready var weapon_holder = get_node("Weapon Holder")
+var gun;
+
+func _ready() -> void:
+	get_active_gun()
+
+func get_active_gun():
+	gun = get_node("Weapon Holder").get_child(0)
 
 func _process(delta):
-	#weapon_holder.position.x = lerp(weapon_holder.position.x, 0.204, delta * 5)
-	#weapon_holder.position.y = lerp(weapon_holder.position.y, -0.17, delta * 5)
-	pass
+	gun.position.x = lerp(gun.position.x, 0.204, delta * 5)
+	gun.position.y = lerp(gun.position.y, -0.17, delta * 5)
 
 func sway(sway_amount):
-	pass
-	#weapon_holder.position.x -= sway_amount.x * 0.0002
-	#weapon_holder.position.y += sway_amount.y * 0.0002
+	gun.position.x -= sway_amount.x * 0.0002
+	gun.position.y += sway_amount.y * 0.0002

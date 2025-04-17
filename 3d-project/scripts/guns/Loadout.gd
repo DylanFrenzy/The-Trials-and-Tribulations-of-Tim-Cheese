@@ -1,5 +1,7 @@
 extends Node
 
+@onready var gun_cam = get_parent()
+
 var filepath = "res://assets/guns"
 var gun_scenes = [];
 var gun_instances = {};
@@ -25,15 +27,13 @@ func _input(event: InputEvent) -> void:
 	if (event.is_action_pressed("swap_weapon_up")):#
 		current_gun = (current_gun - 1 + gun_scenes.size()) % gun_scenes.size()
 		swap_weapon(current_gun);
-		
-		
+
 func swap_weapon(to_swap):
 	for child in get_children():
 		remove_child(child);
 	
 	if (gun_instances.has(to_swap)):
 		var instance = gun_instances[to_swap]
-		print(instance.position)
 		add_child(instance)
 		instance.update_ammo_display(instance.current_ammo)
 	else:
@@ -41,8 +41,10 @@ func swap_weapon(to_swap):
 		gun_instances[to_swap] = instance
 		add_child(instance)
 		instance.position = instance.set_position
-		print(instance.position)
 		instance.update_ammo_display(instance.current_ammo)
+	gun_cam.get_active_gun()
+	
+	
 		
 		
 	
