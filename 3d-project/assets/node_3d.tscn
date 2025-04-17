@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cuthprtehnn6"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_2rqsv"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_oftel"]
+
+[node name="Node3D" type="MeshInstance3D"]
+mesh = SubResource("BoxMesh_2rqsv")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.0165619, -0.999811, 0, 0.851712, -0.0194417, 0, 0, 1.11674)
+mesh = SubResource("CylinderMesh_oftel")

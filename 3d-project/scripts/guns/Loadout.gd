@@ -43,9 +43,3 @@ func swap_weapon(to_swap):
 		instance.position = instance.set_position
 		instance.update_ammo_display(instance.current_ammo)
 	gun_cam.get_active_gun()
-	
-	
-		
-		
-	
-	
