@@ -8,5 +8,6 @@ func _process(delta):
 	pass
 
 func sway(sway_amount):
-	weapon_holder.position.x -= sway_amount.x * 0.0002
-	weapon_holder.position.y += sway_amount.y * 0.0002
+	pass
+	#weapon_holder.position.x -= sway_amount.x * 0.0002
+	#weapon_holder.position.y += sway_amount.y * 0.0002
