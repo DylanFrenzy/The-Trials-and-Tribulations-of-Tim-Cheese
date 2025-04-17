@@ -29,19 +29,21 @@ func _input(event: InputEvent) -> void:
 		
 func swap_weapon(to_swap):
 	for child in get_children():
-		print(child)
 		remove_child(child);
 	
 	if (gun_instances.has(to_swap)):
-		add_child(gun_instances[to_swap])
-		gun_instances[to_swap].update_ammo_display(gun_instances[to_swap].current_ammo)
+		var instance = gun_instances[to_swap]
+		print(instance.position)
+		add_child(instance)
+		instance.update_ammo_display(instance.current_ammo)
 	else:
 		var instance = gun_scenes[to_swap].instantiate()
 		gun_instances[to_swap] = instance
-		print(instance.position)
 		add_child(instance)
 		instance.position = instance.set_position
+		print(instance.position)
 		instance.update_ammo_display(instance.current_ammo)
+		
 		
 	
 	

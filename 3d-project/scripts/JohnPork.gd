@@ -19,9 +19,9 @@ func _physics_process(delta):
 	var player_location = player.global_transform.origin
 	
 	var target_transform = Vector3(player_location.x, current_location.y, player_location.z)
-	var new_transform = transform.looking_at(player_location, Vector3.UP)  
-	new_transform.basis = new_transform.basis.rotated(Vector3(0, 1, 0), deg_to_rad(90))
-	transform = transform.interpolate_with(new_transform, rotation_speed * delta)
+	var new_transform = transform.looking_at(target_transform, Vector3.UP)
+	new_transform.basis = new_transform.basis.rotated(Vector3.UP, deg_to_rad(90))
+	transform = transform.interpolate_with(new_transform, speed * delta)
 	
 	nav_agent.target_position = player_location 
 	var next_location = nav_agent.get_next_path_position();
