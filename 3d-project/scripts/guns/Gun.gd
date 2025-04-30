@@ -6,7 +6,7 @@ class_name Gun
 @export var set_position = Vector3.ZERO
 
 @onready var current_ammo = max_ammo
-#@onready var ani_player = $AnimationPlayer;
+@onready var ani_player = $AnimationPlayer;
 #@onready var muzzle_flash = $muzzle_flash
 @onready var ray_caster = get_parent().get_parent().get_node("RayCast3D");
 @onready var ammo_display = get_tree().root.get_node("Node3D/hud/Ammo")
