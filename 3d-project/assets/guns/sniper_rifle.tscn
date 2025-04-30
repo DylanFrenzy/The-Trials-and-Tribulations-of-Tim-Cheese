@@ -1,10 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://muqsn1ymfm7l"]
+[gd_scene load_steps=16 format=3 uid="uid://muqsn1ymfm7l"]
 
 [ext_resource type="Script" uid="uid://b46m75oje3j06" path="res://scripts/guns/sniper.gd" id="1_7glw2"]
 [ext_resource type="Material" uid="uid://clib3jsw7xdh7" path="res://materials/shirt.tres" id="2_egkls"]
 [ext_resource type="Material" uid="uid://8d65jjkpvqql" path="res://materials/gun metal.tres" id="3_4xaku"]
 [ext_resource type="PackedScene" uid="uid://uo8qyngydbub" path="res://assets/Arms.tscn" id="4_joobf"]
-[ext_resource type="Script" uid="uid://b5snw4j4on36w" path="res://scripts/guns/zoom_cam.gd" id="5_egkls"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_0ulyt"]
 
@@ -71,19 +70,6 @@ _data = {
 &"RESET": SubResource("Animation_4xaku"),
 &"zoom": SubResource("Animation_egkls")
 }
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_egkls"]
-viewport_path = NodePath("SubViewportContainer/SubViewport")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_joobf"]
-resource_local_to_scene = true
-shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_egkls")
-albedo_texture_force_srgb = true
-uv1_offset = Vector3(0.235, -0.135, 0)
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_7glw2"]
-material = SubResource("StandardMaterial3D_joobf")
 
 [node name="Sniper" type="Node3D"]
 script = ExtResource("1_7glw2")
@@ -196,23 +182,3 @@ transform = Transform3D(-4.37114e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.37114e-09, 
 libraries = {
 &"": SubResource("AnimationLibrary_joobf")
 }
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.0466657, 0.000889781, -5.8246e-10, 0, -1.50273e-10, -0.0514844, -0.012504, -0.00332071, 2.17377e-09, 0.00875832, 0.16681, -0.148456)
-mesh = SubResource("CylinderMesh_7glw2")
-
-[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
-anchors_preset = -1
-anchor_right = 0.445
-anchor_bottom = 0.792
-offset_right = 0.359985
-offset_bottom = -0.216064
-
-[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
-handle_input_locally = false
-render_target_update_mode = 4
-
-[node name="ZoomCam" type="Camera3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D(0.999905, -2.97995e-08, 0.0137702, 2.98023e-08, 1, 9.49804e-17, -0.0137702, 4.10384e-10, 0.999905, 0.00608981, 0.168385, -0.178879)
-fov = 20.0
-script = ExtResource("5_egkls")
