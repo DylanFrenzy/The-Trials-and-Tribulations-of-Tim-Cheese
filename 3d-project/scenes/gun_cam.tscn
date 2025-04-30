@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://b17m2m5d4cdix"]
 
 [ext_resource type="Script" uid="uid://dbkokuf3jkrkn" path="res://scripts/gun_cam.gd" id="1_ktk0j"]
-[ext_resource type="Script" uid="uid://bnj0lvcvjiwth" path="res://scripts/guns/loadout.gd" id="3_jtfo8"]
+[ext_resource type="Script" uid="uid://bnj0lvcvjiwth" path="res://scripts/guns/Loadout.gd" id="3_jtfo8"]
 [ext_resource type="Material" uid="uid://uu6xha81wcsf" path="res://materials/Arms.tres" id="10_vc4ct"]
 [ext_resource type="Material" uid="uid://clib3jsw7xdh7" path="res://materials/shirt.tres" id="11_dg5pf"]
 

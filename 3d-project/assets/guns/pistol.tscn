@@ -480,7 +480,7 @@ transform = Transform3D(-3.61999e-06, 0, -1, 0, 1, 0, 1, 0, -3.61999e-06, 0.2040
 script = ExtResource("1_otpoe")
 
 [node name="Model" type="Node3D" parent="."]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -0.155805, 0.0348366, -0.0934098)
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, -1.13019, 0.423723, 0.0856413)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Model"]
 layers = 2

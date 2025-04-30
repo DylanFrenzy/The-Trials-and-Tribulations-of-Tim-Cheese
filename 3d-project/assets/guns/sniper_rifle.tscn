@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://muqsn1ymfm7l"]
+[gd_scene load_steps=20 format=3 uid="uid://muqsn1ymfm7l"]
 
 [ext_resource type="Script" uid="uid://b46m75oje3j06" path="res://scripts/guns/sniper.gd" id="1_7glw2"]
 [ext_resource type="Material" uid="uid://clib3jsw7xdh7" path="res://materials/shirt.tres" id="2_egkls"]
@@ -24,14 +24,61 @@ inner_radius = 0.659
 
 [sub_resource type="BoxMesh" id="BoxMesh_aov3x"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_4xaku"]
+[sub_resource type="Animation" id="Animation_egkls"]
+resource_name = "zoom"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath("../../Sniper Rifle:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -0.0404978, -0.212393)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 0.233259),
+"update": 0,
+"values": [Vector3(0, -0.0404978, -0.212393), Vector3(-0.228783, -0.0990999, 0.0263968)]
+}
+
+[sub_resource type="Animation" id="Animation_4xaku"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_joobf"]
+_data = {
+&"RESET": SubResource("Animation_4xaku"),
+&"zoom": SubResource("Animation_egkls")
+}
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_egkls"]
 viewport_path = NodePath("SubViewportContainer/SubViewport")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_joobf"]
 resource_local_to_scene = true
 shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_4xaku")
-uv1_scale = Vector3(-1.94, -1.84, -1)
+albedo_texture = SubResource("ViewportTexture_egkls")
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_7glw2"]
 material = SubResource("StandardMaterial3D_joobf")
@@ -144,6 +191,9 @@ skeleton = NodePath("")
 transform = Transform3D(-4.37114e-09, 0, -0.1, 0, 0.1, 0, 0.1, 0, -4.37114e-09, 0, 0, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_joobf")
+}
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.0466657, 0.000889781, -5.8246e-10, 0, -1.50273e-10, -0.0514844, -0.012504, -0.00332071, 2.17377e-09, 0.00875832, 0.16681, -0.105784)
@@ -157,8 +207,10 @@ offset_right = 0.359985
 offset_bottom = -0.216064
 
 [node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+handle_input_locally = false
+render_target_update_mode = 4
 
 [node name="ZoomCam" type="Camera3D" parent="SubViewportContainer/SubViewport"]
-transform = Transform3D(0.999905, -2.97995e-08, 0.0137702, 2.98023e-08, 1, 7.33359e-16, -0.0137702, 4.10384e-10, 0.999905, 0.00287947, 0.168573, -0.187844)
+transform = Transform3D(0.999905, -2.97995e-08, 0.0137702, 2.98023e-08, 1, 1.22736e-16, -0.0137702, 4.10384e-10, 0.999905, 0.00608981, 0.136799, -0.389524)
 fov = 20.0
 script = ExtResource("5_egkls")
