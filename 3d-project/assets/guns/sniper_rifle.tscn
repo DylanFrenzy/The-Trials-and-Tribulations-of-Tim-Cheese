@@ -79,6 +79,7 @@ viewport_path = NodePath("SubViewportContainer/SubViewport")
 resource_local_to_scene = true
 shading_mode = 0
 albedo_texture = SubResource("ViewportTexture_egkls")
+albedo_texture_force_srgb = true
 uv1_offset = Vector3(0.235, -0.135, 0)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_7glw2"]
