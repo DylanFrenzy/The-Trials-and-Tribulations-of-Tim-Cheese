@@ -3,7 +3,6 @@ extends Node3D
 @export var damage := 10
 @export var max_ammo := 10
 @export var current_ammo := 10
-@export var reload_time := 2.0
 
 @onready var ani_player = $AnimationPlayer2;
 @onready var muzzle_flash = $muzzle_flash
@@ -26,7 +25,7 @@ func _input(event):
 			if ray_caster.is_colliding():
 				var target = ray_caster.get_collider();
 				if target.has_method("take_damage"):
-					target.take_damage(10);
+					target.take_damage(damage);
 
 	if (event.is_action_pressed("reload")):
 		muzzle_flash.emitting = false

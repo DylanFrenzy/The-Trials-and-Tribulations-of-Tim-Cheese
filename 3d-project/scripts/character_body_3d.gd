@@ -30,18 +30,6 @@ func _input(event):
 		camera.rotate_x(deg_to_rad(-event.relative.y * mouse_sensitivity))
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 		GunCam.sway(Vector2(event.relative.x, event.relative.y))
-	
-	if event.is_action_pressed("zoom"):
-		Zoom()
-	if event.is_action_released("zoom"):
-		Zoom()
-
-func Zoom():
-	if !zoomed:
-		AnimationPlayer2.play("Zoom")
-	else: AnimationPlayer2.play_backwards("Zoom")
-
-	zoomed = !zoomed
 
 func _physics_process(delta):
 	GunCam.global_transform = camera.global_transform
