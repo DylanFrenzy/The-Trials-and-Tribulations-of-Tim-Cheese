@@ -12,6 +12,10 @@ signal player_death
 @onready var AnimationPlayer2 = GunCam.get_node("Pistol2/AnimationPlayer2")
 @onready var health_bar = get_parent().get_node("hud/HealthBar")
 
+const  HEADBOB_MOVE_AMOUT = 0.06;
+const  HEADBOB_FREQUENCY = 2.4;
+var headbobTime = 0.0;
+
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var zoomed = false
 
@@ -57,12 +61,18 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, move_speed)
 		velocity.z = move_toward(velocity.z, 0, move_speed)
+	headbob_effect(delta)
 	
 	move_and_slide()
 	
+func headbob_effect(delta):
+	headbobTime += delta * velocity.length()
+	var bob_x = cos(headbobTime * HEADBOB_FREQUENCY * 0.5) * HEADBOB_MOVE_AMOUT
+	var bob_y = sin(headbobTime * HEADBOB_FREQUENCY) * HEADBOB_MOVE_AMOUT
+	camera.position = Vector3(bob_x, bob_y, 0)
+	
 func take_damage(amount):
 	health = max(health - amount, 0)
-	health -= amount
 	health_bar.value = health
 	if (health <= 0):
 		die()
