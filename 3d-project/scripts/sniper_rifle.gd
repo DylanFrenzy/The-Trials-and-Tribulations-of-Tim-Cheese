@@ -16,8 +16,6 @@ func _input(event: InputEvent) -> void:
 		
 	if event.is_action_pressed("zoom"):
 		Zoom()
-	if event.is_action_released("zoom"):
-		Zoom()
 		
 	if (event.is_action_pressed("shoot")):
 		if current_ammo != 0:
