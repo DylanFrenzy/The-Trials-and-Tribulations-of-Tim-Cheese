@@ -11,31 +11,58 @@ extends Node3D
 @onready var gun_cam = get_parent().get_parent()
 var is_reloading := false
 var zoomed = false
+var shooting := false
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("zoom"):
-		Zoom()
+		if shooting:
+			await ani_player.animation_finished
+			Zoom()
+		else:
+			Zoom()
 	if event.is_action_released("zoom"):
-		Zoom()
+		if shooting:
+			await ani_player.animation_finished
+			Zoom()
+		else:
+			Zoom()
 		
-	if (event.is_action_pressed("shoot")):
-		if ani_player.is_playing(): return
+	if (event.is_action_pressed("shoot")) and !shooting:
+		if ani_player.is_playing() and !zoomed: return
 		if current_ammo != 0:
 			current_ammo -= 1;
 			update_ammo_display(current_ammo)
-			#ani_player.play("Fire")
+			if !zoomed:
+				ani_player.play("shoot")
+				shooting = true
+				if ray_caster.is_colliding():
+					var target = ray_caster.get_collider();
+					if target.has_method("take_damage"):
+						target.take_damage(damage);
+				await ani_player.animation_finished
+				shooting = false
+			else:
+				ani_player.play("Zoom_Fire")
+				shooting = true
+				if ray_caster.is_colliding():
+					var target = ray_caster.get_collider();
+					if target.has_method("take_damage"):
+						target.take_damage(damage);
+				await ani_player.animation_finished
+				shooting = false
+
 			#muzzle_flash.emitting = true
-			if ray_caster.is_colliding():
-				var target = ray_caster.get_collider();
-				if target.has_method("take_damage"):
-					target.take_damage(damage);
+			#if ray_caster.is_colliding():
+				#var target = ray_caster.get_collider();
+				#if target.has_method("take_damage"):
+					#target.take_damage(damage);
 	
 	if (event.is_action_pressed("reload")):
 		#muzzle_flash.emitting = false
 		if ani_player.is_playing() || is_reloading || current_ammo == max_ammo: return
 		is_reloading = true
-		#ani_player.play("Reload")
-		#await ani_player.animation_finished
+		ani_player.play("Reload")
+		await ani_player.animation_finished
 		current_ammo = max_ammo
 		update_ammo_display(max_ammo)
 		is_reloading = false

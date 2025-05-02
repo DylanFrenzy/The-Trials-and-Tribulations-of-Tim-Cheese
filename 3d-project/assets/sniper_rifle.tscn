@@ -30,7 +30,7 @@ mesh = SubResource("BoxMesh_l6750")
 skeleton = NodePath("../../..")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.0877708, 0, 5.68434e-14, 0, 0.257999, 0, 0, 0, 0.196175, 0.222263, -0.0945606, 0.00655954)
+transform = Transform3D(-0.0877708, 0, 1.59808e-13, 0, 0.257999, 0, 0, 0, 0.55152, 0.222263, -0.0945606, 0.00655954)
 layers = 2
 mesh = SubResource("BoxMesh_l6750")
 skeleton = NodePath("../../..")
