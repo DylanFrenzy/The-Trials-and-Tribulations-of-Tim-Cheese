@@ -10,7 +10,7 @@ func _ready() -> void:
 	
 func _input(event: InputEvent) -> void:
 	if (event.is_action_pressed("pistol_switch")):
-		if has_node("Pistol") || sniper_ani.is_playing() || sniper.zoomed: return
+		if has_node("Pistol") || sniper_ani.is_playing(): return
 		swap_to_pistol()
 		
 	if (event.is_action_pressed("sniper_switch")):
@@ -21,9 +21,11 @@ func _input(event: InputEvent) -> void:
 		if pistol_ani.is_playing() || sniper_ani.is_playing(): return
 		if (has_node("Pistol")): swap_to_sniper()
 		else: swap_to_pistol()
-		pass
 		
 func swap_to_pistol():
+	if sniper.zoomed: 
+		sniper.Zoom()
+		await sniper_ani.animation_finished
 	sniper_ani.play("Put_Away")
 	await sniper_ani.animation_finished
 	remove_child(sniper)
