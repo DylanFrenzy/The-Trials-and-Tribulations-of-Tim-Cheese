@@ -58,6 +58,9 @@ func _input(event: InputEvent) -> void:
 	if (event.is_action_pressed("reload")):
 		#muzzle_flash.emitting = false
 		if ani_player.is_playing() || is_reloading || current_ammo == max_ammo: return
+		if zoomed:
+			ani_player.play_backwards("Zoom")
+			await ani_player.animation_finished
 		is_reloading = true
 		ani_player.play("Reload")
 		await ani_player.animation_finished
