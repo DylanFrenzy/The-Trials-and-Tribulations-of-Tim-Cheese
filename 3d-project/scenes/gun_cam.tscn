@@ -841,7 +841,6 @@ script = ExtResource("3_i371p")
 
 [node name="Pistol" parent="Node3D" instance=ExtResource("2_20781")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.13019, 0.423723, 0.0856413)
-visible = false
 script = ExtResource("4_afw81")
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="Node3D/Pistol"]

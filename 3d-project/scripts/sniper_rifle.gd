@@ -15,17 +15,15 @@ var shooting := false
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("zoom"):
-		if shooting:
+		if shooting or is_reloading:
 			await ani_player.animation_finished
-			Zoom()
-		else:
-			Zoom()
+		Zoom()
+
 	if event.is_action_released("zoom"):
-		if shooting:
+		if shooting or is_reloading:
 			await ani_player.animation_finished
-			Zoom()
-		else:
-			Zoom()
+		Zoom()
+		
 		
 	if (event.is_action_pressed("shoot")) and !shooting:
 		if ani_player.is_playing() and !zoomed: return
