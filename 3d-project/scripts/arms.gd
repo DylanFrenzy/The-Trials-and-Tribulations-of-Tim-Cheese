@@ -24,11 +24,17 @@ func _input(event: InputEvent) -> void:
 		pass
 		
 func swap_to_pistol():
+	sniper_ani.play("Put_Away")
+	await sniper_ani.animation_finished
 	remove_child(sniper)
 	add_child(pistol)
+	pistol_ani.play("pull_up")
 	pistol.update_ammo_display(pistol.current_ammo)
 	
 func swap_to_sniper():
+	pistol_ani.play("put_away")
+	await pistol_ani.animation_finished
 	remove_child(pistol)
 	add_child(sniper)
+	sniper_ani.play("Pull_Up")
 	sniper.update_ammo_display(sniper.current_ammo)

@@ -68,6 +68,7 @@ func _input(event: InputEvent) -> void:
 		update_ammo_display(max_ammo)
 		is_reloading = false
 
+
 func Zoom():
 	if !zoomed:
 		ani_player.play("Zoom")
@@ -77,3 +78,4 @@ func Zoom():
 	
 func update_ammo_display(ammo):
 	ammo_display.text = str(ammo) + "/" + str(max_ammo)
+
