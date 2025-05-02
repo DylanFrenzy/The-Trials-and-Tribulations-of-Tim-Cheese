@@ -41,7 +41,6 @@ func _input(event: InputEvent) -> void:
 		update_ammo_display(max_ammo)
 		if zoomed:
 			ani_player.play("Zoom")
-			await ani_player.animation_finished
 
 func Zoom():
 	if !zoomed:
