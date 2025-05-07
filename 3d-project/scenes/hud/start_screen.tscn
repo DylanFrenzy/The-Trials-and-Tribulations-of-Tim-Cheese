@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://c3mcl7ou5l8jh"]
+[gd_scene load_steps=5 format=3 uid="uid://c3mcl7ou5l8jh"]
 
 [ext_resource type="Script" uid="uid://dup7xhajwggf" path="res://scripts/start_screen.gd" id="1_tx5wa"]
+[ext_resource type="AudioStream" uid="uid://ciab0m8hsfqpa" path="res://sound effects/Mitski - Washing Machine Heart [3vjkh-acmTE].mp3" id="2_4d5ri"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3vtch"]
 bg_color = Color(0.270222, 0.270222, 0.270222, 1)
@@ -61,5 +62,8 @@ grow_vertical = 0
 theme_override_styles/background = SubResource("StyleBoxFlat_3vtch")
 theme_override_styles/fill = SubResource("StyleBoxFlat_4d5ri")
 show_percentage = false
+
+[node name="menumusic" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_4d5ri")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
