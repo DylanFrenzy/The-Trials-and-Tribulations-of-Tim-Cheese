@@ -12,6 +12,8 @@ signal enemy_death
 @onready var ani_player = $AnimationPlayer;
 @onready var mesh = $MeshInstance3D
 @onready var porkie_particles = $porkie_particle/GPUParticles3D;
+@onready var hit_sounds = [$HitSound1, $HitSound2, $HitSound3]
+@onready var death_sound = $DeathSound
 
 func _physics_process(delta):
 	var current_location = global_transform.origin;
@@ -22,18 +24,22 @@ func _physics_process(delta):
 	new_transform.basis = new_transform.basis.rotated(Vector3.UP, deg_to_rad(90))
 	transform = transform.interpolate_with(new_transform, turn_speed * delta)
 	
-	
 	nav_agent.target_position = player_location 
 	var next_location = nav_agent.get_next_path_position();
 	var target_velocity = (next_location - current_location).normalized() * speed
 	nav_agent.set_velocity(target_velocity)
 	
-func take_damage(damage):
+func take_damage(damage, from_sniper = false):
 	health -= damage;
+	if from_sniper:
+		var pushback_dir = global_basis.x.normalized()
+		position -= pushback_dir * 10
 	if health <= 0:
 		emit_signal("enemy_death")
 		die();
 	else:
+		var random_hit_sound = randi_range(0, 2)
+		hit_sounds[random_hit_sound].play()
 		var material = mesh.get_surface_override_material(0).duplicate()
 		mesh.set_surface_override_material(0, material)
 		var og_color = material.albedo_color
@@ -42,6 +48,7 @@ func take_damage(damage):
 		material.albedo_color = og_color
 
 func die():
+	death_sound.play()
 	porkie_particles.restart()
 	porkie_particles.emitting = true
 	

@@ -33,6 +33,17 @@ offset_right = 40.0
 offset_bottom = 23.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 100
+text = "Wave: 1"
+
+[node name="EnemyCounter" type="Label" parent="."]
+layout_mode = 1
+offset_top = 120.0
+offset_right = 243.0
+offset_bottom = 143.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Enemies remaining this wave: 1"
+vertical_alignment = 1
 
 [node name="HealthBar" type="ProgressBar" parent="."]
 layout_mode = 1

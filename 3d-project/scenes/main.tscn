@@ -1,4 +1,5 @@
 [gd_scene load_steps=49 format=3 uid="uid://cuuk4or1cjlmn"]
+[gd_scene load_steps=34 format=3 uid="uid://cuuk4or1cjlmn"]
 
 [ext_resource type="Script" uid="uid://cytn402bb03bh" path="res://scripts/main.gd" id="1_o6xl0"]
 [ext_resource type="Shader" uid="uid://blm25wnjv1eul" path="res://shader/sky.gdshader" id="1_tefeu"]
@@ -13,6 +14,8 @@
 [ext_resource type="Material" uid="uid://cjq8ydlcyvrnp" path="res://materials/mag_pistol_skin.tres" id="8_jbj1t"]
 [ext_resource type="Material" uid="uid://bpjaarwk26e2b" path="res://materials/NEONSIGN.tres" id="9_muem4"]
 [ext_resource type="Material" uid="uid://ccv0eg1ph4sd1" path="res://materials/road.tres" id="10_dp3eg"]
+[ext_resource type="AudioStream" uid="uid://bt33etc4tl5dp" path="res://sound effects/463789__shyguy014__mouse-squeaks.wav" id="6_tipki"]
+[ext_resource type="Script" uid="uid://da3uodjwjpp64" path="res://scripts/player_hit_sounds.gd" id="7_85g3d"]
 
 [sub_resource type="Gradient" id="Gradient_tefeu"]
 
@@ -1347,12 +1350,19 @@ omni_range = 42.7451
 [node name="Collision barriers" type="Node3D" parent="NavigationRegion3D"]
 
 [node name="Player" type="CharacterBody3D" parent="."]
+[node name="Player" type="CharacterBody3D" parent="." groups=["player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.23985, 0)
 script = ExtResource("2_tefeu")
 
 [node name="MeshInstance3D" type="CSGMesh3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 11.385)
 use_collision = true
+[node name="HitSounds" type="AudioStreamPlayer3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.23985, 0)
+stream = ExtResource("6_tipki")
+script = ExtResource("7_85g3d")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
 mesh = SubResource("CapsuleMesh_a202f")
 
 [node name="MeshInstance3D2" type="CSGMesh3D" parent="Player"]
@@ -1390,6 +1400,6 @@ cull_mask = 1047554
 curve = SubResource("Curve3D_tefeu")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="EnemySpawnPath"]
-transform = Transform3D(-0.00439084, -0.0193575, -0.999796, 0, 0.9998, -0.0193578, 0.999985, -8.49971e-05, -0.00439001, -31.3552, 2.58811, -32.5769)
+transform = Transform3D(-0.00439084, -0.0193575, -0.999795, 0, 0.9998, -0.0193578, 0.999984, -8.49971e-05, -0.00439001, -31.3552, 2.58811, -32.5769)
 
 [node name="hud" parent="." instance=ExtResource("2_o6xl0")]
