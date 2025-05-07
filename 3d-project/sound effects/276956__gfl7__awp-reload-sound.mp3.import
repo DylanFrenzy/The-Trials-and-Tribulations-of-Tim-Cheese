@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dr6jgeo6sf1tr"
+path="res://.godot/imported/276956__gfl7__awp-reload-sound.mp3-cf3d53fd3dd981c9f2a1313dcb55e3b8.mp3str"
+
+[deps]
+
+source_file="res://sound effects/276956__gfl7__awp-reload-sound.mp3"
+dest_files=["res://.godot/imported/276956__gfl7__awp-reload-sound.mp3-cf3d53fd3dd981c9f2a1313dcb55e3b8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

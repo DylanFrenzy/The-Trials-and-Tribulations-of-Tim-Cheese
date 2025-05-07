@@ -5,7 +5,7 @@ extends Node3D
 @export var current_ammo := 5
 
 @onready var ani_player = $AnimationPlayer2
-#@onready var muzzle_flash = $muzzle_flash
+@onready var muzzle_flash = $muzzle_flash
 @onready var ray_caster = get_parent().get_parent().get_node("RayCast3D");
 @onready var ammo_display = get_tree().root.get_node("Node3D/hud/Ammo")
 @onready var gun_cam = get_parent().get_parent()
@@ -23,15 +23,17 @@ func _input(event: InputEvent) -> void:
 			update_ammo_display(current_ammo)
 			if !zoomed:
 				ani_player.play("shoot")
+				muzzle_flash.emitting = true
 			else:
 				ani_player.play("Zoom_Fire")
+				muzzle_flash.emitting = true
 			if ray_caster.is_colliding():
 				var target = ray_caster.get_collider();
 				if target.has_method("take_damage"):
 					target.take_damage(damage);
 	
 	if (event.is_action_pressed("reload")):
-		#muzzle_flash.emitting = false
+		muzzle_flash.emitting = false
 		if current_ammo == max_ammo: return
 		ani_player.play("Reload")
 		await ani_player.animation_finished

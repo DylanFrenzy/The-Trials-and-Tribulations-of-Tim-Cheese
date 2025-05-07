@@ -1,7 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://bqitfmr6lxq5a"]
+[gd_scene load_steps=14 format=3 uid="uid://bqitfmr6lxq5a"]
 
 [ext_resource type="Material" uid="uid://clib3jsw7xdh7" path="res://materials/shirt.tres" id="1_nhkmf"]
 [ext_resource type="Material" uid="uid://8d65jjkpvqql" path="res://materials/gun metal.tres" id="2_0sfkh"]
+[ext_resource type="PackedScene" uid="uid://cyp0qoellw4ur" path="res://assets/muzzle_flash.tscn" id="3_0sfkh"]
+[ext_resource type="Material" uid="uid://dft5ojf2p41wo" path="res://materials/flash.tres" id="4_l6750"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_l6750"]
 
@@ -20,6 +22,12 @@ inner_radius = 0.659
 [sub_resource type="CylinderMesh" id="CylinderMesh_logem"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_scx75"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_ik7vb"]
+material = ExtResource("4_l6750")
+radius = 0.6
+height = 0.5
+rings = 38
 
 [node name="SniperRifle" type="Node3D"]
 
@@ -113,3 +121,8 @@ layers = 2
 material_override = ExtResource("1_nhkmf")
 mesh = SubResource("BoxMesh_scx75")
 skeleton = NodePath("../../..")
+
+[node name="muzzle_flash" parent="." instance=ExtResource("3_0sfkh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.225469, 0.0255225, -1.87399)
+amount = 15
+draw_pass_1 = SubResource("SphereMesh_ik7vb")
