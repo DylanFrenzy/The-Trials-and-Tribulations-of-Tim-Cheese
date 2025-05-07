@@ -22,14 +22,17 @@ func _physics_process(delta):
 	new_transform.basis = new_transform.basis.rotated(Vector3.UP, deg_to_rad(90))
 	transform = transform.interpolate_with(new_transform, turn_speed * delta)
 	
-	
 	nav_agent.target_position = player_location 
 	var next_location = nav_agent.get_next_path_position();
 	var target_velocity = (next_location - current_location).normalized() * speed
 	nav_agent.set_velocity(target_velocity)
 	
-func take_damage(damage):
+	
+func take_damage(damage, from_sniper = false):
 	health -= damage;
+	if from_sniper:
+		var pushback_dir = global_basis.x.normalized()
+		position -= pushback_dir * 10
 	if health <= 0:
 		emit_signal("enemy_death")
 		die();

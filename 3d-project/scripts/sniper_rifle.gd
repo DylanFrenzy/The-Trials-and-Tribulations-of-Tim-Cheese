@@ -30,7 +30,7 @@ func _input(event: InputEvent) -> void:
 			if ray_caster.is_colliding():
 				var target = ray_caster.get_collider();
 				if target.has_method("take_damage"):
-					target.take_damage(damage);
+					target.take_damage(damage, true);
 	
 	if (event.is_action_pressed("reload")):
 		muzzle_flash.emitting = false

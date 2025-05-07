@@ -11,12 +11,27 @@ signal player_death
 @onready var GunCam = $Camera3D/SubViewportContainer/SubViewport/GunCam
 @onready var AnimationPlayer2 = GunCam.get_node("Pistol2/AnimationPlayer2")
 @onready var health_bar = get_parent().get_node("hud/HealthBar")
+@onready var hit_sounds = $HitSounds
 
 const  HEADBOB_MOVE_AMOUT = 0.06;
 const  HEADBOB_FREQUENCY = 2.4;
 var headbobTime = 0.0;
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+var hit_sound_time_intervals = [
+	{
+		"from": 9.5,
+		"to": 10.5,
+	},
+	{
+		"from": 14.0,
+		"to": 15.0,
+	},
+	{
+		"from": 17.3,
+		"to": 18.3,
+	}
+]
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -59,6 +74,9 @@ func headbob_effect(delta):
 	camera.position = Vector3(bob_x, bob_y, 0)
 	
 func take_damage(amount):
+	var ran_num = randi_range(0, 2)
+	var sound_interval = hit_sound_time_intervals[ran_num]
+	hit_sounds.hit_sound_play(sound_interval["from"], sound_interval["to"])
 	health = max(health - amount, 0)
 	health_bar.value = health
 	if (health <= 0):

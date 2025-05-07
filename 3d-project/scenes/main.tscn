@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://cuuk4or1cjlmn"]
+[gd_scene load_steps=34 format=3 uid="uid://cuuk4or1cjlmn"]
 
 [ext_resource type="Script" uid="uid://cytn402bb03bh" path="res://scripts/main.gd" id="1_o6xl0"]
 [ext_resource type="Shader" uid="uid://blm25wnjv1eul" path="res://shader/sky.gdshader" id="1_tefeu"]
@@ -7,6 +7,8 @@
 [ext_resource type="Script" uid="uid://l8p6nhdmlpln" path="res://scripts/character_body_3d.gd" id="2_tefeu"]
 [ext_resource type="Material" uid="uid://5dt134tjhp2h" path="res://materials/building1.tres" id="4_cptob"]
 [ext_resource type="Material" uid="uid://bfo6k0j0dqm2k" path="res://materials/door 2.tres" id="5_b2yaj"]
+[ext_resource type="AudioStream" uid="uid://bt33etc4tl5dp" path="res://sound effects/463789__shyguy014__mouse-squeaks.wav" id="6_tipki"]
+[ext_resource type="Script" uid="uid://da3uodjwjpp64" path="res://scripts/player_hit_sounds.gd" id="7_85g3d"]
 
 [sub_resource type="Gradient" id="Gradient_tefeu"]
 
@@ -207,9 +209,14 @@ shape = SubResource("ConcavePolygonShape3D_jka67")
 transform = Transform3D(0.103288, 0, 0, 0, 0.158435, 0, 0, 0, 0.0248742, -0.477676, -0.401196, -0.0294315)
 shape = SubResource("ConcavePolygonShape3D_i5arm")
 
-[node name="Player" type="CharacterBody3D" parent="."]
+[node name="Player" type="CharacterBody3D" parent="." groups=["player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.23985, 0)
 script = ExtResource("2_tefeu")
+
+[node name="HitSounds" type="AudioStreamPlayer3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.23985, 0)
+stream = ExtResource("6_tipki")
+script = ExtResource("7_85g3d")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
 mesh = SubResource("CapsuleMesh_a202f")
@@ -247,6 +254,6 @@ cull_mask = 1047554
 curve = SubResource("Curve3D_tefeu")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="EnemySpawnPath"]
-transform = Transform3D(-0.00439084, -0.0193575, -0.999796, 0, 0.9998, -0.0193578, 0.999985, -8.49971e-05, -0.00439001, -31.3552, 2.58811, -32.5769)
+transform = Transform3D(-0.00439084, -0.0193575, -0.999795, 0, 0.9998, -0.0193578, 0.999984, -8.49971e-05, -0.00439001, -31.3552, 2.58811, -32.5769)
 
 [node name="hud" parent="." instance=ExtResource("2_o6xl0")]
