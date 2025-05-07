@@ -319,6 +319,10 @@ radius = 0.269043
 [node name="CharacterBody3D" type="CharacterBody3D"]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 0.794, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 script = ExtResource("1_fd3r2")
+speed = null
+flee_speed = null
+health = null
+turn_speed = null
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_j6nc8")

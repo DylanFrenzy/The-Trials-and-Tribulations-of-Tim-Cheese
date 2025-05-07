@@ -18,6 +18,17 @@ signal enemy_death
 @onready var curve = get_tree().get_first_node_in_group("path").curve;
 @onready var flee_location = get_flee_point()
 
+var drop = preload("res://assets/Ammo.tscn")
+
+var willdrop = false
+
+func _ready():
+	print("hola senor")
+	var number1 = randf()
+	if number1 <= 0.1:
+		var willdrop = true
+		
+
 func _physics_process(delta):
 	var current_location = global_transform.origin;
 	var player_location = player.global_transform.origin
@@ -82,6 +93,8 @@ func die():
 	# Set the particles to auto-free when they finish
 	porkie_particles.finished.connect(porkie_particles.queue_free)
 	death_sound.finished.connect(death_sound.queue_free)
+	if willdrop:
+		drop()
 	queue_free()
 	
 func _on_area_3d_body_entered(body: Node3D) -> void:
@@ -95,3 +108,9 @@ func _on_player_reached() -> void:
 func _on_navigation_agent_3d_velocity_computed(safe_velocity: Vector3) -> void:
 	velocity = velocity.move_toward(safe_velocity, 0.1)
 	move_and_slide()
+
+func drop():
+	var dropinst = drop.instantiate()
+	dropinst.global_position = global_position
+	get_parent().add_child(dropinst)
+	pass
