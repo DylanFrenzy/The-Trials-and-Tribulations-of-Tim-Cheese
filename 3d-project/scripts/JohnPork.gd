@@ -3,10 +3,11 @@ extends CharacterBody3D;
 signal enemy_death
 
 @export var speed = 4;
+@export var flee_speed = 7;
 @export var health = 20;
 @export var turn_speed = 4;
 
-@onready var player = get_tree().root.get_node("Node3D/Player");;
+@onready var player = get_tree().root.get_node("Node3D/Player")
 @onready var nav_agent = $NavigationAgent3D
 @onready var attack_area = $Area3D
 @onready var ani_player = $AnimationPlayer;
@@ -15,18 +16,29 @@ signal enemy_death
 @onready var hit_sounds = [$HitSound1, $HitSound2, $HitSound3]
 @onready var death_sound = $DeathSound
 
+var flee_location = Vector3(0, position.y, 0)
+
 func _physics_process(delta):
 	var current_location = global_transform.origin;
 	var player_location = player.global_transform.origin
+	var john_speed
+	var target_position;
 	
-	var target_rotation = Vector3(player_location.x, position.y, player_location.z)
+	if player_location.y > 10: 
+		john_speed = flee_speed
+		target_position = flee_location
+	else:
+		john_speed = speed
+		target_position = player_location
+	
+	var target_rotation = Vector3(target_position.x, position.y, target_position.z)
 	var new_transform = transform.looking_at(target_rotation, Vector3.UP)
 	new_transform.basis = new_transform.basis.rotated(Vector3.UP, deg_to_rad(90))
 	transform = transform.interpolate_with(new_transform, turn_speed * delta)
 	
-	nav_agent.target_position = player_location 
+	nav_agent.target_position = target_position
 	var next_location = nav_agent.get_next_path_position();
-	var target_velocity = (next_location - current_location).normalized() * speed
+	var target_velocity = (next_location - current_location).normalized() * john_speed
 	nav_agent.set_velocity(target_velocity)
 	
 func take_damage(damage, from_sniper = false):
@@ -67,7 +79,11 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		player.take_damage(10)
 
 func _on_player_reached() -> void:
-	ani_player.play("attack");
+	print("as")
+	if nav_agent.target_position == player.global_transform.origin:
+		ani_player.play("attack");
+	else:
+		flee_location = Vector3(20, position.y, 0)
 
 func _on_navigation_agent_3d_velocity_computed(safe_velocity: Vector3) -> void:
 	velocity = velocity.move_toward(safe_velocity, 0.1)

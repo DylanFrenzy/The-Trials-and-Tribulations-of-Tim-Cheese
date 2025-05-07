@@ -84,8 +84,8 @@ func _handle_ground_phyics(delta):
 	var add_speed_till_cap = speed_cap - current_speed_in_target_velocity;
 	if add_speed_till_cap > 0:
 		var accel_speed = ground_accel * move_speed * delta
-		accel_speed = min(accel_speed, add_speed_till_cap) 
-		velocity += accel_speed * target_velocity 
+		accel_speed = min(accel_speed, add_speed_till_cap)
+		velocity += accel_speed * target_velocity
 	
 	if (velocity.length() <= 0): return;
 	
