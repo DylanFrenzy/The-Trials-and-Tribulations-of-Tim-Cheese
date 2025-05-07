@@ -3,9 +3,10 @@ extends CharacterBody3D
 signal player_death
 
 @export var mouse_sensitivity := 0.1
-@export var move_speed := 5.0
-@export var jump_velocity := 4.5
+@export var move_speed := 7.0
+@export var jump_velocity := 6
 @export var health = 200
+@export var auto_jump = true;
 
 @onready var camera := $Camera3D
 @onready var GunCam = $Camera3D/SubViewportContainer/SubViewport/GunCam
@@ -13,11 +14,19 @@ signal player_death
 @onready var health_bar = get_parent().get_node("hud/HealthBar")
 @onready var hit_sounds = $HitSounds
 
+var target_velocity;
+var ground_accel = 14.0;
+var ground_decel = 10.0
+var ground_friction = 6.0
+var air_cap = 0.85
+var air_accel = 800
+var air_move_speed = 500;
+
 const  HEADBOB_MOVE_AMOUT = 0.06;
 const  HEADBOB_FREQUENCY = 2.4;
 var headbobTime = 0.0;
 
-var sniper_knockback_strength = 50;
+var sniper_knockback_strength = 20;
 var sniper_knockback_timer = 0;
 var sniper_knockbar_dir = Vector3.ZERO
 
@@ -54,30 +63,49 @@ func _physics_process(delta):
 		sniper_knockbar_dir = camera.global_basis.z.normalized()
 		velocity = sniper_knockbar_dir * sniper_knockback_strength
 		sniper_knockback_timer -= delta
-		move_and_slide()
-		return
-	print(velocity.y)
-	sniper_knockbar_dir = Vector3.ZERO
-	GunCam.global_transform = camera.global_transform
-
-	if not is_on_floor():
-		velocity.y -= gravity * delta
-	
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = jump_velocity
-	
-	var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_back")
-	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
-	
-	if direction:
-		velocity.x = direction.x * move_speed
-		velocity.z = direction.z * move_speed
 	else:
-		velocity.x = move_toward(velocity.x, 0, move_speed)
-		velocity.z = move_toward(velocity.z, 0, move_speed)
+		sniper_knockbar_dir = Vector3.ZERO
+		GunCam.global_transform = camera.global_transform
+	
+		var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_back").normalized()
+		target_velocity = (global_basis * Vector3(input_dir.x, 0, input_dir.y))
+	
+		if is_on_floor():
+			if Input.is_action_just_pressed("jump") || (auto_jump && Input.is_action_pressed("jump")):
+				velocity.y = jump_velocity
+			_handle_ground_phyics(delta)
+		else:
+			_handle_air_physics(delta)
+
+	move_and_slide()
+	
+func _handle_ground_phyics(delta):
+	var current_speed_in_target_velocity = velocity.dot(target_velocity)
+	var speed_cap = min((move_speed * target_velocity).length(), move_speed)
+	var add_speed_till_cap = speed_cap - current_speed_in_target_velocity;
+	if add_speed_till_cap > 0:
+		var accel_speed = ground_accel * move_speed * delta
+		accel_speed = max(accel_speed, add_speed_till_cap) 
+		velocity += accel_speed * target_velocity 
+	
+	if (velocity.length() <= 0): return;
+	
+	var control = max(velocity.length(), ground_decel)
+	var drop = control * ground_friction * delta
+	var new_speed = max(velocity.length() - drop, 0.0)
+	new_speed /= velocity.length()
+	velocity *= new_speed
 	headbob_effect(delta)
 	
-	move_and_slide()
+func _handle_air_physics(delta):
+	velocity.y -= gravity * delta
+	var current_speed_in_target_velocity = velocity.dot(target_velocity)
+	var speed_cap = min((air_move_speed * target_velocity).length(), air_cap)
+	var add_speed_till_cap = speed_cap - current_speed_in_target_velocity
+	if add_speed_till_cap > 0:
+		var accel_speed = air_move_speed * air_accel * delta
+		accel_speed = min(accel_speed, add_speed_till_cap)
+		velocity += accel_speed * target_velocity
 	
 func headbob_effect(delta):
 	headbobTime += delta * velocity.length()
