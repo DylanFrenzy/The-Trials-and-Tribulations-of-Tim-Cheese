@@ -3,8 +3,8 @@ extends CharacterBody3D
 signal player_death
 
 @export var mouse_sensitivity := 0.1
-@export var move_speed := 7.0
-@export var jump_velocity := 6
+@export var move_speed := 6.0
+@export var jump_velocity := 5
 @export var health = 200
 @export var auto_jump = true;
 
