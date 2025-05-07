@@ -3,8 +3,8 @@ extends CharacterBody3D
 signal player_death
 
 @export var mouse_sensitivity := 0.1
-@export var move_speed := 6.0
-@export var jump_velocity := 5
+@export var move_speed := 7.0
+@export var jump_velocity := 6
 @export var health = 200
 @export var auto_jump = true;
 
@@ -84,7 +84,7 @@ func _handle_ground_phyics(delta):
 	var add_speed_till_cap = speed_cap - current_speed_in_target_velocity;
 	if add_speed_till_cap > 0:
 		var accel_speed = ground_accel * move_speed * delta
-		accel_speed = max(accel_speed, add_speed_till_cap) 
+		accel_speed = min(accel_speed, add_speed_till_cap) 
 		velocity += accel_speed * target_velocity 
 	
 	if (velocity.length() <= 0): return;
