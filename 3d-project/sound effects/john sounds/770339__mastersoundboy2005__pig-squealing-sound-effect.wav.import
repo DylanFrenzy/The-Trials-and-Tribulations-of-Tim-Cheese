@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://g1b0urvcfvud"
+path="res://.godot/imported/770339__mastersoundboy2005__pig-squealing-sound-effect.wav-262adba2a0e9f8d1e3cfe52f01cdaf65.sample"
+
+[deps]
+
+source_file="res://sound effects/john sounds/770339__mastersoundboy2005__pig-squealing-sound-effect.wav"
+dest_files=["res://.godot/imported/770339__mastersoundboy2005__pig-squealing-sound-effect.wav-262adba2a0e9f8d1e3cfe52f01cdaf65.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

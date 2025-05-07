@@ -35,6 +35,7 @@ func take_damage(damage, from_sniper = false):
 		var pushback_dir = global_basis.x.normalized()
 		position -= pushback_dir * 10
 	if health <= 0:
+		death_sound.play()
 		emit_signal("enemy_death")
 		die();
 	else:
@@ -48,17 +49,17 @@ func take_damage(damage, from_sniper = false):
 		material.albedo_color = og_color
 
 func die():
-	death_sound.play()
 	porkie_particles.restart()
 	porkie_particles.emitting = true
 	
 	# Detach the particles from the enemy so they don't get deleted with it
 	var particles_parent = get_tree().root
 	porkie_particles.reparent(particles_parent)
+	death_sound.reparent(particles_parent)
 	
 	# Set the particles to auto-free when they finish
 	porkie_particles.finished.connect(porkie_particles.queue_free)
-	
+	death_sound.finished.connect(death_sound.queue_free)
 	queue_free()
 	
 func _on_area_3d_body_entered(body: Node3D) -> void:

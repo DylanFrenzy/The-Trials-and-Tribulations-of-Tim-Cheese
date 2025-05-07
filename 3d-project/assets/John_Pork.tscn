@@ -1,9 +1,13 @@
-[gd_scene load_steps=19 format=3 uid="uid://dnrauibtjguud"]
+[gd_scene load_steps=23 format=3 uid="uid://dnrauibtjguud"]
 
 [ext_resource type="Script" uid="uid://7031adgc5b45" path="res://scripts/JohnPork.gd" id="1_fd3r2"]
 [ext_resource type="Material" uid="uid://841lpp2xmlgw" path="res://materials/johnporkskin.tres" id="1_plc7i"]
 [ext_resource type="Material" uid="uid://clib3jsw7xdh7" path="res://materials/shirt.tres" id="2_fd3r2"]
 [ext_resource type="PackedScene" uid="uid://cdfgqfdocgm2m" path="res://assets/John_pork_death_particle.tscn" id="4_d35v5"]
+[ext_resource type="AudioStream" uid="uid://t1xx1knis1en" path="res://sound effects/john sounds/174615__yottasounds__pig002.wav" id="5_52knn"]
+[ext_resource type="AudioStream" uid="uid://iowfw35b7l2p" path="res://sound effects/john sounds/442906__qubodup__pig-oink.wav" id="6_4bpsf"]
+[ext_resource type="AudioStream" uid="uid://g1b0urvcfvud" path="res://sound effects/john sounds/770339__mastersoundboy2005__pig-squealing-sound-effect.wav" id="7_g4tv5"]
+[ext_resource type="AudioStream" uid="uid://qo1lrxk0wd2l" path="res://sound effects/john sounds/449985__reinsamba__pig_squeak.wav" id="7_qa3t1"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_j6nc8"]
 
@@ -417,12 +421,16 @@ avoidance_enabled = true
 [node name="porkie_particle" parent="." instance=ExtResource("4_d35v5")]
 
 [node name="HitSound1" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_52knn")
 
 [node name="HitSound2" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("6_4bpsf")
 
 [node name="HitSound3" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("7_qa3t1")
 
 [node name="DeathSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("7_g4tv5")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="target_reached" from="NavigationAgent3D" to="." method="_on_player_reached"]
