@@ -38,12 +38,17 @@ sky_material = SubResource("ShaderMaterial_tipki")
 [sub_resource type="Environment" id="Environment_r3fl7"]
 background_mode = 2
 sky = SubResource("Sky_a0tk4")
+ambient_light_color = Color(0.607952, 0.588815, 0.0802403, 1)
+ambient_light_energy = 2.35
 tonemap_mode = 2
 glow_enabled = true
 fog_enabled = true
-fog_light_color = Color(0.123432, 0.138034, 0.160991, 1)
+fog_light_color = Color(0.473594, 0.508385, 0.563063, 1)
 volumetric_fog_enabled = true
-volumetric_fog_albedo = Color(0.140447, 0.140447, 0.140447, 1)
+volumetric_fog_density = 0.1
+volumetric_fog_albedo = Color(0.691357, 0.691357, 0.691357, 1)
+volumetric_fog_emission = Color(0.332881, 0.332881, 0.332881, 1)
+volumetric_fog_anisotropy = 0.5
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_a202f"]
 
@@ -53,7 +58,7 @@ size = Vector3(1, 1.93677, 1)
 [sub_resource type="Curve3D" id="Curve3D_tefeu"]
 closed = true
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -31.3552, 2.58811, -32.5769, 0, 0, 0, 0, 0, 0, 32.3663, 3.82187, -32.2971, 0, 0, 0, 0, 0, 0, 31.7199, 3.25032, 32.5343, 0, 0, 0, 0, 0, 0, -31.1846, 2.18325, 32.4349),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 28.6914, 2.77133, -30.8169, 0, 0, 0, 0, 0, 0, 28.2655, 2.62934, 28.306, 0, 0, 0, 0, 0, 0, -27.6763, 2.06141, 28.1958, 0, 0, 0, 0, 0, 0, -28.9541, 2.06141, -29.8231),
 "tilts": PackedFloat32Array(0, 0, 0, 0)
 }
 point_count = 4
@@ -66,6 +71,8 @@ environment = SubResource("Environment_r3fl7")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.866025, -0.5, -2.18557e-08, 0.295408, -0.511662, 0.806806, -0.403403, 0.698714, 0.590817, 0, 0, 0)
+light_color = Color(1, 1, 0.607843, 1)
+light_energy = 0.2
 shadow_enabled = true
 directional_shadow_max_distance = 4096.0
 
@@ -117,6 +124,6 @@ cull_mask = 1047554
 curve = SubResource("Curve3D_tefeu")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="EnemySpawnPath"]
-transform = Transform3D(-0.00439084, -0.0193575, -0.999794, 0, 0.9998, -0.0193578, 0.999983, -8.49971e-05, -0.00439001, -31.3552, 2.58811, -32.5769)
+transform = Transform3D(-0.999963, -1.73017e-05, 0.00720452, 1.81897e-12, 0.999984, 0.00240147, -0.00720454, 0.00240141, -0.999959, 28.6914, 2.77133, -30.8169)
 
 [node name="hud" parent="." instance=ExtResource("2_o6xl0")]
