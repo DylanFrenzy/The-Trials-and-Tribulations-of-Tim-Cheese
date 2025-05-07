@@ -120,7 +120,7 @@ render_target_update_mode = 4
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0331945, 3.63734, -0.692437)
 cull_mask = 1047554
 
-[node name="EnemySpawnPath" type="Path3D" parent="."]
+[node name="EnemySpawnPath" type="Path3D" parent="." groups=["path"]]
 curve = SubResource("Curve3D_tefeu")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="EnemySpawnPath"]

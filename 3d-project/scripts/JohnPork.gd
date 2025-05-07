@@ -3,7 +3,7 @@ extends CharacterBody3D;
 signal enemy_death
 
 @export var speed = 4;
-@export var flee_speed = 7;
+@export var flee_speed = 10;
 @export var health = 20;
 @export var turn_speed = 4;
 
@@ -15,8 +15,8 @@ signal enemy_death
 @onready var porkie_particles = $porkie_particle/GPUParticles3D;
 @onready var hit_sounds = [$HitSound1, $HitSound2, $HitSound3]
 @onready var death_sound = $DeathSound
-
-var flee_location = Vector3(0, position.y, 0)
+@onready var curve = get_tree().get_first_node_in_group("path").curve;
+@onready var flee_location = get_flee_point()
 
 func _physics_process(delta):
 	var current_location = global_transform.origin;
@@ -36,10 +36,17 @@ func _physics_process(delta):
 	new_transform.basis = new_transform.basis.rotated(Vector3.UP, deg_to_rad(90))
 	transform = transform.interpolate_with(new_transform, turn_speed * delta)
 	
-	nav_agent.target_position = target_position
+	if nav_agent.target_position != target_position:
+		nav_agent.target_position = target_position
 	var next_location = nav_agent.get_next_path_position();
 	var target_velocity = (next_location - current_location).normalized() * john_speed
 	nav_agent.set_velocity(target_velocity)
+	
+func get_flee_point():
+	var length = curve.get_baked_length()
+	var distance = randf_range(0, length)
+	var point = curve.sample_baked(distance)
+	return point
 	
 func take_damage(damage, from_sniper = false):
 	health -= damage;
@@ -79,11 +86,10 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		player.take_damage(10)
 
 func _on_player_reached() -> void:
-	print("as")
 	if nav_agent.target_position == player.global_transform.origin:
 		ani_player.play("attack");
 	else:
-		flee_location = Vector3(20, position.y, 0)
+		flee_location = get_flee_point()
 
 func _on_navigation_agent_3d_velocity_computed(safe_velocity: Vector3) -> void:
 	velocity = velocity.move_toward(safe_velocity, 0.1)
