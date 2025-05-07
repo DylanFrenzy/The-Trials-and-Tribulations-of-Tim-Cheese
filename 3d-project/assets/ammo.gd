@@ -5,6 +5,6 @@ extends Node3D
 
 
 func _on_area_3d_body_entered(body):
-    if body == player:
-        if arms.update_spare_ammo():
-            queue_free()
+	if body == player:
+		if arms.update_spare_ammo():
+			queue_free()

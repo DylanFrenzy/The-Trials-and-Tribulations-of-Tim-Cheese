@@ -11,6 +11,7 @@ extends Node3D
 @onready var ammo_display = get_tree().root.get_node("Node3D/hud/Ammo")
 @onready var ammo_display2_spare = get_tree().root.get_node("Node3D/hud/Ammo2")
 @onready var gun_cam = get_parent().get_parent()
+@onready var arms = get_parent()
 @onready var current_spare_ammo = get_parent().current_spare_ammo
 @onready var spare_ammo_cap = get_parent().spare_ammo_cap
 var zoomed = false
@@ -49,8 +50,7 @@ func _input(event: InputEvent) -> void:
 		else: 
 			current_ammo += current_spare_ammo
 			current_spare_ammo = 0
-
-
+		arms.current_spare_ammo = current_spare_ammo
 		update_ammo_display(current_ammo)
 		if zoomed:
 			ani_player.play("Zoom")
