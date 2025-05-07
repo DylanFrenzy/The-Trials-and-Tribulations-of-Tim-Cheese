@@ -1183,21 +1183,21 @@ mesh = SubResource("BoxMesh_pm3ni")
 material = SubResource("StandardMaterial3D_blm8a")
 
 [node name="MeshInstance3D" type="CSGMesh3D" parent="."]
-transform = Transform3D(0.301978, 0, 0, 0, 0.177408, 0, 0, 0, 0.301978, 13.1149, 3.13172, -10.2034)
+transform = Transform3D(0.422843, 0, -0.251925, 0, 0.289162, 0, 0.251925, 0, 0.422843, 13.1133, 3.24951, -9.85362)
 material_override = ExtResource("6_7vm6n")
 use_collision = true
 mesh = SubResource("CylinderMesh_0ld40")
 material = SubResource("StandardMaterial3D_be0no")
 
 [node name="MeshInstance3D2" type="CSGMesh3D" parent="."]
-transform = Transform3D(0.355147, 0, 0, 0, 0.0138474, 0, 0, 0, 0.355147, 13.0994, 3.31288, -10.2133)
+transform = Transform3D(0.497293, 0, -0.296281, 0, 0.0225702, 0, 0.296281, 0, 0.497293, 13.0998, 3.54479, -9.88042)
 material_override = ExtResource("2_bdc7x")
 use_collision = true
 mesh = SubResource("CylinderMesh_0ld40")
 material = SubResource("StandardMaterial3D_be0no")
 
 [node name="MeshInstance3D3" type="CSGMesh3D" parent="."]
-transform = Transform3D(-0.00285986, 0.00593696, 0, -0.152266, -0.000111508, 0, 0, 0, 0.152293, 13.1013, 3.31288, -10.2133)
+transform = Transform3D(-0.0040045, 0.0083132, -0.12705, -0.248182, -0.00018175, 0, -0.00238584, 0.00495291, 0.213247, 13.1025, 3.54479, -9.87883)
 material_override = ExtResource("6_7vm6n")
 use_collision = true
 mesh = SubResource("TorusMesh_jscy8")

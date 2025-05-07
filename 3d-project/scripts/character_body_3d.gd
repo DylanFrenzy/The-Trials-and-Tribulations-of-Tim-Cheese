@@ -44,7 +44,7 @@ var hit_sound_time_intervals = [
 		"to": 18.3,
 	}
 ]
-
+#in seconds
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	$Camera3D/SubViewportContainer/SubViewport.size = DisplayServer.window_get_size()
@@ -79,7 +79,7 @@ func _physics_process(delta):
 	move_and_slide()
 	
 func _handle_ground_phyics(delta):
-	var current_speed_in_target_velocity = velocity.dot(target_velocity)
+	var current_speed_in_target_velocity = velocity.dot(target_velocity) #.dot checks perpendicularity
 	var speed_cap = min((move_speed * target_velocity).length(), move_speed)
 	var add_speed_till_cap = speed_cap - current_speed_in_target_velocity;
 	if add_speed_till_cap > 0:
