@@ -86,7 +86,6 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		player.take_damage(10)
 
 func _on_player_reached() -> void:
-	print("as")
 	if nav_agent.target_position == player.global_transform.origin:
 		ani_player.play("attack");
 	else:
