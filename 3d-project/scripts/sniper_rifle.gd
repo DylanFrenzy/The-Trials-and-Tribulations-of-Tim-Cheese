@@ -4,6 +4,7 @@ extends Node3D
 @export var max_ammo := 5
 @export var current_ammo := 5
 
+@onready var player = get_tree().get_first_node_in_group("player")
 @onready var ani_player = $AnimationPlayer2
 @onready var muzzle_flash = $muzzle_flash
 @onready var ray_caster = get_parent().get_parent().get_node("RayCast3D");
@@ -27,10 +28,11 @@ func _input(event: InputEvent) -> void:
 			else:
 				ani_player.play("Zoom_Fire")
 				muzzle_flash.emitting = true
+			player.sniper_knockback_timer = 0.2
 			if ray_caster.is_colliding():
 				var target = ray_caster.get_collider();
 				if target.has_method("take_damage"):
-					target.take_damage(damage);
+					target.take_damage(damage, true);
 	
 	if (event.is_action_pressed("reload")):
 		muzzle_flash.emitting = false
