@@ -42,6 +42,9 @@ func _physics_process(delta):
 	var target_velocity = (next_location - current_location).normalized() * john_speed
 	nav_agent.set_velocity(target_velocity)
 	
+	if current_location.distance_to(player_location) <= 2:
+		ani_player.play("attack")
+	
 func get_flee_point():
 	var length = curve.get_baked_length()
 	var distance = randf_range(0, length)
@@ -86,9 +89,7 @@ func _on_area_3d_body_entered(body: Node3D) -> void:
 		player.take_damage(10)
 
 func _on_player_reached() -> void:
-	if nav_agent.target_position == player.global_transform.origin:
-		ani_player.play("attack");
-	else:
+	if player.global_transform.origin.y > 10:
 		flee_location = get_flee_point()
 
 func _on_navigation_agent_3d_velocity_computed(safe_velocity: Vector3) -> void:
