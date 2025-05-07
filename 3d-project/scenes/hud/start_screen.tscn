@@ -30,32 +30,34 @@ grow_vertical = 2
 script = ExtResource("1_tx5wa")
 
 [node name="TextureRect2" type="TextureRect" parent="."]
+layout_direction = 4
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
+anchor_left = 0.5
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1257.0
-offset_top = -174.0
-offset_right = 911.0
-offset_bottom = 369.0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 1.0
+offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_q0ubb")
-stretch_mode = 4
+expand_mode = 1
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = -1
+anchor_left = 0.011
+anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -176.0
-offset_top = -211.0
-offset_right = -526.0
-offset_bottom = 297.0
+offset_left = -11.672
+offset_right = 2.0
+offset_bottom = 11.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_exbml")
-stretch_mode = 4
+expand_mode = 1
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 1
