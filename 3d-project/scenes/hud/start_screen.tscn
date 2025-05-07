@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c3mcl7ou5l8jh"]
+[gd_scene load_steps=7 format=3 uid="uid://c3mcl7ou5l8jh"]
 
 [ext_resource type="Script" uid="uid://dup7xhajwggf" path="res://scripts/start_screen.gd" id="1_tx5wa"]
 [ext_resource type="AudioStream" uid="uid://ciab0m8hsfqpa" path="res://sound effects/Mitski - Washing Machine Heart [3vjkh-acmTE].mp3" id="2_4d5ri"]
+[ext_resource type="Texture2D" uid="uid://vvxo31uybp10" path="res://sound effects/Screenshot 2025-05-07 141538.png" id="2_exbml"]
+[ext_resource type="Texture2D" uid="uid://brgo3n5dml5ff" path="res://sound effects/Screenshot 2025-05-07 141601.png" id="3_q0ubb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3vtch"]
 bg_color = Color(0.270222, 0.270222, 0.270222, 1)
@@ -32,9 +34,28 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -14.0
+offset_right = -486.0
+offset_bottom = 254.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_exbml")
 stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.041
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 530.0
+offset_top = -33.568
+offset_right = 8.0
+offset_bottom = 175.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_q0ubb")
+stretch_mode = 3
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 1
@@ -65,6 +86,7 @@ show_percentage = false
 
 [node name="menumusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_4d5ri")
+volume_db = -16.39
 autoplay = true
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
