@@ -1,112 +1,49 @@
-[gd_scene load_steps=34 format=3 uid="uid://cuuk4or1cjlmn"]
+[gd_scene load_steps=15 format=3 uid="uid://cuuk4or1cjlmn"]
 
 [ext_resource type="Script" uid="uid://cytn402bb03bh" path="res://scripts/main.gd" id="1_o6xl0"]
 [ext_resource type="Shader" uid="uid://blm25wnjv1eul" path="res://shader/sky.gdshader" id="1_tefeu"]
 [ext_resource type="PackedScene" uid="uid://b17m2m5d4cdix" path="res://scenes/gun_cam.tscn" id="2_a6664"]
 [ext_resource type="PackedScene" uid="uid://blxkcsvrnv087" path="res://scenes/hud/hud.tscn" id="2_o6xl0"]
 [ext_resource type="Script" uid="uid://l8p6nhdmlpln" path="res://scripts/character_body_3d.gd" id="2_tefeu"]
-[ext_resource type="Material" uid="uid://5dt134tjhp2h" path="res://materials/building1.tres" id="4_cptob"]
-[ext_resource type="Material" uid="uid://bfo6k0j0dqm2k" path="res://materials/door 2.tres" id="5_b2yaj"]
+[ext_resource type="PackedScene" uid="uid://ej0uft7eq1yd" path="res://scenes/map.tscn" id="3_tipki"]
 [ext_resource type="AudioStream" uid="uid://bt33etc4tl5dp" path="res://sound effects/463789__shyguy014__mouse-squeaks.wav" id="6_tipki"]
 [ext_resource type="Script" uid="uid://da3uodjwjpp64" path="res://scripts/player_hit_sounds.gd" id="7_85g3d"]
 
-[sub_resource type="Gradient" id="Gradient_tefeu"]
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_o6xl0"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_tipki"]
-width = 1024
-height = 1024
-seamless = true
-color_ramp = SubResource("Gradient_tefeu")
-noise = SubResource("FastNoiseLite_o6xl0")
-
-[sub_resource type="Gradient" id="Gradient_85g3d"]
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_choun"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ya4ey"]
-width = 1024
-height = 1024
-seamless = true
-color_ramp = SubResource("Gradient_85g3d")
-noise = SubResource("FastNoiseLite_choun")
-
-[sub_resource type="Gradient" id="Gradient_eb6dy"]
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_trceg"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_a8y0u"]
-width = 1024
-height = 1024
-seamless = true
-color_ramp = SubResource("Gradient_eb6dy")
-noise = SubResource("FastNoiseLite_trceg")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_jkv2x"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tipki"]
 shader = ExtResource("1_tefeu")
-shader_parameter/sky_top_color = Color(0.385, 0.454, 0.55, 1)
-shader_parameter/sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+shader_parameter/sky_top_color = Color(0.385, 0.454, 0, 1)
+shader_parameter/sky_horizon_color = Color(0.646, 0.656, 0.1, 1)
 shader_parameter/sky_curve = 0.15
 shader_parameter/sky_energy = 1.0
 shader_parameter/sky_cover_modulate = Color(1, 1, 1, 1)
 shader_parameter/ground_bottom_color = Color(0.2, 0.169, 0.133, 1)
-shader_parameter/ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+shader_parameter/ground_horizon_color = Color(0.646, 0.656, 0.67, 1)
 shader_parameter/ground_curve = 0.02
 shader_parameter/ground_energy = 1.0
-shader_parameter/sun_angle_max = 0.523599
+shader_parameter/sun_angle_max = 30.0
 shader_parameter/sun_curve = 0.15
-shader_parameter/exposure = 1.4
-shader_parameter/cloud_texture1 = SubResource("NoiseTexture2D_tipki")
-shader_parameter/cloud_texture2 = SubResource("NoiseTexture2D_ya4ey")
-shader_parameter/cloud_texture3 = SubResource("NoiseTexture2D_a8y0u")
-shader_parameter/cloud_direction1 = Vector2(-1, 1)
-shader_parameter/cloud_direction2 = Vector2(1, -1)
-shader_parameter/cloud_direction3 = Vector2(0.5, -0.5)
-shader_parameter/cloud_scale = Vector2(0.05, 0.05)
-shader_parameter/cloud_distance = 0.03
-shader_parameter/cloud_speed1 = 0.7
-shader_parameter/cloud_speed2 = 0.5
-shader_parameter/cloud_speed3 = 0.6
+shader_parameter/exposure = 1.0
+shader_parameter/cloud_direction1 = Vector2(0, 0)
+shader_parameter/cloud_direction2 = Vector2(0, 0)
+shader_parameter/cloud_direction3 = Vector2(0, 0)
+shader_parameter/cloud_scale = Vector2(0, 0)
+shader_parameter/cloud_distance = 0.0
+shader_parameter/cloud_speed1 = 0.0
+shader_parameter/cloud_speed2 = 0.0
+shader_parameter/cloud_speed3 = 0.0
 
 [sub_resource type="Sky" id="Sky_a0tk4"]
-sky_material = SubResource("ShaderMaterial_jkv2x")
+sky_material = SubResource("ShaderMaterial_tipki")
 
 [sub_resource type="Environment" id="Environment_r3fl7"]
 background_mode = 2
 sky = SubResource("Sky_a0tk4")
 tonemap_mode = 2
 glow_enabled = true
-
-[sub_resource type="NavigationMesh" id="NavigationMesh_o6xl0"]
-vertices = PackedVector3Array(12.271, 3.25058, -4.39715, 12.771, 3.25058, -4.89715, 12.771, 3.25058, -9.64715, 14.521, 3.25058, -9.89715, 14.271, 3.25058, -32.6471, -31.729, 3.25058, -32.6471, -31.729, 3.25058, -4.39715, 29.521, 3.25058, -9.89715, 29.771, 3.25058, 3.35285, 31.771, 3.25058, 3.35285, 31.771, 3.25058, -32.6471, 13.771, 22.0006, -8.89715, 13.771, 22.0006, 4.60285, 28.771, 22.0006, 4.60285, 28.771, 22.0006, -8.89715, 14.021, 3.25058, -8.64715, 14.021, 3.25058, -4.89715, 15.271, 3.25058, -4.64715, 28.521, 3.25058, -8.64715, 15.271, 3.25058, -0.397148, 14.021, 3.25058, -0.147148, 14.021, 3.25058, 4.35285, 28.521, 3.25058, 4.35285, -31.729, 3.25058, 3.35285, 12.771, 3.25058, 3.35285, 15.021, 3.25058, 32.6029, 15.021, 3.25058, 5.60285, 12.771, 3.25058, 5.35285, -31.729, 3.25058, 32.6029, 29.521, 3.25058, 5.60285, 31.771, 3.25058, 32.6029)
-polygons = [PackedInt32Array(0, 2, 1), PackedInt32Array(4, 3, 2), PackedInt32Array(2, 0, 4), PackedInt32Array(4, 0, 6), PackedInt32Array(4, 6, 5), PackedInt32Array(8, 7, 9), PackedInt32Array(9, 7, 10), PackedInt32Array(3, 4, 7), PackedInt32Array(7, 4, 10), PackedInt32Array(14, 13, 11), PackedInt32Array(11, 13, 12), PackedInt32Array(16, 15, 17), PackedInt32Array(17, 15, 18), PackedInt32Array(20, 19, 21), PackedInt32Array(21, 19, 22), PackedInt32Array(17, 18, 19), PackedInt32Array(19, 18, 22), PackedInt32Array(6, 0, 23), PackedInt32Array(23, 0, 24), PackedInt32Array(26, 25, 27), PackedInt32Array(27, 25, 28), PackedInt32Array(27, 28, 23), PackedInt32Array(23, 24, 27), PackedInt32Array(8, 9, 29), PackedInt32Array(29, 9, 30), PackedInt32Array(26, 29, 25), PackedInt32Array(25, 29, 30)]
-agent_height = 0.5
-
-[sub_resource type="BoxMesh" id="BoxMesh_noarx"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o6xl0"]
-albedo_color = Color(0, 0, 0, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_jka67"]
-material = ExtResource("4_cptob")
-subdivide_width = 2
-subdivide_height = 2
-subdivide_depth = 2
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i5arm"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_wc5p8"]
-material = SubResource("StandardMaterial3D_i5arm")
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_jsk3o"]
-data = PackedVector3Array(-0.5, 0.5, 0.5, -0.1667, 0.5, 0.5, -0.5, 0.1667, 0.5, -0.1667, 0.5, 0.5, -0.1667, 0.1667, 0.5, -0.5, 0.1667, 0.5, 0.5, 0.5, -0.5, 0.1667, 0.5, -0.5, 0.5, 0.1667, -0.5, 0.1667, 0.5, -0.5, 0.1667, 0.1667, -0.5, 0.5, 0.1667, -0.5, -0.1667, 0.5, 0.5, 0.1667, 0.5, 0.5, -0.1667, 0.1667, 0.5, 0.1667, 0.5, 0.5, 0.1667, 0.1667, 0.5, -0.1667, 0.1667, 0.5, 0.1667, 0.5, -0.5, -0.1667, 0.5, -0.5, 0.1667, 0.1667, -0.5, -0.1667, 0.5, -0.5, -0.1667, 0.1667, -0.5, 0.1667, 0.1667, -0.5, 0.1667, 0.5, 0.5, 0.5, 0.5, 0.5, 0.1667, 0.1667, 0.5, 0.5, 0.5, 0.5, 0.5, 0.1667, 0.5, 0.1667, 0.1667, 0.5, -0.1667, 0.5, -0.5, -0.5, 0.5, -0.5, -0.1667, 0.1667, -0.5, -0.5, 0.5, -0.5, -0.5, 0.1667, -0.5, -0.1667, 0.1667, -0.5, -0.5, 0.1667, 0.5, -0.1667, 0.1667, 0.5, -0.5, -0.1667, 0.5, -0.1667, 0.1667, 0.5, -0.1667, -0.1667, 0.5, -0.5, -0.1667, 0.5, 0.5, 0.1667, -0.5, 0.1667, 0.1667, -0.5, 0.5, -0.1667, -0.5, 0.1667, 0.1667, -0.5, 0.1667, -0.1667, -0.5, 0.5, -0.1667, -0.5, -0.1667, 0.1667, 0.5, 0.1667, 0.1667, 0.5, -0.1667, -0.1667, 0.5, 0.1667, 0.1667, 0.5, 0.1667, -0.1667, 0.5, -0.1667, -0.1667, 0.5, 0.1667, 0.1667, -0.5, -0.1667, 0.1667, -0.5, 0.1667, -0.1667, -0.5, -0.1667, 0.1667, -0.5, -0.1667, -0.1667, -0.5, 0.1667, -0.1667, -0.5, 0.1667, 0.1667, 0.5, 0.5, 0.1667, 0.5, 0.1667, -0.1667, 0.5, 0.5, 0.1667, 0.5, 0.5, -0.1667, 0.5, 0.1667, -0.1667, 0.5, -0.1667, 0.1667, -0.5, -0.5, 0.1667, -0.5, -0.1667, -0.1667, -0.5, -0.5, 0.1667, -0.5, -0.5, -0.1667, -0.5, -0.1667, -0.1667, -0.5, -0.5, -0.1667, 0.5, -0.1667, -0.1667, 0.5, -0.5, -0.5, 0.5, -0.1667, -0.1667, 0.5, -0.1667, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.1667, -0.5, 0.1667, -0.1667, -0.5, 0.5, -0.5, -0.5, 0.1667, -0.1667, -0.5, 0.1667, -0.5, -0.5, 0.5, -0.5, -0.5, -0.1667, -0.1667, 0.5, 0.1667, -0.1667, 0.5, -0.1667, -0.5, 0.5, 0.1667, -0.1667, 0.5, 0.1667, -0.5, 0.5, -0.1667, -0.5, 0.5, 0.1667, -0.1667, -0.5, -0.1667, -0.1667, -0.5, 0.1667, -0.5, -0.5, -0.1667, -0.1667, -0.5, -0.1667, -0.5, -0.5, 0.1667, -0.5, -0.5, 0.1667, -0.1667, 0.5, 0.5, -0.1667, 0.5, 0.1667, -0.5, 0.5, 0.5, -0.1667, 0.5, 0.5, -0.5, 0.5, 0.1667, -0.5, 0.5, -0.1667, -0.1667, -0.5, -0.5, -0.1667, -0.5, -0.1667, -0.5, -0.5, -0.5, -0.1667, -0.5, -0.5, -0.5, -0.5, -0.1667, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.1667, 0.5, 0.1667, 0.5, 0.5, 0.5, 0.1667, 0.5, 0.1667, 0.1667, 0.5, 0.1667, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.1667, -0.5, 0.1667, -0.5, -0.5, 0.5, -0.1667, -0.5, 0.1667, -0.1667, -0.5, 0.1667, -0.5, 0.5, 0.5, 0.1667, 0.5, 0.5, -0.1667, 0.5, 0.1667, 0.1667, 0.5, 0.5, -0.1667, 0.5, 0.1667, -0.1667, 0.5, 0.1667, 0.1667, -0.5, 0.5, -0.1667, -0.5, 0.5, 0.1667, -0.5, 0.1667, -0.1667, -0.5, 0.5, 0.1667, -0.5, 0.1667, 0.1667, -0.5, 0.1667, -0.1667, 0.5, 0.5, -0.1667, 0.5, 0.5, -0.5, 0.5, 0.1667, -0.1667, 0.5, 0.5, -0.5, 0.5, 0.1667, -0.5, 0.5, 0.1667, -0.1667, -0.5, 0.5, 0.1667, -0.5, 0.5, 0.5, -0.5, 0.1667, 0.1667, -0.5, 0.5, 0.5, -0.5, 0.1667, 0.5, -0.5, 0.1667, 0.1667, 0.5, 0.1667, 0.5, 0.5, 0.1667, 0.1667, 0.5, -0.1667, 0.5, 0.5, 0.1667, 0.1667, 0.5, -0.1667, 0.1667, 0.5, -0.1667, 0.5, -0.5, 0.1667, -0.5, -0.5, 0.1667, -0.1667, -0.5, -0.1667, -0.5, -0.5, 0.1667, -0.1667, -0.5, -0.1667, -0.1667, -0.5, -0.1667, -0.5, 0.5, 0.1667, 0.1667, 0.5, 0.1667, -0.1667, 0.5, -0.1667, 0.1667, 0.5, 0.1667, -0.1667, 0.5, -0.1667, -0.1667, 0.5, -0.1667, 0.1667, -0.5, 0.1667, -0.1667, -0.5, 0.1667, 0.1667, -0.5, -0.1667, -0.1667, -0.5, 0.1667, 0.1667, -0.5, -0.1667, 0.1667, -0.5, -0.1667, -0.1667, 0.5, 0.1667, -0.1667, 0.5, 0.1667, -0.5, 0.5, -0.1667, -0.1667, 0.5, 0.1667, -0.5, 0.5, -0.1667, -0.5, 0.5, -0.1667, -0.1667, -0.5, 0.1667, 0.1667, -0.5, 0.1667, 0.5, -0.5, -0.1667, 0.1667, -0.5, 0.1667, 0.5, -0.5, -0.1667, 0.5, -0.5, -0.1667, 0.1667, 0.5, -0.1667, 0.5, 0.5, -0.1667, 0.1667, 0.5, -0.5, 0.5, 0.5, -0.1667, 0.1667, 0.5, -0.5, 0.1667, 0.5, -0.5, 0.5, -0.5, -0.1667, -0.5, -0.5, -0.1667, -0.1667, -0.5, -0.5, -0.5, -0.5, -0.1667, -0.1667, -0.5, -0.5, -0.1667, -0.5, -0.5, -0.5, 0.5, -0.1667, 0.1667, 0.5, -0.1667, -0.1667, 0.5, -0.5, 0.1667, 0.5, -0.1667, -0.1667, 0.5, -0.5, -0.1667, 0.5, -0.5, 0.1667, -0.5, -0.1667, -0.1667, -0.5, -0.1667, 0.1667, -0.5, -0.5, -0.1667, -0.5, -0.1667, 0.1667, -0.5, -0.5, 0.1667, -0.5, -0.5, -0.1667, 0.5, -0.1667, -0.1667, 0.5, -0.1667, -0.5, 0.5, -0.5, -0.1667, 0.5, -0.1667, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.1667, -0.5, -0.1667, 0.1667, -0.5, -0.1667, 0.5, -0.5, -0.5, 0.1667, -0.5, -0.1667, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.1667, 0.5, 0.5, 0.5, 0.1667, 0.5, 0.5, 0.5, 0.5, 0.1667, 0.1667, 0.5, 0.5, 0.1667, 0.5, 0.1667, 0.5, 0.5, 0.1667, -0.5, -0.5, 0.5, -0.1667, -0.5, 0.5, -0.5, -0.5, 0.1667, -0.1667, -0.5, 0.5, -0.1667, -0.5, 0.1667, -0.5, -0.5, 0.1667, 0.1667, 0.5, 0.5, -0.1667, 0.5, 0.5, 0.1667, 0.5, 0.1667, -0.1667, 0.5, 0.5, -0.1667, 0.5, 0.1667, 0.1667, 0.5, 0.1667, -0.1667, -0.5, 0.5, 0.1667, -0.5, 0.5, -0.1667, -0.5, 0.1667, 0.1667, -0.5, 0.5, 0.1667, -0.5, 0.1667, -0.1667, -0.5, 0.1667, -0.1667, 0.5, 0.5, -0.5, 0.5, 0.5, -0.1667, 0.5, 0.1667, -0.5, 0.5, 0.5, -0.5, 0.5, 0.1667, -0.1667, 0.5, 0.1667, 0.1667, -0.5, 0.5, 0.5, -0.5, 0.5, 0.1667, -0.5, 0.1667, 0.5, -0.5, 0.5, 0.5, -0.5, 0.1667, 0.1667, -0.5, 0.1667, 0.5, 0.5, 0.1667, 0.1667, 0.5, 0.1667, 0.5, 0.5, -0.1667, 0.1667, 0.5, 0.1667, 0.1667, 0.5, -0.1667, 0.5, 0.5, -0.1667, -0.5, -0.5, 0.1667, -0.1667, -0.5, 0.1667, -0.5, -0.5, -0.1667, -0.1667, -0.5, 0.1667, -0.1667, -0.5, -0.1667, -0.5, -0.5, -0.1667, 0.1667, 0.5, 0.1667, -0.1667, 0.5, 0.1667, 0.1667, 0.5, -0.1667, -0.1667, 0.5, 0.1667, -0.1667, 0.5, -0.1667, 0.1667, 0.5, -0.1667, -0.1667, -0.5, 0.1667, 0.1667, -0.5, 0.1667, -0.1667, -0.5, -0.1667, 0.1667, -0.5, 0.1667, 0.1667, -0.5, -0.1667, -0.1667, -0.5, -0.1667, -0.1667, 0.5, 0.1667, -0.5, 0.5, 0.1667, -0.1667, 0.5, -0.1667, -0.5, 0.5, 0.1667, -0.5, 0.5, -0.1667, -0.1667, 0.5, -0.1667, 0.1667, -0.5, 0.1667, 0.5, -0.5, 0.1667, 0.1667, -0.5, -0.1667, 0.5, -0.5, 0.1667, 0.5, -0.5, -0.1667, 0.1667, -0.5, -0.1667, 0.5, 0.5, -0.1667, 0.1667, 0.5, -0.1667, 0.5, 0.5, -0.5, 0.1667, 0.5, -0.1667, 0.1667, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.1667, -0.1667, -0.5, -0.1667, -0.5, -0.5, -0.5, -0.1667, -0.5, -0.1667, -0.1667, -0.5, -0.5, -0.5, -0.5, -0.5, 0.1667, 0.5, -0.1667, -0.1667, 0.5, -0.1667, 0.1667, 0.5, -0.5, -0.1667, 0.5, -0.1667, -0.1667, 0.5, -0.5, 0.1667, 0.5, -0.5, -0.1667, -0.5, -0.1667, 0.1667, -0.5, -0.1667, -0.1667, -0.5, -0.5, 0.1667, -0.5, -0.1667, 0.1667, -0.5, -0.5, -0.1667, -0.5, -0.5, -0.1667, 0.5, -0.1667, -0.5, 0.5, -0.1667, -0.1667, 0.5, -0.5, -0.5, 0.5, -0.1667, -0.5, 0.5, -0.5, -0.1667, 0.5, -0.5, 0.1667, -0.5, -0.1667, 0.5, -0.5, -0.1667, 0.1667, -0.5, -0.5, 0.5, -0.5, -0.1667, 0.5, -0.5, -0.5, 0.1667, -0.5, -0.5)
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_jka67"]
-data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_i5arm"]
-data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+fog_enabled = true
+fog_light_color = Color(0.123432, 0.138034, 0.160991, 1)
+volumetric_fog_enabled = true
+volumetric_fog_albedo = Color(0.140447, 0.140447, 0.140447, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_a202f"]
 
@@ -132,82 +69,8 @@ transform = Transform3D(-0.866025, -0.5, -2.18557e-08, 0.295408, -0.511662, 0.80
 shadow_enabled = true
 directional_shadow_max_distance = 4096.0
 
-[node name="NavigationRegion3D" type="NavigationRegion3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.34308, 0)
-navigation_mesh = SubResource("NavigationMesh_o6xl0")
-
-[node name="floor" type="CSGMesh3D" parent="NavigationRegion3D"]
-transform = Transform3D(64.4581, 0, 0, 0, 3.185, 0, 0, 0, 66.2943, 0, 1.34308, 0)
-use_collision = true
-mesh = SubResource("BoxMesh_noarx")
-material = SubResource("StandardMaterial3D_o6xl0")
-
-[node name="building1" type="MeshInstance3D" parent="NavigationRegion3D"]
-transform = Transform3D(15.9015, 0, 0, 0, 19.1406, 0, 0, 0, 14.1784, 21.2369, 12.1485, -2.16301)
-mesh = SubResource("BoxMesh_jka67")
-skeleton = NodePath("../..")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="NavigationRegion3D/building1"]
-transform = Transform3D(0.103288, 0, 0, 0, 0.0589839, 0, 0, 0, 0.248981, -0.467924, 0.376711, -0.298066)
-mesh = SubResource("BoxMesh_wc5p8")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="NavigationRegion3D/building1"]
-transform = Transform3D(0.103288, 0, 0, 0, 0.0589839, 0, 0, 0, 0.248981, -0.467924, 0.376711, 0.258726)
-mesh = SubResource("BoxMesh_wc5p8")
-
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="NavigationRegion3D/building1"]
-transform = Transform3D(0.103288, 0, 0, 0, 0.0589839, 0, 0, 0, 0.248981, -0.467924, 0.228, 0.258726)
-mesh = SubResource("BoxMesh_wc5p8")
-
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="NavigationRegion3D/building1"]
-transform = Transform3D(0.103288, 0, 0, 0, 0.0589839, 0, 0, 0, 0.248981, -0.467924, 0.228, -0.299139)
-mesh = SubResource("BoxMesh_wc5p8")
-
-[node name="MeshInstance3D5" type="MeshInstance3D" parent="NavigationRegion3D/building1"]
-transform = Transform3D(0.103288, 0, 0, 0, 0.0589839, 0, 0, 0, 0.248981, -0.467924, 0.0794412, 0.258727)
-mesh = SubResource("BoxMesh_wc5p8")
-
-[node name="MeshInstance3D6" type="MeshInstance3D" parent="NavigationRegion3D/building1"]
-transform = Transform3D(0.103288, 0, 0, 0, 0.0589839, 0, 0, 0, 0.248981, -0.467924, 0.0794412, -0.299139)
-mesh = SubResource("BoxMesh_wc5p8")
-
-[node name="MeshInstance3D7" type="MeshInstance3D" parent="NavigationRegion3D/building1"]
-transform = Transform3D(0.103288, 0, 0, 0, 0.0589839, 0, 0, 0, 0.248981, -0.467924, -0.0665563, 0.258727)
-mesh = SubResource("BoxMesh_wc5p8")
-
-[node name="MeshInstance3D8" type="MeshInstance3D" parent="NavigationRegion3D/building1"]
-transform = Transform3D(0.103288, 0, 0, 0, 0.0589839, 0, 0, 0, 0.248981, -0.467924, -0.0665563, -0.299139)
-mesh = SubResource("BoxMesh_wc5p8")
-
-[node name="MeshInstance3D9" type="MeshInstance3D" parent="NavigationRegion3D/building1"]
-transform = Transform3D(0.103288, 0, 0, 0, 0.0589839, 0, 0, 0, 0.248981, -0.467924, -0.202308, 0.258727)
-mesh = SubResource("BoxMesh_wc5p8")
-
-[node name="MeshInstance3D10" type="MeshInstance3D" parent="NavigationRegion3D/building1"]
-transform = Transform3D(0.103288, 0, 0, 0, 0.0589839, 0, 0, 0, 0.248981, -0.467924, -0.202308, -0.299139)
-mesh = SubResource("BoxMesh_wc5p8")
-
-[node name="MeshInstance3D11" type="MeshInstance3D" parent="NavigationRegion3D/building1"]
-transform = Transform3D(0.103288, 0, 0, 0, 0.158435, 0, 0, 0, 0.248981, -0.467924, -0.400814, -0.0294315)
-mesh = SubResource("BoxMesh_wc5p8")
-
-[node name="MeshInstance3D12" type="MeshInstance3D" parent="NavigationRegion3D/building1"]
-transform = Transform3D(0.103288, 0, 0, 0, 0.158435, 0, 0, 0, 0.0248742, -0.477676, -0.401196, -0.0294315)
-material_override = ExtResource("5_b2yaj")
-mesh = SubResource("BoxMesh_wc5p8")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D/building1"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/building1/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_jsk3o")
-
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="NavigationRegion3D/building1/StaticBody3D"]
-transform = Transform3D(0.103288, 0, 0, 0, 0.158435, 0, 0, 0, 0.248981, -0.467924, -0.400814, -0.0294315)
-shape = SubResource("ConcavePolygonShape3D_jka67")
-
-[node name="CollisionShape3D3" type="CollisionShape3D" parent="NavigationRegion3D/building1/StaticBody3D"]
-transform = Transform3D(0.103288, 0, 0, 0, 0.158435, 0, 0, 0, 0.0248742, -0.477676, -0.401196, -0.0294315)
-shape = SubResource("ConcavePolygonShape3D_i5arm")
+[node name="NavigationRegion3D" parent="." instance=ExtResource("3_tipki")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.09127, 0)
 
 [node name="Player" type="CharacterBody3D" parent="." groups=["player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.23985, 0)
@@ -254,6 +117,6 @@ cull_mask = 1047554
 curve = SubResource("Curve3D_tefeu")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="EnemySpawnPath"]
-transform = Transform3D(-0.00439084, -0.0193575, -0.999795, 0, 0.9998, -0.0193578, 0.999984, -8.49971e-05, -0.00439001, -31.3552, 2.58811, -32.5769)
+transform = Transform3D(-0.00439084, -0.0193575, -0.999794, 0, 0.9998, -0.0193578, 0.999983, -8.49971e-05, -0.00439001, -31.3552, 2.58811, -32.5769)
 
 [node name="hud" parent="." instance=ExtResource("2_o6xl0")]
