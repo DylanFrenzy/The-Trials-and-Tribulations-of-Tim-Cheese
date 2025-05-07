@@ -4,8 +4,8 @@
 shader_type sky;
 render_mode use_debanding;
 
-uniform vec4 sky_top_color : source_color = vec4(0.385, 0.454, 0.1, 1.0);
-uniform vec4 sky_horizon_color : source_color = vec4(0.646, 0.656, 0.1, 1.0);
+uniform vec4 sky_top_color : source_color = vec4(0.385, 0.454, 0.55, 1.0);
+uniform vec4 sky_horizon_color : source_color = vec4(0.646, 0.656, 0.67, 1.0);
 uniform float sky_curve : hint_range(0, 1) = 0.15;
 uniform float sky_energy = 1.0; // In Lux.
 uniform sampler2D sky_cover : filter_linear, source_color, hint_default_black;
