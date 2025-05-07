@@ -3,6 +3,7 @@ extends Node3D
 @export var damage := 20
 @export var max_ammo := 5
 @export var current_ammo := 5
+@export var spare_ammo_cap := 20
 
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var ani_player = $AnimationPlayer2
@@ -11,6 +12,7 @@ extends Node3D
 @onready var ammo_display = get_tree().root.get_node("Node3D/hud/Ammo")
 @onready var gun_cam = get_parent().get_parent()
 var zoomed = false
+var current_spare_ammo = 5
 
 func _input(event: InputEvent) -> void:
 	if ani_player.is_playing(): return
@@ -36,10 +38,18 @@ func _input(event: InputEvent) -> void:
 	
 	if (event.is_action_pressed("reload")):
 		muzzle_flash.emitting = false
-		if current_ammo == max_ammo: return
+		if current_ammo == max_ammo or current_spare_ammo == 0:
+			return
 		ani_player.play("Reload")
 		await ani_player.animation_finished
-		current_ammo = max_ammo
+		if current_spare_ammo >= max_ammo - current_ammo:
+			current_spare_ammo -= max_ammo - current_ammo
+			current_ammo = max_ammo 
+		else: 
+			current_ammo += current_spare_ammo
+			current_spare_ammo = 0
+
+
 		update_ammo_display(max_ammo)
 		if zoomed:
 			ani_player.play("Zoom")

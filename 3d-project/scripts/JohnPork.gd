@@ -18,15 +18,14 @@ signal enemy_death
 @onready var curve = get_tree().get_first_node_in_group("path").curve;
 @onready var flee_location = get_flee_point()
 
-var drop = preload("res://assets/Ammo.tscn")
+@onready var drop_scene = preload("res://assets/Ammo.tscn")
 
 var willdrop = false
 
 func _ready():
-	print("hola senor")
 	var number1 = randf()
 	if number1 <= 0.1:
-		var willdrop = true
+		willdrop = true
 		
 
 func _physics_process(delta):
@@ -110,7 +109,7 @@ func _on_navigation_agent_3d_velocity_computed(safe_velocity: Vector3) -> void:
 	move_and_slide()
 
 func drop():
-	var dropinst = drop.instantiate()
+	var dropinst = drop_scene.instantiate()
 	dropinst.global_position = global_position
 	get_parent().add_child(dropinst)
 	pass

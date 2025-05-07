@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cc3j4pj5kcxud"]
+[gd_scene load_steps=5 format=3 uid="uid://cc3j4pj5kcxud"]
+
+[ext_resource type="Script" uid="uid://b8s3ap0q6g3sb" path="res://assets/ammo.gd" id="1_031w7"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kkmnl"]
 albedo_color = Color(0.309804, 0.482353, 0.360784, 1)
@@ -8,8 +10,20 @@ roughness = 0.89
 [sub_resource type="BoxMesh" id="BoxMesh_ji6dm"]
 material = SubResource("StandardMaterial3D_kkmnl")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_uebyc"]
+size = Vector3(0.626419, 1, 0.358704)
+
 [node name="Node3D" type="Node3D"]
+script = ExtResource("1_031w7")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.487077, 0, 0, 0, 0.325758, 0, 0, 0, 0.221209, 0, 0, 0)
+transform = Transform3D(0.487077, 0, 0, 0, 0.325758, 0, 0, 0, 0.221209, 0, -0.111307, 0)
 mesh = SubResource("BoxMesh_ji6dm")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0204544, 0, 0.00241089)
+shape = SubResource("BoxShape3D_uebyc")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

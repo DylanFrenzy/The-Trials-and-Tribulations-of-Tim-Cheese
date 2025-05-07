@@ -703,7 +703,7 @@ libraries = {
 &"pistol": ExtResource("5_6r2yp")
 }
 
-[node name="SniperRifle" parent="Node3D" instance=ExtResource("7_i371p")]
+[node name="SniperRifle" parent="Node3D" groups=["SNIPAAAAA"] instance=ExtResource("7_i371p")]
 transform = Transform3D(-1.74847e-07, 0, 4, 0, 4, 0, -4, 0, -1.74847e-07, -0.429, 0.791, 0.851)
 script = ExtResource("7_wfaqt")
 
