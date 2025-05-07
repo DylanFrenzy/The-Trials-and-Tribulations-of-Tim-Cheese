@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://b17m2m5d4cdix"]
+[gd_scene load_steps=33 format=4 uid="uid://b17m2m5d4cdix"]
 
 [ext_resource type="PackedScene" uid="uid://uo8qyngydbub" path="res://assets/Arms.tscn" id="1_03c0v"]
 [ext_resource type="Script" uid="uid://dbkokuf3jkrkn" path="res://scripts/gun_cam.gd" id="1_ktk0j"]
@@ -11,8 +11,6 @@
 [ext_resource type="AudioStream" uid="uid://cwd8wgpk8rb7k" path="res://sound effects/405538_nebulasnails_pistol-cock (mp3cut.net).mp3" id="6_tf6ll"]
 [ext_resource type="PackedScene" uid="uid://bqitfmr6lxq5a" path="res://assets/sniper_rifle.tscn" id="7_i371p"]
 [ext_resource type="Script" uid="uid://ri40ivn8bvx7" path="res://scripts/sniper_rifle.gd" id="7_wfaqt"]
-[ext_resource type="Material" uid="uid://uu6xha81wcsf" path="res://materials/Arms.tres" id="10_vc4ct"]
-[ext_resource type="Material" uid="uid://clib3jsw7xdh7" path="res://materials/shirt.tres" id="11_dg5pf"]
 [ext_resource type="AudioStream" uid="uid://c7w7eqn6sxi0j" path="res://sound effects/396331__nioczkus__1911-reload.mp3" id="12_l3yuo"]
 [ext_resource type="AudioStream" uid="uid://bqyuuttctsydy" path="res://sound effects/370304__morganpurkis__single-gunshot-2.wav" id="13_oq0w2"]
 [ext_resource type="AudioStream" uid="uid://dr6jgeo6sf1tr" path="res://sound effects/276956__gfl7__awp-reload-sound.mp3" id="14_qjhyf"]
@@ -682,10 +680,6 @@ _data = {
 &"shoot": SubResource("Animation_6e0xu")
 }
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_wfaqt"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_jtfo8"]
-
 [node name="GunCam" type="Camera3D"]
 transform = Transform3D(-3.61999e-06, 0, -1, 0, 1, 0, 1, 0, -3.61999e-06, 0, 0, 0)
 near = 0.021
@@ -742,33 +736,3 @@ stream = ExtResource("15_y488r")
 
 [node name="sniper_putaway" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("16_igykx")
-
-[node name="right_arm_solo" type="CSGMesh3D" parent="."]
-transform = Transform3D(-1.50048e-09, 8.8327e-07, -0.1, 0.0999992, 0.000979988, -4.65661e-11, 0.000401634, -0.243998, -3.61999e-07, 0.20434, -0.0980372, -0.169024)
-visible = false
-layers = 2
-mesh = SubResource("CapsuleMesh_wfaqt")
-material = ExtResource("10_vc4ct")
-
-[node name="CSGMesh3D3" type="CSGMesh3D" parent="right_arm_solo"]
-transform = Transform3D(1.07301, 5.58794e-09, 0, -4.30737e-09, 0.81087, -2.84217e-14, -5.55112e-17, 0, 1.21891, 0.0605769, -0.187272, -0.0431685)
-layers = 2
-mesh = SubResource("CapsuleMesh_wfaqt")
-material = ExtResource("11_dg5pf")
-
-[node name="left_arm_solo" type="CSGMesh3D" parent="."]
-transform = Transform3D(-0.000239449, 0.145469, -0.0802846, 0.0999995, 0.00097999, 1.25198e-09, 0.000322452, -0.195893, -0.0596187, 0.137661, -0.151003, -0.170338)
-visible = false
-layers = 2
-mesh = SubResource("CapsuleMesh_jtfo8")
-material = ExtResource("10_vc4ct")
-
-[node name="CSGMesh3D4" type="CSGMesh3D" parent="left_arm_solo"]
-transform = Transform3D(1.05342, -7.21775e-09, 9.54606e-09, -7.21775e-09, 0.987675, 4.17233e-07, 1.62981e-09, 5.126e-06, 1.15036, -0.0126134, -0.169015, -0.0091269)
-layers = 2
-mesh = SubResource("CapsuleMesh_jtfo8")
-material = ExtResource("11_dg5pf")
-
-[node name="Pistol2" parent="." instance=ExtResource("2_20781")]
-transform = Transform3D(-3.61999e-07, 0, -0.1, 0, 0.1, 0, 0.1, 0, -3.61999e-07, 0.196731, -0.0556682, -0.284847)
-visible = false

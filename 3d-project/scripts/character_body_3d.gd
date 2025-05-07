@@ -17,7 +17,6 @@ const  HEADBOB_FREQUENCY = 2.4;
 var headbobTime = 0.0;
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
-var zoomed = false
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
