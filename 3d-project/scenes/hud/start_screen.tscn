@@ -63,7 +63,8 @@ theme_override_styles/background = SubResource("StyleBoxFlat_3vtch")
 theme_override_styles/fill = SubResource("StyleBoxFlat_4d5ri")
 show_percentage = false
 
-[node name="menumusic" type="AudioStreamPlayer3D" parent="."]
+[node name="menumusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_4d5ri")
+autoplay = true
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
