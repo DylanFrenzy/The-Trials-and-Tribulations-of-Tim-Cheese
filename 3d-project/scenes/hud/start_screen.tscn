@@ -48,10 +48,8 @@ expand_mode = 1
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.011
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -11.672
 offset_right = 2.0
 offset_bottom = 11.0
 grow_horizontal = 2
