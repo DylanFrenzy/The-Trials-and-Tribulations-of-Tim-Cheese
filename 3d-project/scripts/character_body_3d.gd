@@ -10,7 +10,6 @@ signal player_death
 
 @onready var camera := $Camera3D
 @onready var GunCam = $Camera3D/SubViewportContainer/SubViewport/GunCam
-@onready var AnimationPlayer2 = GunCam.get_node("Pistol2/AnimationPlayer2")
 @onready var health_bar = get_parent().get_node("hud/HealthBar")
 @onready var hit_sounds = $HitSounds
 
