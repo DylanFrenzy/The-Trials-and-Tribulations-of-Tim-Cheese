@@ -12,7 +12,6 @@ func _ready():
 	spawn_enemy_wave(wave);
 	set_enemy_counter()
 	
-
 func spawn_enemy_wave(wave_count):
 	wave_display.text = "Wave " + str(wave_count)
 	for i in range(wave_count):
