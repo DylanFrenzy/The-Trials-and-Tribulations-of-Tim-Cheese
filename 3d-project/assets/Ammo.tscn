@@ -20,6 +20,12 @@ script = ExtResource("1_031w7")
 transform = Transform3D(0.487077, 0, 0, 0, 0.325758, 0, 0, 0, 0.221209, 0, -0.111307, 0)
 mesh = SubResource("BoxMesh_ji6dm")
 
+[node name="SpotLight3D" type="SpotLight3D" parent="MeshInstance3D"]
+transform = Transform3D(2.05306, 0, 0, 0, -1.34183e-07, 3.06976, 0, -4.52062, -1.97602e-07, 0, 8.25074, 0)
+light_color = Color(0.920568, 0.523156, 1.82897e-05, 1)
+light_energy = 7.0
+light_volumetric_fog_energy = 1.667
+
 [node name="Area3D" type="Area3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]

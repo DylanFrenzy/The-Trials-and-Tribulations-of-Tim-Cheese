@@ -4,8 +4,11 @@ extends Node3D
 @onready var sniper = $SniperRifle
 @onready var pistol_ani = $Pistol/AnimationPlayer2
 @onready var sniper_ani = $SniperRifle/AnimationPlayer2
+@export var current_spare_ammo := 5
+@export var spare_ammo_cap := 20
 
 func _ready() -> void:
+	sniper.update_spare_ammo_display(current_spare_ammo)
 	remove_child(sniper);
 	
 func _input(event: InputEvent) -> void:
@@ -40,3 +43,10 @@ func swap_to_sniper():
 	add_child(sniper)
 	sniper_ani.play("Pull_Up")
 	sniper.update_ammo_display(sniper.current_ammo)
+
+func update_spare_ammo():
+	if spare_ammo_cap == current_spare_ammo: return false
+	current_spare_ammo = min(current_spare_ammo + 5, spare_ammo_cap)
+	sniper.update_spare_ammo_display(current_spare_ammo)
+	sniper.current_spare_ammo = current_spare_ammo
+	return true

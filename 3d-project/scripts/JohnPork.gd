@@ -24,7 +24,7 @@ var willdrop = false
 
 func _ready():
 	var number1 = randf()
-	if number1 <= 0.1:
+	if number1 <= 0.15:
 		willdrop = true
 		
 
