@@ -17,6 +17,10 @@ const  HEADBOB_MOVE_AMOUT = 0.06;
 const  HEADBOB_FREQUENCY = 2.4;
 var headbobTime = 0.0;
 
+var sniper_knockback_strength = 50;
+var sniper_knockback_timer = 0;
+var sniper_knockbar_dir = Vector3.ZERO
+
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var hit_sound_time_intervals = [
 	{
@@ -46,6 +50,14 @@ func _input(event):
 		GunCam.sway(Vector2(event.relative.x, event.relative.y))
 
 func _physics_process(delta):
+	if sniper_knockback_timer > 0:
+		sniper_knockbar_dir = camera.global_basis.z.normalized()
+		velocity = sniper_knockbar_dir * sniper_knockback_strength
+		sniper_knockback_timer -= delta
+		move_and_slide()
+		return
+	print(velocity.y)
+	sniper_knockbar_dir = Vector3.ZERO
 	GunCam.global_transform = camera.global_transform
 
 	if not is_on_floor():
