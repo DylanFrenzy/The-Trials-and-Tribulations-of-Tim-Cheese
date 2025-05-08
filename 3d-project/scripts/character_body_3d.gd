@@ -58,6 +58,7 @@ func _input(event):
 		GunCam.sway(Vector2(event.relative.x, event.relative.y))
 
 func _physics_process(delta):
+	if global_position.y < -50: die()
 	if sniper_knockback_timer > 0:
 		sniper_knockbar_dir = camera.global_basis.z.normalized()
 		velocity = sniper_knockbar_dir * sniper_knockback_strength
