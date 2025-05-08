@@ -4,6 +4,7 @@ extends Control
 var wave_count;
 
 func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	button.text = "You Died At Wave " + str(wave_count)
 	get_tree().create_timer(4).timeout.connect(restart)
 	
