@@ -6,6 +6,7 @@ extends Node3D
 @onready var enemy_counter = $hud/EnemyCounter
 var wave = 1
 var enemies_spawned = []
+var difficulty;
 
 func _ready():
 	$Player.player_death.connect(_on_player_death)
@@ -14,7 +15,7 @@ func _ready():
 	
 func spawn_enemy_wave(wave_count):
 	wave_display.text = "Wave " + str(wave_count)
-	for i in range(wave_count):
+	for i in range(wave_count * difficulty):
 		var enemy_instance = johnnie.instantiate();
 		enemy_instance.enemy_death.connect(_on_enemy_death);
 		enemies_spawned.append(enemy_instance)
